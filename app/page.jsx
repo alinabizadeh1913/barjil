@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Menu from "./components/Menu";
 import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const HomePage = () => {
   
@@ -12,6 +13,7 @@ const HomePage = () => {
       <Menu />
       <SideMenu />
       <Header />
+      <Footer />
     </section>
   )
 }
