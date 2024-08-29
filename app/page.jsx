@@ -14,6 +14,7 @@ const HomePage = () => {
       <SideMenu />
       <Header />
       <Footer />
+      {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
     </section>
   )
 }

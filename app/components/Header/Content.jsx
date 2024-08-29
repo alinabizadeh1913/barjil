@@ -17,10 +17,8 @@ const Font = Montserrat({
 });
 
 const Content = () => {
-
   const nextRef = useRef(null);
   const prevRef = useRef(null);
-
   const [currentContent, setCurrentContent] = useState(0);
   const { setImgSrc } = useStore();
   const [banners, setBanners] = useState([]);
@@ -88,9 +86,7 @@ const Content = () => {
                   prevEl: prevRef.current,
                 }}
                 loop={true}
-                simulateTouch={false}
-                touchRatio={0}
-                touchStartPreventDefault={false}
+                allowSlideNext={true}
                 breakpoints={{
                   640: {
                     slidesPerView: 3,
@@ -107,6 +103,12 @@ const Content = () => {
                 }}
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
+                onInit={(swiper) => {
+                  swiper.params.navigation.nextEl = nextRef.current;
+                  swiper.params.navigation.prevEl = prevRef.current;
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                }}
               >
                 {banners.map(item => (
                   <SwiperSlide className='border-2 border-white rounded-md' key={item.id}>

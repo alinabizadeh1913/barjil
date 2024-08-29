@@ -2,6 +2,7 @@
 @tailwind utilities;
 @tailwind components;
 body {
+  background-color: #eaeaea;
   overflow-x: hidden;
 }
 
@@ -10,10 +11,10 @@ body {
   background-color: #3d3d3d;
 }
 
-#home #menu {
+#menu {
   transition: 0.6313s ease;
 }
-#home #menu::before {
+#menu::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -22,85 +23,142 @@ body {
   height: 2px;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.1490196078), #ffffff, rgba(255, 255, 255, 0.1490196078));
 }
-#home #menu .links a {
+#menu .links a {
   color: #fff;
   transition: 0.313s ease;
 }
-#home #menu .links a:hover {
+#menu .links a:hover {
   color: #32cd32;
 }
-#home #menu .change-language .language {
+#menu .change-language .language {
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 100%;
   padding: 1px;
 }
-#home #menu .social-media a:hover svg path {
+#menu .social-media a:hover svg path {
   stroke: #32cd32;
 }
-#home #menu .social-media a svg path {
+#menu .social-media a svg path {
   transition: 0.313s ease;
 }
-#home #menu .burger-menu i {
+#menu .burger-menu i {
   transition: 0.313s ease;
 }
-#home #header #header-content .content-inner .title {
+#header #header-content .content-inner .title {
   color: #fff;
 }
-#home #header #header-content .content-inner .title span {
+#header #header-content .content-inner .title span {
   transition: 0.6313s ease;
 }
-#home #header #header-content .content-inner .description {
+#header #header-content .content-inner .description {
   color: rgba(255, 255, 255, 0.8509803922);
 }
-#home #header #header-content .content-inner .description span {
+#header #header-content .content-inner .description span {
   transition: 0.6313s ease;
 }
-#home #header #header-content .content-inner .button-group {
+#header #header-content .content-inner .button-group {
   transition: 0.6313s ease;
 }
-#home #header #header-content .content-inner .button-group .collaboration-btn {
+#header #header-content .content-inner .button-group .collaboration-btn {
   background-color: #32cd32;
   color: #fff;
   border: 2px solid transparent;
   transition: 0.313s ease;
 }
-#home #header #header-content .content-inner .button-group .collaboration-btn:hover {
+#header #header-content .content-inner .button-group .collaboration-btn:hover {
   background-color: #006400;
 }
-#home #header #header-content .content-inner .button-group .about-us-btn {
+#header #header-content .content-inner .button-group .about-us-btn {
   transition: 0.313s ease;
 }
-#home #header #header-content .content-inner .button-group .about-us-btn:hover {
+#header #header-content .content-inner .button-group .about-us-btn:hover {
   background-color: #fff;
   color: #006400;
 }
-#home #header #header-content .slider-container .mySwiper {
+#header #header-content .slider-container .mySwiper {
   transform: translateX(22%) scale(1.2);
 }
-#home #header #header-content .slider-container .button-group button svg, #home #header #header-content .slider-container .button-group button rect, #home #header #header-content .slider-container .button-group button path {
+#header #header-content .slider-container .button-group button svg, #header #header-content .slider-container .button-group button rect, #header #header-content .slider-container .button-group button path {
   transition: 0.1313s ease;
 }
-#home #header #header-content .slider-container .button-group button:hover svg {
+#header #header-content .slider-container .button-group button:hover svg {
   fill: #32cd32;
 }
-#home #header #header-content .slider-container .button-group button:hover svg rect {
+#header #header-content .slider-container .button-group button:hover svg rect {
   stroke: #32cd32;
 }
-#home #header #header-content .slider-container .button-group button:hover svg path {
+#header #header-content .slider-container .button-group button:hover svg path {
   stroke: #fff;
 }
-#home #side-menu {
+
+#footer .footer-item-wrapper .footer-item {
+  background: linear-gradient(to right, #32cd32, #097b09);
+}
+#footer .footer-item-wrapper .footer-item:hover {
+  animation: moveBg 2s infinite linear;
+}
+#footer .footer-item-wrapper .footer-item .footer-inner {
+  border-radius: 5px;
+}
+#footer .footer-item-wrapper .footer-item .description .text {
+  color: #F2F2F2;
+}
+#footer .footer-item-wrapper .footer-item .join-us form .input-g input::placeholder {
+  color: white !important;
+}
+#footer .footer-item-wrapper .footer-item .join-us form .input-g button {
+  transition: 0.313s ease;
+}
+#footer .footer-item-wrapper .footer-item .join-us form .input-g button:hover {
+  background: #fff;
+}
+#footer .footer-item-wrapper .footer-item .join-us form .input-g button:hover path {
+  stroke: #006400;
+}
+#footer .footer-item-wrapper .footer-item .join-us form .input-g button path {
+  transition: stroke 0.313s ease;
+}
+#footer .footer-item-wrapper:nth-child(1) .footer-item {
+  border-radius: 60px 16px 16px 16px;
+}
+#footer .footer-item-wrapper:nth-child(2) .footer-item {
+  border-radius: 16px 60px 16px 16px;
+}
+#footer .footer-item-wrapper:nth-child(3) .footer-item {
+  border-radius: 16px 60px 16px 16px;
+}
+#footer .footer-item-wrapper:nth-child(4) .footer-item {
+  border-radius: 16px 16px 16px 60px;
+}
+
+#products #our-products .our-product-wrapper {
+  background-image: url("../../public/img/our-product.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#products #our-products .our-product-wrapper .our-product-inner {
+  background-color: rgba(32, 32, 32, 0.5058823529);
+}
+#products #our-products .our-product-wrapper .our-product-inner .title {
+  color: #32cd32;
+}
+#products #product-items .sidebar .sidebar-inner {
+  box-shadow: 0 1px 5px #c0c0c0;
+}
+
+#side-menu {
   overflow-y: scroll;
   transform: translateX(101%);
   transition: transform 0.313s ease;
 }
-#home #side-menu .links a {
+#side-menu .links a {
   position: relative;
 }
-#home #side-menu .links a:hover::before {
+#side-menu .links a:hover::before {
   width: 100%;
 }
-#home #side-menu .links a::before {
+#side-menu .links a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -110,10 +168,20 @@ body {
   background-color: #212020;
   transition: 0.313s ease;
 }
-#home #side-menu::-webkit-scrollbar {
+
+#side-menu::-webkit-scrollbar {
   display: none;
 }
 
 .show-hidden {
   transform: translate(0) !important;
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 400%;
+  }
 }
