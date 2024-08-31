@@ -26,19 +26,19 @@ const Menu = () => {
                             <Link href="/" className="mb-1 mx-4 text-sm">
                                 Home
                             </Link>
-                            <Link href="#articles" className="mb-1 mx-5 text-sm">
+                            <Link href="/articles" className="mb-1 mx-5 text-sm">
                                 Articles
                             </Link>
                             <Link href="/products" className="mb-1 mx-5 text-sm">
                                 Products
                             </Link>
-                            <Link href="#gallery" className="mb-1 mx-5 text-sm">
+                            <Link href="/gallery" className="mb-1 mx-5 text-sm">
                                 Gallery
                             </Link>
-                            <Link href="#about" className="mb-1 mx-5 text-sm">
+                            <Link href="/about" className="mb-1 mx-5 text-sm">
                                 About us
                             </Link>
-                            <Link href="#contact" className="mb-1 mx-5 text-sm">
+                            <Link href="/contact" className="mb-1 mx-5 text-sm">
                                 Contact us
                             </Link>
                         </div>

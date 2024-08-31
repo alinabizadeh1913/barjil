@@ -18,6 +18,12 @@ $neutral-gray-color : #ffffffd9;
 $neutral-gray-color-2 : #ffffff99;
 $neutral-gray-color-3 : #ffffff73;
 $right-shadow : linear-gradient(to right, #32cd32,#097b09);
+$primary-button-color : #E5FFE5;
+$gradient-1 : linear-gradient(to right, #32CD32, #006400 );
+$gradient-2 : linear-gradient(to right, #006400, #32cd32 );
+$h2-white-color : #ffffffd9;
+$h2-gray-color : #454545;
+
 
 // Variables
 
@@ -225,25 +231,54 @@ body{
 }
 // Products
 #products{
-    #our-products{
-        .our-product-wrapper{
-            background-image: url('../../public/img/our-product.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            .our-product-inner{
-                background-color: #20202081;
-                .title{
-                    color: $primary-color;
-                }
-            }
-        }
-    }
+    
     #product-items{
         .sidebar{
             .sidebar-inner{
                 box-shadow: 0 1px 5px #c0c0c0;
+                .product-details{
+                    button{
+                        background-color: $primary-button-color;
+                        width: 100%;
+                        h2{
+                            color: $h2-gray-color;
+                        }
+                    }
+                }
             }
+        }
+        .product{
+            .product-card{
+                background: $gradient-1;
+                &:hover{
+                    background: $gradient-2;
+                }
+                .card-content{
+                    .description{
+                        h2{
+                            color : $h2-white-color;
+                        }
+                    }   
+                    .link{
+                        transition: 0.313s ease;
+                        &:hover{
+                            background-color: #fff;
+                            color: $primary-color-hover;
+                        }
+                    }                 
+                }
+            }
+        }
+    }
+}
+// Banner
+#banner{
+    .banner-wrapper{
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        background-position: center !important;
+        .banner-inner{
+            background-color: #20202098;
         }
     }
 }
@@ -275,7 +310,6 @@ body{
     display: none;
 }
 
-// Home Page
 
 // Activity Class
 

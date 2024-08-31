@@ -118,3 +118,22 @@ export const RightIcon = (props) => {
         </svg>
     )
 }
+
+export const RightIcon2 = (props) => {
+    return (
+        <svg width={props.width || "9"} height={props.height || "18"} viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M0.910097 17.67C0.720097 17.67 0.530098 17.6 0.380098 17.45C0.0900977 17.16 0.0900977 16.68 0.380098 16.39L6.9001 9.87C7.3801 9.39 7.3801 8.61 6.9001 8.13L0.380098 1.61C0.0900977 1.32 0.0900977 0.84 0.380098 0.55C0.670098 0.26 1.1501 0.26 1.4401 0.55L7.9601 7.07C8.4701 7.58 8.7601 8.27 8.7601 9C8.7601 9.73 8.4801 10.42 7.9601 10.93L1.4401 17.45C1.2901 17.59 1.1001 17.67 0.910097 17.67Z" fill={props.fill || "white"}/>
+        </svg>
+    )
+}
+
+export const MineralIcon = (props) => {
+    return(
+        <svg width={props.width || "18"} height={props.height || "18"} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M14.25 1.5H12.75C11.25 1.5 10.5 2.25 10.5 3.75V5.25C10.5 6.75 11.25 7.5 12.75 7.5H14.25C15.75 7.5 16.5 6.75 16.5 5.25V3.75" stroke={props.stroke || "white"} stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.75 16.5H5.25C6.75 16.5 7.5 15.75 7.5 14.25V12.75C7.5 11.25 6.75 10.5 5.25 10.5H3.75C2.25 10.5 1.5 11.25 1.5 12.75V14.25" stroke={props.stroke || "white"} stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.5 7.5C6.15685 7.5 7.5 6.15685 7.5 4.5C7.5 2.84315 6.15685 1.5 4.5 1.5C2.84315 1.5 1.5 2.84315 1.5 4.5C1.5 6.15685 2.84315 7.5 4.5 7.5Z" stroke={props.stroke || "white"} stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 16.5C15.1569 16.5 16.5 15.1569 16.5 13.5C16.5 11.8431 15.1569 10.5 13.5 10.5C11.8431 10.5 10.5 11.8431 10.5 13.5C10.5 15.1569 11.8431 16.5 13.5 16.5Z" stroke={props.stroke || "white"} stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}
