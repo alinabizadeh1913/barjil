@@ -137,3 +137,13 @@ export const MineralIcon = (props) => {
         </svg>
     )
 }
+
+export const ScrollDownIcon = (props) => {
+    return (
+        <svg width={props.width || "15"} height={props.height || "23"} viewBox="0 0 15 29" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M1.00006 11L7.03006 17.0129L13.0601 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1.00006 21L7.03006 27.0129L13.0601 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1.00006 1L7.03006 7.01292L13.0601 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}

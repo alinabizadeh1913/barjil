@@ -1,15 +1,14 @@
 'use client';
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Montserrat } from 'next/font/google';
-import Image from 'next/image';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import { getBanners } from '@/app/server/api/apiRoutes';
 import useStore from '@/app/store/Store';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import Link from 'next/link';
 import { NextIcon, PrevIcon } from '../Icons';
+import Link from 'next/link';
+
 
 const Font = Montserrat({
   subsets: ['latin'],
@@ -17,32 +16,28 @@ const Font = Montserrat({
 });
 
 const Content = () => {
-  const nextRef = useRef(null);
-  const prevRef = useRef(null);
   const [currentContent, setCurrentContent] = useState(0);
   const { setImgSrc } = useStore();
   const [banners, setBanners] = useState([]);
-
-  const updateContent = (newIndex) => {
-    if (banners.length > 0) {
-      setCurrentContent(newIndex);
-      setImgSrc(`${process.env.NEXT_PUBLIC_BASE_URL}/${banners[newIndex].file}`);
-    }
-  };
-
-  const prevItem = useCallback(() => {
-    if (banners.length > 0) {
-      const newIndex = (currentContent - 1 + banners.length) % banners.length;
-      updateContent(newIndex);
-    }
-  }, [currentContent, banners]);
-
-  const nextItem = useCallback(() => {
-    if (banners.length > 0) {
-      const newIndex = (currentContent + 1) % banners.length;
-      updateContent(newIndex);
-    }
-  }, [currentContent, banners]);
+  const [skeleton,setSkeleton] = useState([
+    {
+      id : 1,
+      img : "/img/preview.jpg"
+    },
+    {
+      id : 2,
+      img : "/img/preview.jpg"
+    },
+    {
+      id : 3,
+      img : "/img/preview.jpg"
+    },
+    {
+      id : 4,
+      img : "/img/preview.jpg"
+    },
+  ]);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     getBanners().then(result => {
@@ -50,82 +45,100 @@ const Content = () => {
     });
   }, []);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots : false,
+    arrows: false,
+    draggable: false,
+    swipe: false,
+    swipeToSlide: false, 
+    afterChange: (index) => {
+      updateContent(index);
+    }
+  };
+
+  const nextSlide = useCallback(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  }, []);
+  
+  const prevSlide = useCallback(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  }, []);
+  
+  const updateContent = (newIndex) => {
+    if (banners.length > 0) {
+      setCurrentContent(newIndex);
+      setImgSrc(`${process.env.NEXT_PUBLIC_BASE_URL}/${banners[newIndex].file}`);
+    }
+  };
+
   return (
     <section id="header-content" className="absolute top-0 left-0 bottom-0 right-0 w-full h-full flex items-center bg-zinc-800 bg-opacity-25">
       <div className="w-full">
         <div className="flex flex-wrap w-full items-center pt-20">
-          <div className="w-full md:w-6/12 px-2 mb-6">
+          <div className="w-full md:w-5/12 px-2 mb-2">
             <div className="content-inner px-7">
-              <h1 className="title text-4xl md:text-5xl overflow-hidden">
-                <span className={`${Font.className} leading-[45px] md:leading-[55px] block w-fit`}>
+              <h1 className="title text-4xl md:text-[43px] overflow-hidden">
+                <span className={`${Font.className} leading-[45px] md:leading-[50px] block w-fit`}>
                   {banners.length > 0 ? banners[currentContent].title : 'Plaster Production Company'}
                 </span>
               </h1>
-              <p className="description my-3 overflow-hidden text-[20px] md:text-[18px]">
+              <p className="description my-3 overflow-hidden text-[20px] md:text-[16px]">
                 <span className='block w-fit'>
                   {banners.length > 0 ? banners[currentContent].text : 'Proudly, the first producer and exporter of plaster in Iran'}
                 </span>
               </p>
-              <div className="button-group mt-6">
-                <a href="#collaboration" className="collaboration-btn py-3 px-6 mr-2 rounded-md">
+              <div className="button-group mt-6 flex flex-wrap">
+                <a href="#collaboration" className="collaboration-btn py-2 px-7 mr-2 rounded-md mb-2 ">
                   collaboration
                 </a>
-                <a href="#about" className="about-us-btn border-2 border-white rounded-md py-3 px-6 text-white">
+                <a href="#about" className="about-us-btn border-2 border-white rounded-md py-2 px-7 text-white mb-2">
                   about us
                 </a>
               </div>
             </div>
           </div>
-          <div className="w-full md:w-6/12 mt-8 md:mt-0 pl-2 pt-6 md:pt-40 relative">
+          <div className="w-full md:w-7/12 pl-2 md:pt-40 relative">
             <div className="slider-container relative">
-              <Swiper
-                slidesPerView={3}
-                spaceBetween={10}
-                navigation={{
-                  nextEl: nextRef.current,
-                  prevEl: prevRef.current,
-                }}
-                loop={true}
-                allowSlideNext={true}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                  },
-                  768: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                  },
-                }}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-                onInit={(swiper) => {
-                  swiper.params.navigation.nextEl = nextRef.current;
-                  swiper.params.navigation.prevEl = prevRef.current;
-                  swiper.navigation.init();
-                  swiper.navigation.update();
-                }}
-              >
-                {banners.map(item => (
-                  <SwiperSlide className='border-2 border-white rounded-md' key={item.id}>
+               {banners.length > 0 ? (
+                  <div className="slider-controls flex justify-end py-2 px-8 mb-2">
+                    <button onClick={prevSlide} className="slider-prev mx-1">
+                      <PrevIcon width="30" height="30"/>
+                    </button>
+                    <button onClick={nextSlide} className="slider-next mx-1">
+                      <NextIcon width="30" height="30"/>
+                    </button>
+                  </div>
+                ) : (
+                  <div className="slider-controls flex justify-end py-2 px-8 mb-2">
+                    <button onClick={prevSlide} className="slider-prev mx-1" disabled>
+                      <PrevIcon width="30" height="30"/>
+                    </button>
+                    <button onClick={nextSlide} className="slider-next mx-1" disabled>
+                      <NextIcon width="30" height="30"/>
+                    </button>
+                  </div>
+                )}
+                <Slider ref={sliderRef} {...settings}>
+                  {banners.length > 0 ? banners.map(item => (
+                  <div className='slider-item border-2 border-white rounded-md' key={item.id}>
                     <Link href={item.link} className='relative'>
-                      <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} layout="responsive" objectFit='cover' width={800} height={450} placeholder='blur' blurDataURL={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.thumbnail}`} className='rounded-[4px] h-[120px]'/>
+                      <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} className='rounded-[4px] h-[120px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full'/>
                     </Link>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-              <div className="button-group absolute top-[-60px] left-0 right-0 flex justify-end px-7">
-                <button ref={prevRef} className="swiper-button-prev mx-1" onClick={prevItem}>
-                  <PrevIcon width="30" height="30"/>
-                </button>
-                <button ref={nextRef} className="swiper-button-next mx-1" onClick={nextItem}>
-                  <NextIcon width="30" height="30"/>
-                </button>
-              </div>
+                  </div>
+                  )) : skeleton.map(item => (
+                    <div className='border-2 border-transparent rounded-md relative' key={item.id}>
+                        <div className="skeleton-item rounded-[4px] h-[120px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full"></div>
+                    </div>
+                  ))}
+                </Slider>
             </div>
           </div>
         </div>

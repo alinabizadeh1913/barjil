@@ -1,5 +1,6 @@
 import React from "react";
 import { LogoIcon, RightIcon } from "../Icons";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -96,7 +97,9 @@ const Footer = () => {
                 </div>
                 <div className="flex justify-center mt-6">
                     <div className="developing bg-[#666666] text-[#252525] rounded-tl-[4px] rounded-tr-[4px] py-2 px-6 cursor-default duration-300 hover:text-white">
-                        Design & Developing by Rubysa
+                        <Link href="https://www.rubysa.ir/">
+                            Design & Developing by Rubysa
+                        </Link>
                     </div>
                 </div>
             </div>

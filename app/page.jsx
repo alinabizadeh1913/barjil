@@ -5,8 +5,30 @@ import Menu from "./components/Menu";
 import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { loadHeaderButtonGroup, loadHeaderDescription, loadHeaderTitle, loadMenu, loadSlider } from "./utils/script";
 
 const HomePage = () => {
+
+  useEffect(() => {
+    setTimeout(() => {
+      loadMenu()
+    },600)
+    setTimeout(() => {
+      loadHeaderTitle()
+    },1200)
+    setTimeout(() => {
+      loadHeaderDescription()
+    },1800)
+    setTimeout(() => {
+      loadHeaderButtonGroup()
+    },2400)
+    setTimeout(() => {
+      loadHeaderButtonGroup()
+    },3000)
+    setTimeout(() => {
+      loadSlider()
+    },3100)
+  }, [])
   
   return (
     <section id="home">

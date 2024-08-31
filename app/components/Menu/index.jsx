@@ -13,32 +13,34 @@ const Font = Roboto({
 
 const Menu = () => {
     return (
-        <section id="menu" className={`${Font.className} fixed top-0 left-0 w-full z-10 backdrop-filter backdrop-blur-sm py-5 px-9 bg-[#33333333]`}>
+        <section id="menu" className={`${Font.className} fixed top-0 left-0 w-full z-10 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 bg-[#33333333]`}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center justify-between md:justify-normal">
                     <div className="w-4/12 md:w-1/12 order-2 md:order-1">
                         <div className="logo flex justify-center md:justify-start">
-                            <LogoIcon width="45" height="45" fill="#32cd32"/>
+                            <Link href="/">
+                                <LogoIcon width="45" height="45" fill="#32cd32"/>
+                            </Link>
                         </div>
                     </div>
                     <div className="w-8/12 md:w-8/12 hidden md:block md:order-2">
                         <div className="links flex flex-wrap justify-center items-center">
-                            <Link href="/" className="mb-1 mx-4 text-sm">
+                            <Link href="/" className="mb-1 mx-[14px] text-sm">
                                 Home
                             </Link>
-                            <Link href="/articles" className="mb-1 mx-5 text-sm">
+                            <Link href="/articles" className="mb-1 mx-[20px] text-sm">
                                 Articles
                             </Link>
-                            <Link href="/products" className="mb-1 mx-5 text-sm">
+                            <Link href="/products" className="mb-1 mx-[20px] text-sm">
                                 Products
                             </Link>
-                            <Link href="/gallery" className="mb-1 mx-5 text-sm">
+                            <Link href="/gallery" className="mb-1 mx-[20px] text-sm">
                                 Gallery
                             </Link>
-                            <Link href="/about" className="mb-1 mx-5 text-sm">
+                            <Link href="/about" className="mb-1 mx-[20px] text-sm">
                                 About us
                             </Link>
-                            <Link href="/contact" className="mb-1 mx-5 text-sm">
+                            <Link href="/contact" className="mb-1 mx-[20px] text-sm">
                                 Contact us
                             </Link>
                         </div>

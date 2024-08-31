@@ -12,6 +12,7 @@ body {
 }
 
 #menu {
+  transform: translateY(-102%);
   transition: 0.6313s ease;
 }
 #menu::before {
@@ -44,19 +45,29 @@ body {
 #menu .burger-menu i {
   transition: 0.313s ease;
 }
+#header {
+  overflow-y: scroll;
+}
+#header::-webkit-scrollbar {
+  display: none;
+}
 #header #header-content .content-inner .title {
   color: #fff;
 }
 #header #header-content .content-inner .title span {
+  transform: translateX(-101%);
   transition: 0.6313s ease;
 }
 #header #header-content .content-inner .description {
   color: rgba(255, 255, 255, 0.8509803922);
 }
 #header #header-content .content-inner .description span {
+  transform: translateX(-101%);
   transition: 0.6313s ease;
 }
 #header #header-content .content-inner .button-group {
+  opacity: 0;
+  visibility: hidden;
   transition: 0.6313s ease;
 }
 #header #header-content .content-inner .button-group .collaboration-btn {
@@ -75,19 +86,47 @@ body {
   background-color: #fff;
   color: #006400;
 }
-#header #header-content .slider-container .mySwiper {
-  transform: translateX(22%) scale(1.2);
+#header #header-content .slider-container {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6313s ease;
 }
-#header #header-content .slider-container .button-group button svg, #header #header-content .slider-container .button-group button rect, #header #header-content .slider-container .button-group button path {
+#header #header-content .slider-container .skeleton-item {
+  background: linear-gradient(90deg, #54e954, #39d839 42%, #2fbf2f -166%, #39d839 -92%, #54e954);
+  background-size: 200% 100%;
+  background-position: 0;
+  animation: skeletonMove 2s infinite linear;
+}
+@keyframes skeletonMove {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+#header #header-content .slider-container .slider-item {
+  transition: 0.313s ease;
+}
+#header #header-content .slider-container .slider-item:hover {
+  border-color: #32cd32;
+}
+#header #header-content .slider-container .slick-slider {
+  transform: translateX(22%);
+}
+#header #header-content .slider-container .slick-slide {
+  padding: 0 4px;
+}
+#header #header-content .slider-container .slider-controls button svg, #header #header-content .slider-container .slider-controls button rect, #header #header-content .slider-container .slider-controls button path {
   transition: 0.1313s ease;
 }
-#header #header-content .slider-container .button-group button:hover svg {
+#header #header-content .slider-container .slider-controls button:hover svg {
   fill: #32cd32;
 }
-#header #header-content .slider-container .button-group button:hover svg rect {
+#header #header-content .slider-container .slider-controls button:hover svg rect {
   stroke: #32cd32;
 }
-#header #header-content .slider-container .button-group button:hover svg path {
+#header #header-content .slider-container .slider-controls button:hover svg path {
   stroke: #fff;
 }
 
@@ -142,10 +181,12 @@ body {
   color: #454545;
 }
 #products #product-items .product .product-card {
-  background: linear-gradient(to right, #32CD32, #006400);
+  background: linear-gradient(90deg, #4af54a, #0d890d 42%, #097609 -166%, #0d890d -92%, #4af54a);
+  background-size: 200% 100%;
+  background-position: 0;
 }
 #products #product-items .product .product-card:hover {
-  background: linear-gradient(to right, #006400, #32cd32);
+  animation: skeletonMove 3s infinite linear;
 }
 #products #product-items .product .product-card .card-content .description h2 {
   color: rgba(255, 255, 255, 0.8509803922);
