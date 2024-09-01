@@ -8,6 +8,7 @@ import { getBanners } from '@/app/server/api/apiRoutes';
 import useStore from '@/app/store/Store';
 import { NextIcon, PrevIcon } from '../Icons';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 const Font = Montserrat({
@@ -130,7 +131,7 @@ const Content = () => {
                   {banners.length > 0 ? banners.map(item => (
                   <div className='slider-item border-2 border-white rounded-md' key={item.id}>
                     <Link href={item.link} className='relative'>
-                      <img src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} className='rounded-[4px] h-[120px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full'/>
+                      <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} layout="responsive" objectFit='cover' width={800} height={450} placeholder='blur' blurDataURL={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.thumbnail}`} className='rounded-[4px] h-[120px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full'/>
                     </Link>
                   </div>
                   )) : skeleton.map(item => (

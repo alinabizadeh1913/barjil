@@ -10,8 +10,8 @@
 
 $primary-color: #32cd32;
 $primary-color-hover: #006400;
-$primary-color-2: #FFA500;
-$disable-color: #FFD700;
+$primary-color-2: #ffa500;
+$disable-color: #ffd700;
 $neutral-white-color : #fff;
 $neutral-white-color-2 : #F2F2F2;
 $neutral-gray-color : #ffffffd9;
@@ -21,6 +21,7 @@ $right-shadow : linear-gradient(to right, #32cd32,#097b09);
 $primary-button-color : #E5FFE5;
 $gradient-1 : linear-gradient(to right, #32CD32, #006400 );
 $gradient-2 : linear-gradient(to right, #006400, #32cd32 );
+$h1-gray-color : #333333;
 $h2-white-color : #ffffffd9;
 $h2-gray-color : #454545;
 
@@ -311,6 +312,85 @@ body{
         background-position: center !important;
         .banner-inner{
             background-color: #20202098;
+        }
+    }
+}
+// Category
+#category{
+    .category-item {
+        height: 35px;
+        margin-bottom: 5px;
+        background-color: $primary-color;
+        transition: transform 0.6313s ease,margin 0.313s ease,background-color 0.212s ease ;
+    }
+    .category-item:nth-child(odd){
+        transform: translateX(-100%);
+    }
+    .category-item:nth-child(even){
+        transform: translateX(100%);
+    }
+    .category-wrapper{
+        .category-circle{
+            width: 130px;
+            height: 130px;
+            background-color: #fff;
+            border-radius: 100%;
+            img{
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.3131s ease;
+            }
+        }
+        .c-c-1{
+            left: -30%;
+            transition: 0.5313s ease;
+        }
+        .c-c-2{
+            right: -30%;
+            transition: 0.5313s ease;
+        }
+        .category-title{
+            .t1{
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.313s ease;
+            }
+            .t2{
+                span{
+                    transform: translateY(-65%);
+                    transition: 0.4313s ease-in-out;
+                }
+            }
+            .t3{
+                span{
+                    transform: translateY(65%);
+                    transition: 0.4313s ease-in-out;
+                }
+            }
+            .t4{
+                span{
+                    transform: translateY(-65%);
+                    transition: 0.4313s ease-in-out;
+                }
+            }
+            .t5{
+                span{
+                    transform: translateY(65%);
+                    transition: 0.4313s ease-in-out;
+                }
+            }
+            .t6{
+                span{
+                    transform: translateY(-65%);
+                    transition: 0.4313s ease-in-out;
+                }
+            }
+            .t7{
+                span{
+                    transform: translateY(65%);
+                    transition: 0.4313s ease-in-out;
+                }
+            }
         }
     }
 }

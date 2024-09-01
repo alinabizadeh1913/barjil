@@ -6,6 +6,7 @@ import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { loadHeaderButtonGroup, loadHeaderDescription, loadHeaderTitle, loadMenu, loadSlider } from "./utils/script";
+import Category from "./components/Category";
 
 const HomePage = () => {
 
@@ -35,6 +36,7 @@ const HomePage = () => {
       <Menu />
       <SideMenu />
       <Header />
+      <Category />
       <Footer />
       {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
     </section>
