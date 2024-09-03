@@ -44,8 +44,10 @@ export const loadCategory = () => {
     const item9 = category.querySelector('.c-i-9');
     const item10 = category.querySelector('.c-i-10');
 
-    const circle1 = category.querySelector('.category-wrapper .c-c-1')
-    const circle2 = category.querySelector('.category-wrapper .c-c-2')
+    const circle1 = category.querySelector('.category-wrapper .c-c-1');
+    const circle2 = category.querySelector('.category-wrapper .c-c-2');
+    const circleRes1 = category.querySelector('.category-wrapper .c-c-res-1');
+    const circleRes2 = category.querySelector('.category-wrapper .c-c-res-2');
 
     const images = category.querySelectorAll('.category-wrapper img');
 
@@ -116,13 +118,12 @@ export const loadCategory = () => {
         circle2.style.right = '43%';
     },2700)
     setTimeout(() => {
-        circle1.style.left = '15%';
-        circle2.style.right = '15%';
+        circle1.style.left = '5%';
+        circle2.style.right = '5%';
+
+        circleRes1.style.top = '3%';
+        circleRes2.style.bottom = '3%';
     },3300)
-    setTimeout(() => {
-        circle1.style.left = '15%';
-        circle2.style.right = '15%';
-    },3900)
     setTimeout(() => {
         circle1.style.width = '280px';
         circle1.style.height = '280px';
@@ -134,7 +135,7 @@ export const loadCategory = () => {
             img.style.visibility = 'visible';
             img.style.opacity = 1;
         })
-    },4200)
+    },4400)
     setTimeout(() => {
         mainTitle.style.visibility = 'visible'
         mainTitle.style.opacity = 1;
@@ -151,4 +152,51 @@ export const loadCategory = () => {
         title6.style.transform = 'translateY(0)'
         title7.style.transform = 'translateY(0)'
     },5900)
+}
+
+export const loadQuestions = () => {
+    const questions = document.querySelector('#questions');
+    const questionMark = questions.querySelector('.engineer-wrapper .question-mark');
+
+    setTimeout(() => {
+        questionMark.style.transform = 'translate(0,0)'
+        questionMark.style.visibility = 'visible'
+        questionMark.style.opacity = 1
+    },300)
+}
+
+export const loadFaq = () => {
+    const faqWrapper = document.querySelectorAll('#questions .faq-wrapper');
+    let time = 400;
+    for (let index = 0; index < faqWrapper.length ; index++) {
+        setTimeout(() => {
+            faqWrapper[index].style.visibility = 'visible';
+            faqWrapper[index].style.opacity = 1;
+        }, time * index )
+    }
+}
+
+export const loadAboutBarjil = () => {
+    const aboutBarjil = document.querySelector('#about-barjil');
+    const galaxy = aboutBarjil.querySelector('.galaxy svg');
+    const title = aboutBarjil.querySelector('.barjil-trading .title')
+    const description = aboutBarjil.querySelector('.barjil-trading .description span')
+    const link = aboutBarjil.querySelector('.barjil-trading .link')
+
+    setTimeout(() => {
+        galaxy.style.visibility = 'visible';
+        galaxy.style.opacity = 1;
+        galaxy.style.transform = 'translate(0,0)';
+    },600)
+    setTimeout(() => {
+        title.style.visibility = 'visible';
+        title.style.opacity = 1;
+    }, 1200)
+    setTimeout(() => {
+        description.style.transform = 'translateY(0)'
+    }, 1800)
+    setTimeout(() => {
+        link.style.visibility = 'visible';
+        link.style.opacity = 1;
+    }, 2400)
 }

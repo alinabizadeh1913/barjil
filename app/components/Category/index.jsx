@@ -14,23 +14,36 @@ const Category = () => {
     const [readyToDisplayCategory,setReadyToDisplayCategory] = useState(false);
 
     useEffect(() => {
-        window.addEventListener('scroll' , () => {
+
+        const category = document.querySelector('#category');
+
+        const handleScroll = () => {
+            
+            const sectionTop = category.offsetTop;
             const scrollY = window.scrollY;
-            const category = document.querySelector('#category');
-            if (scrollY > category.getBoundingClientRect().top) {
+    
+            // مقایسه دقیق‌تر موقعیت سکشن با موقعیت اسکرول
+            if (scrollY + window.innerHeight >= sectionTop + 200) {
                 setReadyToDisplayCategory(true);
             }
-        })
+        }
 
         if (readyToDisplayCategory) {
-            console.log('ss');
             loadCategory();
         }
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        // پاک کردن event listener هنگام unmount کامپوننت
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+        
+
     })
 
     return (
         <section id="category" className="mt-36" dir="ltr">
-            <div className="container mx-auto">
                 <div className="flex flex-wrap flex-col overflow-hidden justify-center items-center relative">
                     <div className="category-item c-i-1 w-full"></div>
                     <div className="category-item c-i-2 w-full"></div>
@@ -44,8 +57,18 @@ const Category = () => {
                     <div className="category-item c-i-10 w-full"></div>
 
                     <div className="category-wrapper absolute top-0 right-0 left-0 bottom-0 w-full h-full flex flex-wrap items-center justify-center p-5">
-                        <div className="category-circle c-c-1 absolute">
+                        <div className="category-circle hidden md:block c-c-1 absolute z-10">
                             <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full"/>
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
+
+                            </div>
+                        </div>
+                        
+                        <div className="category-circle-res block md:hidden c-c-res-1 absolute w-[160px] h-[160px] rounded-full z-10">
+                            <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full block"/>
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
+
+                            </div>
                         </div>
                         <div className={`${Font.className} category-title h-[95%] overflow-hidden flex flex-col justify-center`}>
                             
@@ -86,12 +109,21 @@ const Category = () => {
                             </p>
                             
                         </div>
-                        <div className="category-circle c-c-2 absolute">
+                        <div className="category-circle hidden md:block c-c-2 absolute z-10">
                             <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full"/>
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
+
+                            </div>
+                        </div>
+
+                        <div className="category-circle-res block md:hidden c-c-res-2 w-[160px] h-[160px] rounded-full absolute z-10">
+                            <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full block"/>
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     )
 }

@@ -28,6 +28,24 @@ $h2-gray-color : #454545;
 
 // Variables
 
+// Media Screen
+
+
+@media screen and (min-width : 900px) {
+    #questions{
+        .first{
+            width: 500px !important;
+        }
+        .last{
+            width: calc(100% - 500px) !important;
+        }
+    }
+}
+
+
+
+// Media Screen
+
 // Reboot
 
 body{
@@ -40,6 +58,17 @@ body{
     background-color: #3d3d3d;
 }
 
+.wrapper{
+    max-width: 1500px !important;
+}
+
+.h-100{
+    height: 100% !important;
+}
+
+.rotate-180{
+    transform: rotate(180deg) !important;
+}
 // Reboot
 
 
@@ -318,7 +347,7 @@ body{
 // Category
 #category{
     .category-item {
-        height: 35px;
+        height: 40px;
         margin-bottom: 5px;
         background-color: $primary-color;
         transition: transform 0.6313s ease,margin 0.313s ease,background-color 0.212s ease ;
@@ -348,6 +377,14 @@ body{
         .c-c-2{
             right: -30%;
             transition: 0.5313s ease;
+        }
+        .c-c-res-1{
+            top: -50%;
+            transition: 0.4313s ease;
+        }
+        .c-c-res-2{
+            bottom: -50%;
+            transition: 0.4313s ease;
         }
         .category-title{
             .t1{
@@ -391,6 +428,82 @@ body{
                     transition: 0.4313s ease-in-out;
                 }
             }
+        }
+    }
+}
+// Questions
+#questions{
+    .first{
+        .engineer-wrapper{
+            .engineer-inner{
+                transform: translateY(-9%);
+            }
+            .question-mark{
+                transform: translate(20px,20px);
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.4313s ease;
+            }
+        }
+    }
+    .last{
+        .faq-wrapper{
+            height: 200px;
+            min-height: 210px;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.4313s ease;
+            .content{
+                .text{
+                    p{
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 5;
+                        -webkit-box-orient: vertical;
+                        text-overflow: ellipsis;
+    
+                    }
+                }
+            }
+            .answer{
+                height: 40px;
+                transition: 0.313s ease;
+                .bottom{
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: 0.313s ease;
+                }
+            }
+        }
+    }
+}
+// About Barjil
+#about-barjil{
+    .galaxy{
+        svg{
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(-50%, 50%);
+            transition: 0.6131s ease;
+        }
+    }
+    .barjil-trading{
+        .title{
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.613s ease;
+        }
+        .description{
+            span{
+                display: block;
+                transform: translateY(100%);
+                transition: 0.613s ease;
+            }
+        }
+        .link{
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.613s ease;
         }
     }
 }

@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { loadHeaderButtonGroup, loadHeaderDescription, loadHeaderTitle, loadMenu, loadSlider } from "./utils/script";
 import Category from "./components/Category";
+import Questions from "./components/Questions";
+import AboutBarjil from "./components/AboutBarjil";
 
 const HomePage = () => {
 
@@ -37,6 +39,8 @@ const HomePage = () => {
       <SideMenu />
       <Header />
       <Category />
+      <Questions />
+      <AboutBarjil />
       <Footer />
       {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
     </section>

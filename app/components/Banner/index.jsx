@@ -25,7 +25,7 @@ const Banner = (props) => {
                         <Link href="/" className="text-[#ffffffab]">
                             Home    
                         </Link>
-                        <RightIcon2 className="mx-2" fill="#ffffffab"/>
+                        <RightIcon2 className="mx-2" fill="#ffffffab" width="8" height="13"/>
                         <span className="pathname">
                             {path}
                         </span>
