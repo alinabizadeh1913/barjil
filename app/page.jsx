@@ -9,6 +9,7 @@ import { loadHeaderButtonGroup, loadHeaderDescription, loadHeaderTitle, loadMenu
 import Category from "./components/Category";
 import Questions from "./components/Questions";
 import AboutBarjil from "./components/AboutBarjil";
+import FullScreenElem from "./components/FullScreenElem";
 
 const HomePage = () => {
 
@@ -42,6 +43,7 @@ const HomePage = () => {
       <Questions />
       <AboutBarjil />
       <Footer />
+      <FullScreenElem />
       {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
     </section>
   )

@@ -12,8 +12,15 @@ const Font = Roboto({
 })
 
 const Menu = () => {
+
+    const ShowHideFullElem = () => {
+        const fullScreenElement = document.querySelector('#full-screen');
+
+        fullScreenElement.classList.toggle('show-hidden-activity');
+    }
+
     return (
-        <section id="menu" className={`${Font.className} fixed top-0 left-0 w-full z-10 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 bg-[#33333333]`}>
+        <section id="menu" className={`${Font.className} fixed top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 bg-[#33333333]`}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center justify-between md:justify-normal">
                     <div className="w-4/12 md:w-1/12 order-2 md:order-1">
@@ -68,7 +75,8 @@ const Menu = () => {
                     </div>
                     <div className="w-4/12 flex justify-end order-3 md:hidden">
                         <div className="burger-menu" onClick={() => {
-                            ShowHideSideMenu()
+                            ShowHideSideMenu();
+                            ShowHideFullElem()
                         }}>
                             <BurgerMenuIcon className="cursor-pointer" />
                         </div>

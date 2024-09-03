@@ -74,7 +74,7 @@ const Questions = () => {
         <section id="questions" className="mt-32">
             <div className="flex flex-wrap justify-between">
                 <div className="first w-full sm:w-6/12">
-                    <div className="engineer-wrapper mb-4 sm:mb-0 h-[550px] sm:h-[500px] md:h-[550px] w-full rounded-tr-[413px] bg-[green] flex justify-end sticky top-0">
+                    <div className="engineer-wrapper mb-4 sm:mb-0 h-[450px] sm:h-[500px] md:h-[550px] w-full rounded-tr-[373px] bg-[green] flex justify-end sticky top-[50px] z-50">
                         <div className="engineer-inner relative w-[80%] h-[110%] z-10">
                             <img src="/img/engineer.png" className="w-full h-full block"/>
                         </div>
@@ -230,7 +230,7 @@ const Questions = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full lg:w-1/2 px-2 mb-3">
+                        <div className="w-full lg:w-1/2 px-2">
                             <div className="faq-wrapper rounded-xl border-2 border-[#c4c4c4] overflow-hidden relative">
                                 <div className="content pt-3 px-4 pb-[75px]">
                                     <div className="title">

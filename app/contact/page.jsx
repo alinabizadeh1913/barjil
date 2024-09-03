@@ -1,11 +1,22 @@
-import React from "react"
+'use client';
+
+import React, { useEffect } from "react"
+import Menu from "../components/Menu";
+import Banner from "../components/Banner";
+import { loadMenu } from "../utils/script";
 
 const ContactPage = () => {
+
+    useEffect(() => {
+        setTimeout(() => {
+          loadMenu()
+        },400)
+      }, [])
+
     return (
-        <section id="articles" className="my-10 flex justify-center cursor-default">
-            <div className="bg-sky-600 p-6 text-center rounded-md w-1/2 text-white text-lg">
-                Contact Page
-            </div>
+        <section id="contact">
+            <Menu />
+            <Banner background="/img/contact.jpg" title="Contact Us"/>
         </section>
     )
 }

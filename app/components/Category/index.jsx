@@ -3,6 +3,7 @@
 import { loadCategory } from "@/app/utils/script";
 import { useEffect, useState } from "react";
 import { Montserrat } from 'next/font/google'
+import Link from "next/link";
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -43,7 +44,7 @@ const Category = () => {
     })
 
     return (
-        <section id="category" className="mt-36" dir="ltr">
+        <section id="category" className="mt-36 relative" dir="ltr">
                 <div className="flex flex-wrap flex-col overflow-hidden justify-center items-center relative">
                     <div className="category-item c-i-1 w-full"></div>
                     <div className="category-item c-i-2 w-full"></div>
@@ -57,17 +58,21 @@ const Category = () => {
                     <div className="category-item c-i-10 w-full"></div>
 
                     <div className="category-wrapper absolute top-0 right-0 left-0 bottom-0 w-full h-full flex flex-wrap items-center justify-center p-5">
-                        <div className="category-circle hidden md:block c-c-1 absolute z-10">
+                        <div className="category-circle hidden md:block c-c-1 absolute z-10 overflow-hidden">
                             <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full"/>
-                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
-
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
+                                <Link href="#" className="text-white font-bold text-center md:text-xl">
+                                    petrochemical and petroleum
+                                </Link>
                             </div>
                         </div>
                         
-                        <div className="category-circle-res block md:hidden c-c-res-1 absolute w-[160px] h-[160px] rounded-full z-10">
+                        <div className="category-circle-res block md:hidden c-c-res-1 absolute w-[160px] h-[160px] rounded-full z-10 overflow-hidden">
                             <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full block"/>
-                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
-
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
+                                <Link href="#" className="text-white font-bold text-center md:text-xl">
+                                    petrochemical and petroleum
+                                </Link>
                             </div>
                         </div>
                         <div className={`${Font.className} category-title h-[95%] overflow-hidden flex flex-col justify-center`}>
@@ -109,21 +114,27 @@ const Category = () => {
                             </p>
                             
                         </div>
-                        <div className="category-circle hidden md:block c-c-2 absolute z-10">
+                        <div className="category-circle hidden md:block c-c-2 absolute z-10 overflow-hidden">
                             <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full"/>
-                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
-
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
+                                <Link href="#" className="text-white font-bold text-center md:text-xl">
+                                    minerals
+                                </Link>
                             </div>
                         </div>
 
-                        <div className="category-circle-res block md:hidden c-c-res-2 w-[160px] h-[160px] rounded-full absolute z-10">
+                        <div className="category-circle-res block md:hidden c-c-res-2 w-[160px] h-[160px] rounded-full absolute z-10 overflow-hidden">
                             <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full block"/>
-                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 rounded-full bg-zinc-800">
-
+                            <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
+                                <Link href="#" className="text-white font-bold text-center md:text-xl">
+                                    minerals
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div className="front absolute top-0 left-0 right-0 bottom-0 z-20 w-full h-full"></div>
         </section>
     )
 }

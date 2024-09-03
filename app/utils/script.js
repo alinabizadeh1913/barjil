@@ -59,6 +59,8 @@ export const loadCategory = () => {
     const title6 = category.querySelector('.category-title .t6 span');
     const title7 = category.querySelector('.category-title .t7 span');
 
+    const front = category.querySelector('.front')
+
     setTimeout(() => {
         item1.style.transform = 'translateX(0)'
     },200)
@@ -152,6 +154,9 @@ export const loadCategory = () => {
         title6.style.transform = 'translateY(0)'
         title7.style.transform = 'translateY(0)'
     },5900)
+    setTimeout(() => {
+        front.style.display = 'none';
+    },6000)
 }
 
 export const loadQuestions = () => {
