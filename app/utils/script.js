@@ -204,4 +204,13 @@ export const loadAboutBarjil = () => {
         link.style.visibility = 'visible';
         link.style.opacity = 1;
     }, 2400)
+    setTimeout(() => {
+        galaxy.classList.add('galaxy-animation')
+    },2500)
+}
+
+export const hideLoading = () => {
+    const loading = document.querySelector('#loading');
+    loading.style.visibility = 'hidden';
+    loading.style.opacity = 0;
 }

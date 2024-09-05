@@ -1,6 +1,6 @@
 import React from "react";
-import { MineralIcon } from "../Icons";
 import Image from "next/image";
+import { CategoryIcon } from "../Icons";
 
 const ProductCard = (props) => {
     return (
@@ -13,7 +13,7 @@ const ProductCard = (props) => {
                     {props.title || "Gypsum Board (Drywall)"}
                 </h1>
                 <div className="type flex items-center my-4">
-                    {props.type === "minerals" ? <MineralIcon className="mr-2" stroke="#ffffff99" width="16" height="16"/> : ""}
+                    {props.type === "minerals" ? <CategoryIcon className="mr-2" stroke="#ffffff99" width="16" height="16"/> : ""}
                     <span className="text-[#ffffff99] text-sm">
                         {props.type || "minerals"}
                     </span>

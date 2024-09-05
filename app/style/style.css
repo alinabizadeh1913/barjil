@@ -12,6 +12,7 @@
 body {
   background-color: #eaeaea;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 ::selection {
@@ -33,21 +34,17 @@ body {
 
 ::-webkit-scrollbar {
   width: 0.7vw;
-  border-radius: 10px !important;
-  background-color: transparent;
 }
 
 ::-webkit-scrollbar-track {
   background-color: #ffffff;
-  border-radius: 10px !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #333333;
-  border-radius: 15px;
+  background-color: #32cd32;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #4d4d4d;
+  background-color: #006400;
 }
 
 #menu {
@@ -89,6 +86,35 @@ body {
 }
 #header::-webkit-scrollbar {
   display: none;
+}
+#header #header-content .scroll-down {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4313s ease;
+}
+#header #header-content .scroll-down .scroll-wrapper {
+  width: 25px;
+  border-radius: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  padding: 3px;
+}
+#header #header-content .scroll-down .scroll-wrapper .circle-wrapper {
+  animation: topDown 2s infinite ease-in-out;
+}
+#header #header-content .scroll-down .scroll-wrapper .circle-wrapper .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+@keyframes topDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(76%);
+  }
 }
 #header #header-content .content-inner .title {
   color: #fff;
@@ -156,7 +182,15 @@ body {
 #header #header-content .slider-container .slick-slide {
   padding: 0 4px;
 }
+#header #header-content .slider-container .slider-controls button {
+  outline: 0;
+  box-shadow: unset;
+  background-color: transparent;
+}
 #header #header-content .slider-container .slider-controls button svg, #header #header-content .slider-container .slider-controls button rect, #header #header-content .slider-container .slider-controls button path {
+  outline: 0;
+  box-shadow: unset;
+  background-color: transparent;
   transition: 0.1313s ease;
 }
 #header #header-content .slider-container .slider-controls button:hover svg {
@@ -341,6 +375,10 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: 0.4313s ease;
+  cursor: default;
+}
+#questions .last .faq-wrapper:hover {
+  border-color: #ffd700;
 }
 #questions .last .faq-wrapper .content .text p {
   overflow: hidden;
@@ -365,6 +403,14 @@ body {
   transform: translate(-50%, 50%);
   transition: 0.6131s ease;
 }
+@keyframes galaxyRotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 #about-barjil .barjil-trading .title {
   visibility: hidden;
   opacity: 0;
@@ -379,6 +425,16 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: 0.613s ease;
+}
+
+#articles-items .filter .filter-item {
+  width: 120px;
+}
+#articles-items .filter .category-wrapper {
+  width: calc(100% - 120px);
+}
+#articles-items .article .article-card .image {
+  width: 100%;
 }
 
 #side-menu {
@@ -416,6 +472,11 @@ body {
   transition: 0.313s ease;
 }
 
+#loading {
+  backdrop-filter: blur(10px);
+  transition: 0.313s ease;
+}
+
 .show-hidden {
   transform: translate(0) !important;
 }
@@ -423,6 +484,10 @@ body {
 .show-hidden-activity {
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+.galaxy-animation {
+  animation: galaxyRotate 5s 1 ease-in-out;
 }
 
 @keyframes moveBg {

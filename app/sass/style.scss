@@ -51,6 +51,7 @@ $h2-gray-color : #454545;
 body{
     background-color: #eaeaea;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 ::selection{
@@ -72,20 +73,16 @@ body{
 
 ::-webkit-scrollbar{
     width: 0.7vw;
-    border-radius: 10px !important;
-    background-color: transparent;
 }
 
 ::-webkit-scrollbar-track{
     background-color: #ffffff;
-    border-radius: 10px !important;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: #333333;
-    border-radius: 15px;
+    background-color: $primary-color;
     &:hover{
-        background-color: #4d4d4d;
+        background-color: $primary-color-hover;
     }
 }
 // Reboot
@@ -153,6 +150,35 @@ body{
         display: none;
     }
     #header-content{
+        .scroll-down{
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.4313s ease;
+            .scroll-wrapper{
+                width: 25px;
+                border-radius: 50px;
+                height: 50px;
+                border: 2px solid $neutral-white-color;
+                padding: 3px;
+                .circle-wrapper{
+                    animation: topDown 2s infinite ease-in-out;
+                    .circle{
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 100%;
+                        background-color: #fff;
+                    }
+                    @keyframes topDown {
+                        from { 
+                            transform: translateY(0);
+                        }
+                        to{
+                            transform: translateY(76%);
+                        }
+                    }
+                }
+            }
+        }
         .content-inner{
             .title{
                 color: $neutral-white-color;
@@ -189,6 +215,7 @@ body{
                     }
                 }
             }
+            
         }
         .slider-container{
             opacity: 0;
@@ -222,7 +249,13 @@ body{
             }
             .slider-controls{
                 button{
+                    outline: 0;
+                    box-shadow: unset;
+                    background-color: transparent;
                     svg,rect,path{
+                        outline: 0;
+                        box-shadow: unset;
+                        background-color: transparent;
                         transition: 0.1313s ease;
                     }
                     &:hover{
@@ -310,7 +343,6 @@ body{
 }
 // Products
 #products{
-    
     #product-items{
         .sidebar{
             .sidebar-inner{
@@ -487,6 +519,10 @@ body{
             visibility: hidden;
             opacity: 0;
             transition: 0.4313s ease;
+            cursor: default;
+            &:hover{
+                border-color: $disable-color;
+            }
             .content{
                 .text{
                     p{
@@ -519,6 +555,15 @@ body{
             visibility: hidden;
             transform: translate(-50%, 50%);
             transition: 0.6131s ease;
+            
+            @keyframes galaxyRotate {
+                from{
+                    transform: rotate(0);
+                }
+                to{
+                    transform: rotate(360deg);
+                }
+            }
         }
     }
     .barjil-trading{
@@ -538,6 +583,24 @@ body{
             visibility: hidden;
             opacity: 0;
             transition: 0.613s ease;
+        }
+    }
+}
+// Articles
+#articles-items{
+    .filter{
+        .filter-item{
+            width: 120px;
+        }
+        .category-wrapper{
+            width: calc(100% - 120px);
+        }
+    }
+    .article{
+        .article-card{
+            .image{
+                width: 100%;
+            }
         }
     }
 }
@@ -577,7 +640,11 @@ body{
     opacity: 0;
     transition: 0.313s ease;
 }
-
+// Loading
+#loading{
+    backdrop-filter: blur(10px);
+    transition: 0.313s ease;
+}
 // Activity Class
 
 .show-hidden{
@@ -587,7 +654,9 @@ body{
     visibility: visible !important;
     opacity: 1 !important;
 }
-
+.galaxy-animation{
+    animation: galaxyRotate 5s 1 ease-in-out;
+}
 // Activity Class
 
 // Keyframes

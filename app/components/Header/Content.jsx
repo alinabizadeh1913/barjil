@@ -109,6 +109,7 @@ const Content = () => {
           <div className="w-full md:w-7/12 pl-2 md:pt-40 relative">
             <div className="slider-container relative">
                {banners.length > 0 ? (
+                <>
                   <div className="slider-controls flex justify-end py-2 px-8 mb-2">
                     <button onClick={prevSlide} className="slider-prev mx-1">
                       <PrevIcon width="30" height="30"/>
@@ -117,30 +118,32 @@ const Content = () => {
                       <NextIcon width="30" height="30"/>
                     </button>
                   </div>
-                ) : (
-                  <div className="slider-controls flex justify-end py-2 px-8 mb-2">
-                    <button onClick={prevSlide} className="slider-prev mx-1" disabled>
-                      <PrevIcon width="30" height="30"/>
-                    </button>
-                    <button onClick={nextSlide} className="slider-next mx-1" disabled>
-                      <NextIcon width="30" height="30"/>
-                    </button>
-                  </div>
-                )}
-                <Slider ref={sliderRef} {...settings}>
-                  {banners.length > 0 ? banners.map(item => (
+
+                  <Slider ref={sliderRef} {...settings}>
+                  {banners.map(item => (
                   <div className='slider-item border-2 border-white rounded-md' key={item.id}>
                     <Link href={item.link} className='relative'>
-                      <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} layout="responsive" objectFit='cover' width={800} height={450} placeholder='blur' blurDataURL={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.thumbnail}`} className='rounded-[4px] h-[120px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full'/>
+                      <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} layout="responsive" objectFit='cover' width={800} height={450} placeholder='blur' blurDataURL={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.thumbnail}`} className='rounded-[4px] h-[150px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full'/>
                     </Link>
                   </div>
-                  )) : skeleton.map(item => (
-                    <div className='border-2 border-transparent rounded-md relative' key={item.id}>
-                        <div className="skeleton-item rounded-[4px] h-[120px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full"></div>
-                    </div>
                   ))}
                 </Slider>
+              </>
+                ) : (
+                  <div className='spinner flex justify-end'>
+                    <img src="/img/spinner.svg" alt="" />
+                  </div>
+                )}
+
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="scroll-down absolute bottom-0 w-full right-0 left-0 flex justify-center p-1">
+        <div className="scroll-wrapper">
+          <div className="circle-wrapper w-full h-full flex justify-center">
+            <div className="circle"></div>
           </div>
         </div>
       </div>

@@ -135,7 +135,7 @@ export const RightIcon3 = (props) => {
     )
 }
 
-export const MineralIcon = (props) => {
+export const CategoryIcon = (props) => {
     return(
         <svg width={props.width || "18"} height={props.height || "18"} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path d="M14.25 1.5H12.75C11.25 1.5 10.5 2.25 10.5 3.75V5.25C10.5 6.75 11.25 7.5 12.75 7.5H14.25C15.75 7.5 16.5 6.75 16.5 5.25V3.75" stroke={props.stroke || "white"} stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -175,6 +175,15 @@ export const Galaxy = (props) => {
             <stop offset="1" stop-color="#F08400"/>
             </linearGradient>
             </defs>
+        </svg>
+    )
+}
+
+export const FilterIcon = (props) => {
+    return (
+        <svg width={props.width || "40"} height={props.height || "40"} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M31.0003 3.5C32.8337 3.5 34.3337 5 34.3337 6.83333V10.5C34.3337 11.8333 33.5003 13.5 32.667 14.3333L25.5003 20.6667C24.5003 21.5 23.8337 23.1667 23.8337 24.5V31.6667C23.8337 32.6667 23.167 34 22.3337 34.5L20.0003 36C17.8337 37.3333 14.8337 35.8333 14.8337 33.1667V24.3333C14.8337 23.1667 14.167 21.6667 13.5003 20.8333L7.16699 14.1667C6.33366 13.3333 5.66699 11.8333 5.66699 10.8333V7C5.66699 5 7.16699 3.5 9.00033 3.5H24.0003" stroke={props.stroke || "#808080"} stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.2167 3.5L10 16.6667" stroke={props.stroke || "#808080"} stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     )
 }
