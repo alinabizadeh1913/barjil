@@ -74,9 +74,9 @@ const Questions = () => {
         <section id="questions" className="mt-32">
             <div className="flex flex-wrap justify-between">
                 <div className="first w-full sm:w-6/12">
-                    <div className="engineer-wrapper mb-4 sm:mb-0 h-[450px] sm:h-[440px] md:h-[550px] w-full /rounded-tr-[373px] sm:rounded-tr-[20px] sm:rounded-br-[20px] bg-[green] flex justify-end sticky top-[50px]">
+                    <div className="engineer-wrapper mb-4 sm:mb-0 h-[450px] sm:h-[440px] md:h-[550px] w-full rounded-tr-[373px] /sm:rounded-tr-[20px] /sm:rounded-br-[20px] bg-[green] flex justify-end sticky top-[50px]">
                         <div className="engineer-inner relative w-[80%] h-[110%] z-10 ">
-                            <img src="/img/engineer.png" className="w-full h-full block sm:rounded-br-[20px]"/>
+                            <img src="/img/engineer.png" className="w-full h-full block /sm:rounded-br-[20px]"/>
                         </div>
                         <div className="question-mark px-2 sm:px-0 md:px-10 absolute w-full h-full top-0 left-0 bottom-0 right-0 flex items-center">
                             <QuestionMark />

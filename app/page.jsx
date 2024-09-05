@@ -37,11 +37,11 @@ const HomePage = () => {
       loadSlider()
     },4100)
     const load7 = setTimeout(() => {
-      const section = document.querySelector('#header .scroll-down');
+      // const section = document.querySelector('#header .scroll-down');
       const body = document.body;
 
-      section.style.visibility = 'visible';
-      section.style.opacity = 1;
+      // section.style.visibility = 'visible';
+      // section.style.opacity = 1;
       body.style.overflowY = 'auto';
     },4000)
 
@@ -54,7 +54,7 @@ const HomePage = () => {
       clearTimeout(load4)
       clearTimeout(load5)
       clearTimeout(load6)
-      clearTimeout(load7)
+      // clearTimeout(load7)
 
       const body = document.body;
       body.style.overflowY = 'hidden';

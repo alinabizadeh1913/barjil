@@ -6,6 +6,8 @@ import Banner from "../components/Banner";
 import { loadMenu } from "../utils/script";
 import FullScreenElem from "../components/FullScreenElem";
 import SideMenu from "../components/SideMenu";
+import Gallery from "../components/Gallery";
+import Footer from "../components/Footer";
 
 const GalleryPage = () => {
 
@@ -25,9 +27,11 @@ const GalleryPage = () => {
       }, [])
 
     return (
-        <section id="articles">
+        <section id="gallery">
             <Menu />
             <Banner background="/img/gallery.jpg" title="Gallery" />
+            <Gallery />
+            <Footer />
             <SideMenu />
             <FullScreenElem />
         </section>

@@ -32,6 +32,11 @@ $h2-gray-color : #454545;
 
 
 @media screen and (min-width : 900px) {
+    #gallery-items{
+        .gallery-wrapper{
+            grid-template-rows: 200px 200px !important;
+        }
+    }
     #questions{
         .first{
             width: 500px !important;
@@ -604,6 +609,19 @@ body{
         }
     }
 }
+// Gallery
+#gallery-items{
+    .gallery-wrapper{
+        grid-template-rows: 350px 150px 150px;
+    }
+}
+#contact-items{
+    .service{
+        .link{
+            background: linear-gradient(to right, #32CD32, #006400);
+        }
+    }
+}
 // Side Menu
 #side-menu{
     overflow-y: scroll;
@@ -642,8 +660,8 @@ body{
 }
 // Loading
 #loading{
-    backdrop-filter: blur(10px);
-    transition: 0.313s ease;
+    backdrop-filter: blur(20px);
+    transition: visibility 0.313s ease,opacity 0.313s ease;
 }
 // Activity Class
 

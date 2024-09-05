@@ -5,7 +5,7 @@ import ArticleCard from "./ArticleCard";
 const Articles = () => {
     return (
         <section id="articles-items" className="mt-14">
-            <div className="filter container mx-auto px-14">
+            <div className="filter container mx-auto px-8 md:px-14">
                 <div className="flex flex-wrap items-center border-2 border-[#2aa82a] rounded-xl p-2">
                     <div className="filter-item border-r-2 border-[#b5b5b5] pr-4">
                         <div className="flex items-center cursor-pointer w-fit ">
@@ -40,33 +40,33 @@ const Articles = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-8 my-4">
+            <div className="container mx-auto px-5 md:px-8 my-4">
                 <div className="article flex flex-wrap">
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 1" category="1st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 2" category="2st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 3" category="3st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 4" category="4st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 5" category="5st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 6" category="6st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 7" category="7st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 8" category="8st category"/>
                     </div>
-                    <div className="w-1/2 px-2 md:w-1/3 md:px-6 mb-2 md:mb-12">
+                    <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12">
                         <ArticleCard title="Article number 9" category="9st category"/>
                     </div>
                 </div>

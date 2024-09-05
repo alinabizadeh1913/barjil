@@ -6,6 +6,8 @@ import Banner from "../components/Banner";
 import { loadMenu } from "../utils/script";
 import SideMenu from "../components/SideMenu";
 import FullScreenElem from "../components/FullScreenElem";
+import ContactUs from "../components/ContactUs";
+import Footer from "../components/Footer";
 
 const ContactPage = () => {
 
@@ -28,6 +30,8 @@ const ContactPage = () => {
         <section id="contact">
             <Menu />
             <Banner background="/img/contact.jpg" title="Contact Us"/>
+            <ContactUs />
+            <Footer />
             <SideMenu />
             <FullScreenElem />
         </section>

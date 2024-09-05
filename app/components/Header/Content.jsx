@@ -140,13 +140,13 @@ const Content = () => {
         </div>
       </div>
 
-      <div className="scroll-down absolute bottom-0 w-full right-0 left-0 flex justify-center p-1">
+      {/* <div className="scroll-down absolute bottom-0 w-full right-0 left-0 flex justify-center p-1">
         <div className="scroll-wrapper">
           <div className="circle-wrapper w-full h-full flex justify-center">
             <div className="circle"></div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

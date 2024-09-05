@@ -6,6 +6,8 @@ import Banner from "../components/Banner";
 import { loadMenu } from "../utils/script";
 import FullScreenElem from "../components/FullScreenElem";
 import SideMenu from "../components/SideMenu";
+import AboutUs from "../components/AboutUs";
+import Footer from "../components/Footer";
 
 const AboutPage = () => {
 
@@ -25,9 +27,11 @@ const AboutPage = () => {
       }, [])
 
     return (
-        <section id="articles">
+        <section id="about-us">
             <Menu />
             <Banner background="/img/about-us.jpg" title="About Us" />
+            <AboutUs />
+            <Footer />
             <SideMenu />
             <FullScreenElem />
         </section>
