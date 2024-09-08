@@ -11,7 +11,7 @@ const Font = Roboto({
     weight : ['500']
 })
 
-const Menu = () => {
+const Menu = (props) => {
 
     const ShowHideFullElem = () => {
         const fullScreenElement = document.querySelector('#full-screen');
@@ -20,7 +20,7 @@ const Menu = () => {
     }
 
     return (
-        <section id="menu" className={`${Font.className} fixed top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 bg-[#33333333]`}>
+        <section id="menu" className={`${Font.className} ${props.static ? 'static' : 'fixed'} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${props.background || 'bg-[#33333333]'}`}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center justify-between md:justify-normal">
                     <div className="w-4/12 md:w-1/12 order-2 md:order-1">

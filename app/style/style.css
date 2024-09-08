@@ -5,6 +5,16 @@
   #gallery-items .gallery-wrapper {
     grid-template-rows: 200px 200px !important;
   }
+  #support .form-wrapper form {
+    transform: translateX(-145px) !important;
+  }
+  #support .form-wrapper form .circle-wrapper {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  #support .form-wrapper form .input-g {
+    width: calc(100% - 250px) !important;
+  }
   #questions .first {
     width: 500px !important;
   }
@@ -13,7 +23,7 @@
   }
 }
 body {
-  background-color: #eaeaea;
+  background-color: rgba(238, 243, 240, 0.9607843137);
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -257,6 +267,7 @@ body {
   color: #454545;
 }
 #products #product-items .product .product-card {
+  height: 100%;
   background: linear-gradient(90deg, #4af54a, #0d890d 42%, #097609 -166%, #0d890d -92%, #4af54a);
   background-size: 200% 100%;
   background-position: 0;
@@ -361,6 +372,50 @@ body {
   opacity: 0;
   transition: 0.313s ease;
   background: linear-gradient(to top, #121212, rgba(255, 255, 255, 0));
+}
+
+#support .form-wrapper form .circle-wrapper {
+  width: 200px;
+  height: 200px;
+  border: 7px solid #32cd32;
+  border-radius: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.313s ease-in-out, opacity 0.4313s ease, visibility 0.4313s ease;
+}
+#support .form-wrapper form .circle-wrapper .circle-number:nth-child(2) {
+  transform: rotate(-90deg);
+}
+#support .form-wrapper form .circle-wrapper .circle-number:nth-child(3) {
+  transform: rotate(180deg);
+}
+#support .form-wrapper form .circle-wrapper .circle-number:nth-child(4) {
+  transform: rotate(90deg);
+}
+#support .form-wrapper form .input-g {
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.43131s ease;
+}
+#support .form-wrapper form .input-g button {
+  outline: 0;
+  box-shadow: unset;
+}
+#support .form-wrapper form .input-g button:hover svg path {
+  stroke: #fff;
+}
+#support .form-wrapper form .input-g button svg path {
+  transition: 0.313s ease-in-out;
+}
+#support .image img {
+  transition: 0.4313s ease-in-out;
+}
+#support .image img:first-child {
+  transform: translateX(110%);
+}
+#support .image img:last-child {
+  transform: translateX(90%);
 }
 
 #questions .first .engineer-wrapper .engineer-inner {

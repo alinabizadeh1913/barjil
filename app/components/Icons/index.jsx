@@ -299,3 +299,11 @@ export const MessageIcon = (props) => {
         </svg>
     )
 }
+
+export const CheckIcon = (props) => {
+    return (
+        <svg width={props.width || "33"} height={props.height || "23"} viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M3 11.4419L11.5282 19.97L29.8768 3" stroke="#32CD32" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}

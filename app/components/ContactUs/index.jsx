@@ -33,67 +33,67 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap mt-28 mb-16 md:px-6">
-                    <div className="w-full md:w-6/12 px-6 mb-4">
-                        <div className="email flex justify-center items-center text-center p-8 border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-xl text-[#727272]">
+                    <div className="w-full md:w-6/12 md:px-6 mb-4">
+                        <div className="email flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
+                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
                                 example@gmail.com
                             </a>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
-                                <div className="icon-inner w-[72px] h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
-                                    <MessageIcon width="45"/>
+                                <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
+                                    <MessageIcon className="w-[27px] h-[27px] md:w-[37px] md:h-[37px]"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-6/12 px-6 mb-4">
-                        <div className="instagram flex justify-center items-center text-center p-8 border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-xl text-[#727272]">
+                    <div className="w-full md:w-6/12 md:px-6 mb-4">
+                        <div className="instagram flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
+                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
                                 barjiltrading.co
                             </a>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
-                                <div className="icon-inner w-[72px] h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
-                                    <InstagramIcon2 width="45"/>
+                                <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
+                                    <InstagramIcon2 className="w-[27px] h-[27px] md:w-[37px] md:h-[37px]"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-6/12 px-6 mb-4">
-                        <div className="whatsapp flex justify-center items-center text-center p-8 border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-xl text-[#727272]">
+                    <div className="w-full md:w-6/12 md:px-6 mb-4">
+                        <div className="whatsapp flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
+                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
                                 barjiltrading_company
                             </a>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
-                                <div className="icon-inner w-[72px] h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
-                                    <WhatsappIcon2 width="45"/>
+                                <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
+                                    <WhatsappIcon2 className="w-[27px] h-[27px] md:w-[37px] md:h-[37px]"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-6/12 px-6 mb-4">
-                        <div className="phone flex justify-center items-center text-center p-8 border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-xl text-[#727272]">
+                    <div className="w-full md:w-6/12 md:px-6 mb-4">
+                        <div className="phone flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
+                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
                                 +98 32 3434 5678
                             </a>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
-                                <div className="icon-inner w-[72px] h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
-                                    <PhoneIcon width="45"/>
+                                <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
+                                    <PhoneIcon className="w-[27px] h-[27px] md:w-[37px] md:h-[37px]"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="w-full px-6 mb-4">
+                    <div className="w-full md:px-6 mb-4">
                         <div className="location flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-xl text-[#727272]">
+                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
                                 Iran, Khoozestan, Lorem Ipsum is simply dummy text of...
                             </a>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
-                                <div className="icon-inner w-[72px] h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
-                                    <LocationIcon width="45"/>
+                                <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
+                                    <LocationIcon className="w-[27px] h-[27px] md:w-[37px] md:h-[37px]"/>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ const Font = Montserrat({
 
 const RootLayout = ({children}) => {
   return (
-    <html>
+    <html >
       <head>
         <title>
           Company

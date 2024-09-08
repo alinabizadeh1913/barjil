@@ -1,7 +1,73 @@
-import React from "react"
+'use client';
+
+import React, { useState } from "react"
 import ProductCard from "./ProductCard"
 
 const Products = () => {
+
+    const [productItems,setProductItems] = useState([
+        {
+            id : 1,
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
+            link : 'products/product1',
+            img : '/img/product-card-3.jpg'
+        },
+        {
+            id : 2,
+            description : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus.',
+            link : 'products/product2',
+            img : '/img/product-card.png'
+        },
+        {
+            id : 3,
+            description : 'Lorem ipsum dolor sit amet.',
+            link : 'products/product3',
+            img : '/img/product-card-2.jpg'
+        },
+        {
+            id : 4,
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
+            link : 'products/product4',
+            img : '/img/petrochemical.jpg'
+        },
+        {
+            id : 5,
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit facilis est?',
+            link : 'products/product5',
+            img : '/img/minerals.jpg'
+        },
+        {
+            id : 6,
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
+            link : 'products/product6',
+            img : '/img/our-product.jpg'
+        },
+        {
+            id : 7,
+            description : 'Lorem ipsum dolor sit amet.',
+            link : 'products/product7',
+            img : '/img/petrochemical.jpg'
+        },
+        {
+            id : 8,
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
+            link : 'products/product8',
+            img : '/img/product-card-3.jpg'
+        },
+        {
+            id : 9,
+            description : 'Lorem ipsum dolor sit amet.',
+            link : 'products/product9',
+            img : '/img/product-card.png'
+        },
+        {
+            id : 10,
+            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
+            link : 'products/product10',
+            img : '/img/product-card-2.jpg'
+        }
+    ]);
+
     return (
         <section id="product-items" className="mt-14 px-3">
             <div className="container mx-auto">
@@ -63,37 +129,13 @@ const Products = () => {
                         </div>
                     </div>
                     <div className="product w-full md:w-7/12 xl:w-2/3 flex flex-wrap md:pr-3 mt-8 md:mt-0">
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-                        <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3">
-                            <ProductCard type="minerals"/>
-                        </div>
-
+                        {
+                            productItems && productItems.map(item => (
+                                <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3 mb-3">
+                                    <ProductCard description={item.description} link={item.link} image={item.img}/>
+                                </div>
+                            ))
+                        }
                         <div className="pagination">
                             <div className="button-g flex">
 

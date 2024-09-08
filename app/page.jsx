@@ -11,6 +11,7 @@ import Questions from "./components/Questions";
 import AboutBarjil from "./components/AboutBarjil";
 import FullScreenElem from "./components/FullScreenElem";
 import Loading from "./components/Loading";
+import Support from "./components/Support";
 
 const HomePage = () => {
 
@@ -69,6 +70,7 @@ const HomePage = () => {
       <SideMenu />
       <Header />
       <Category />
+      <Support hasContainer="false"/>
       <Questions />
       <AboutBarjil />
       <Footer />

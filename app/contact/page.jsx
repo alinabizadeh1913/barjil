@@ -8,6 +8,7 @@ import SideMenu from "../components/SideMenu";
 import FullScreenElem from "../components/FullScreenElem";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
+import Support from "../components/Support";
 
 const ContactPage = () => {
 
@@ -31,6 +32,7 @@ const ContactPage = () => {
             <Menu />
             <Banner background="/img/contact.jpg" title="Contact Us"/>
             <ContactUs />
+            <Support hasContainer="true"/>
             <Footer />
             <SideMenu />
             <FullScreenElem />

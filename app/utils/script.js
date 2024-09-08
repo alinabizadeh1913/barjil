@@ -214,3 +214,25 @@ export const hideLoading = () => {
     loading.style.visibility = 'hidden';
     loading.style.opacity = 0;
 }
+
+export const loadSupport = () => {
+    const deskImg = document.querySelector('#support .image .desk-image');
+    const boyImg = document.querySelector('#support .image .boy-image');
+    const circleWrapper = document.querySelector('#support .form-wrapper .circle-wrapper');
+    const inputGroup = document.querySelector('#support .form-wrapper .input-g');
+
+    setTimeout(() => {
+        deskImg.style.transform = 'translateX(0)'
+    }, 500)
+    setTimeout(() => {
+        boyImg.style.transform = 'translateX(0)'
+    }, 1000)
+    setTimeout(() => {
+        circleWrapper.style.visibility = 'visible';
+        circleWrapper.style.opacity = 1;
+    }, 1500)
+    setTimeout(() => {
+        inputGroup.style.visibility = 'visible';
+        inputGroup.style.opacity = 1;
+    }, 2000)
+}

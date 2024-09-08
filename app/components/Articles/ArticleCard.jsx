@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { CategoryIcon } from "../Icons";
+import Link from "next/link";
 
 const ArticleCard = (props) => {
     return (
-        <div className="article-card p-3 border-2 border-[#b6b6b6] rounded-xl">
+        <Link href={props.link} className="article-card p-3 border-2 border-[#b6b6b6] rounded-xl h-full block">
             <div className="image h-[150px] md:h-[200px] relative rounded-lg overflow-hidden">
                 <Image src={props.image || "/img/article-card.jpg"} layout="fill" objectFit="cover"/>
             </div>
@@ -24,7 +25,7 @@ const ArticleCard = (props) => {
                     {props.description || "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text of the dolor sit."}
                 </p>
             </div>
-        </div>
+        </Link>
     )
 }
 
