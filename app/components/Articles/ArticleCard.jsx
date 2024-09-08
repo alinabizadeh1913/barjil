@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ArticleCard = (props) => {
     return (
-        <Link href={props.link} className="article-card p-3 border-2 border-[#b6b6b6] rounded-xl h-full block">
+        <Link href={props.link || '#'} className={`${props.background || "bg-transparent"} article-card p-3 border-2 border-[#b6b6b6] rounded-xl h-full block`}>
             <div className="image h-[150px] md:h-[200px] relative rounded-lg overflow-hidden">
                 <Image src={props.image || "/img/article-card.jpg"} layout="fill" objectFit="cover"/>
             </div>

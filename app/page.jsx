@@ -12,6 +12,7 @@ import AboutBarjil from "./components/AboutBarjil";
 import FullScreenElem from "./components/FullScreenElem";
 import Loading from "./components/Loading";
 import Support from "./components/Support";
+import ArticleSlider from "./components/ArticleSlider";
 
 const HomePage = () => {
 
@@ -70,6 +71,7 @@ const HomePage = () => {
       <SideMenu />
       <Header />
       <Category />
+      <ArticleSlider />
       <Support hasContainer="false"/>
       <Questions />
       <AboutBarjil />

@@ -24,7 +24,6 @@
 }
 body {
   background-color: rgba(238, 243, 240, 0.9607843137);
-  overflow-x: hidden;
   overflow-y: hidden;
 }
 
@@ -374,6 +373,12 @@ body {
   background: linear-gradient(to top, #121212, rgba(255, 255, 255, 0));
 }
 
+#support .title h1 {
+  color: white;
+  -webkit-text-stroke: 3px green;
+  letter-spacing: 3px;
+  text-fill-color: white;
+}
 #support .form-wrapper form .circle-wrapper {
   width: 200px;
   height: 200px;
@@ -418,11 +423,17 @@ body {
   transform: translateX(90%);
 }
 
+#article-slider #slider {
+  position: relative;
+  z-index: 5;
+  min-height: 550px;
+  background: linear-gradient(to bottom, #006400 45%, #218b21 45%);
+}
+
 #questions .first .engineer-wrapper .engineer-inner {
   transform: translateY(-9%);
 }
 #questions .first .engineer-wrapper .question-mark {
-  transform: translate(20px, 20px);
   visibility: hidden;
   opacity: 0;
   transition: 0.4313s ease;
@@ -474,6 +485,12 @@ body {
   opacity: 0;
   transition: 0.613s ease;
 }
+#about-barjil .barjil-trading .title .about-title {
+  color: white;
+  -webkit-text-stroke: 2px #333333;
+  letter-spacing: 3px;
+  text-fill-color: white;
+}
 #about-barjil .barjil-trading .description span {
   display: block;
   transform: translateY(100%);
@@ -501,6 +518,22 @@ body {
 
 #contact-items .service .link {
   background: linear-gradient(to right, #32CD32, #006400);
+}
+
+#feedback .feedback-wrapper .image {
+  width: 105px;
+}
+#feedback .feedback-wrapper .content {
+  width: calc(100% - 105px);
+}
+#feedback .form-wrapper form .link {
+  background: linear-gradient(to right, #32CD32, #006400);
+}
+
+#article-banner {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 #side-menu {

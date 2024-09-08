@@ -6,10 +6,10 @@ import Link from "next/link";
 const ProductCard = (props) => {
     return (
         <div className="product-card rounded-lg p-3 flex items-center ">
-            <div className="card-image w-[45%] h-[250px] border-2 border-white rounded-md relative">
+            <div className="card-image w-[50%] h-[230px] border-2 border-white rounded-md relative">
                 <Image src={props.image || "/img/product-card.png"} alt="" className="rounded-md w-full h-full" layout="fill"/>
             </div>
-            <div className="card-content w-[55%] pl-3 pt-3 flex flex-col justify-center">
+            <div className="card-content w-[50%] px-3 flex flex-col justify-center">
                 <h1 className="title text-lg font-bold text-white">
                     {props.title || "Gypsum Board (Drywall)"}
                 </h1>
@@ -24,7 +24,7 @@ const ProductCard = (props) => {
                         {props.description || "Lorem Ipsum is simply dummy text of the printing and typesetting industry."}
                     </h2>
                 </div>
-                <Link href={props.link || "/"} className="link w-full text-white border-2 border-white p-[10px] text-center font-bold rounded-md mt-4">
+                <Link href={props.link || "/"} className="link w-full text-white border-2 border-white p-[10px] text-center rounded-md mt-4">
                     view product
                 </Link>
             </div>

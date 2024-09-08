@@ -2,11 +2,16 @@
 
 import Link from "next/link";
 import { Galaxy, RightIcon3 } from "../Icons";
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Poppins } from 'next/font/google';
 import { useEffect } from "react";
 import { loadAboutBarjil } from "@/app/utils/script";
 
 const Font = Montserrat({
+    subsets : ['latin'],
+    weight : ['900']
+})
+
+const Font2 = Poppins({
     subsets : ['latin'],
     weight : ['900']
 })
@@ -43,7 +48,7 @@ const AboutBarjil = () => {
                <div className="w-full md:w-8/12 px-3 flex justify-center">
                     <div className="barjil-trading">
                         <div className="title">
-                            <p className={`text-4xl md:text-6xl ${Font.className} text-[#333333]`}>
+                            <p className={`about-title text-4xl md:text-6xl ${Font2.className} text-[#333333]`}>
                                 About 
                             </p>
                             <p className={`text-6xl md:text-8xl ${Font.className} text-[#333333]`}>

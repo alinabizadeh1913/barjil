@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { Montserrat } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import { CheckIcon } from "../Icons";
 import { loadSupport } from "@/app/utils/script";
 
-const Font = Montserrat({
+const Font = Poppins({
     subsets : ['latin'],
     weight : ['900']
 })
@@ -129,7 +129,7 @@ const Support = (props) => {
         <section id="support" className="mt-28">
             <div className={`${props.hasContainer === 'true' ? 'wrapper mx-auto' : 'w-full'} flex flex-col items-center`}>
                 <div className="title md:w-[79%] px-6 md:p-0">
-                    <h1 className={`${Font.className} text-5xl text-[#006400] mb-6 text-center md:text-start`}>
+                    <h1 className={`${Font.className} text-4xl md:text-5xl text-[#006400] mb-6 text-center md:text-start`}>
                         Consultation and Support
                     </h1>
                     <p className="text-[#707070] flex justify-center md:justify-start">

@@ -72,7 +72,7 @@ const Products = () => {
         <section id="product-items" className="mt-14 px-3">
             <div className="container mx-auto">
                 <div className="flex flex-wrap">
-                    <div className="sidebar w-full md:w-5/12 xl:w-1/3 md:pl-3">
+                    <div className="sidebar w-full md:w-5/12 xl:w-1/3 md:px-3">
                         <div className="sidebar-inner bg-white rounded-lg p-8 sticky top-[100px]">
                             <div className="available-products flex items-center justify-between mb-8">
                                 <h3 className="mr-2">
@@ -131,7 +131,7 @@ const Products = () => {
                     <div className="product w-full md:w-7/12 xl:w-2/3 flex flex-wrap md:pr-3 mt-8 md:mt-0">
                         {
                             productItems && productItems.map(item => (
-                                <div className="w-full xl:w-1/2 md:pl-8 xl:pl-3 mb-3">
+                                <div className="w-full xl:w-1/2 md:px-8 xl:px-3 mb-3">
                                     <ProductCard description={item.description} link={item.link} image={item.img}/>
                                 </div>
                             ))

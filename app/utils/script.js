@@ -164,7 +164,6 @@ export const loadQuestions = () => {
     const questionMark = questions.querySelector('.engineer-wrapper .question-mark');
 
     setTimeout(() => {
-        questionMark.style.transform = 'translate(0,0)'
         questionMark.style.visibility = 'visible'
         questionMark.style.opacity = 1
     },300)

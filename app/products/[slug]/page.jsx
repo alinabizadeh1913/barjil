@@ -1,5 +1,6 @@
 'use client';
 
+import Feedback from "@/app/components/Feedback";
 import Footer from "@/app/components/Footer";
 import FullScreenElem from "@/app/components/FullScreenElem";
 import Menu from "@/app/components/Menu";
@@ -29,6 +30,7 @@ const SingleProduct = () => {
         <section id="single-product">
             <Menu static="true" background="bg-[#333333]"/>
             <Support hasContainer="true"/>
+            <Feedback />
             <SideMenu />
             <FullScreenElem />
             <Footer />
