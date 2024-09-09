@@ -3,7 +3,8 @@ import Link from "next/link";
 import React from "react";
 import { ShowHideSideMenu } from '../../utils/script';
 import { Roboto } from 'next/font/google';
-import { BurgerMenuIcon, EmailIcon, InstagramIcon, IranFlagIcon, LogoIcon, RightChevronIcon, WhatsappIcon } from "../Icons";
+import { ArabicFlagIcon, BurgerMenuIcon, EmailIcon, EnglishFlagIcon, InstagramIcon, IranFlagIcon, LogoIcon, RightChevronIcon, WhatsappIcon } from "../Icons";
+import useStore from "@/app/store/Store";
 
 
 const Font = Roboto({
@@ -13,10 +14,34 @@ const Font = Roboto({
 
 const Menu = (props) => {
 
+    const {language,setLanguage} = useStore();
+
     const ShowHideFullElem = () => {
         const fullScreenElement = document.querySelector('#full-screen');
 
         fullScreenElement.classList.toggle('show-hidden-activity');
+    }
+
+    const showHideLanguageList = () => {
+        const languageList = document.querySelector('#menu .change-language .language-list');
+        const icon = document.querySelector('#menu .change-language .icon');
+        languageList.classList.toggle('show-hidden-activity');
+        icon.classList.toggle('rotate-270');
+    }
+
+    const persion = () => {
+        setLanguage('fa');
+        showHideLanguageList();
+    }
+
+    const english = () => {
+        setLanguage('en');
+        showHideLanguageList();
+    }
+
+    const arabic = () => {
+        setLanguage('ar');
+        showHideLanguageList();
     }
 
     return (
@@ -53,11 +78,19 @@ const Menu = (props) => {
                         </div>
                     </div>
                     <div className="w-4/12 md:w-1/12 order-1 md:order-3 flex md:justify-center">
-                        <div className="change-language flex items-center">
-                            <div className="language cursor-pointer">
-                                <IranFlagIcon />
+                        <div className="change-language flex justify-center items-center relative">
+                            <div className="language cursor-pointer" onClick={showHideLanguageList}>
+                                {
+                                    language == 'en' ? <EnglishFlagIcon /> : language == 'fa' ? <IranFlagIcon /> : <ArabicFlagIcon />
+                                }
                             </div>
-                            <RightChevronIcon className="ml-1"/>
+                            <RightChevronIcon className="mx-2 icon duration-300"/>
+
+                            <div className="language-list flex p-[2px] border-2 border-[#dadada99] rounded-full absolute left-[54px] md:top-[40px]">
+                                <IranFlagIcon  width="25" className="cursor-pointer" onClick={persion}/>
+                                <EnglishFlagIcon className="mx-1 cursor-pointer" width="25"  onClick={english}/>
+                                <ArabicFlagIcon  width="25" className="cursor-pointer" onClick={arabic}/>
+                            </div>
                         </div>
                     </div>
                     <div className="w-2/12 hidden md:order-4 md:flex justify-end ">

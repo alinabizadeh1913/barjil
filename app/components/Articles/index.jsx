@@ -63,37 +63,65 @@ const Articles = () => {
         },
     ]);
 
+    const showHideCategory = (e) => {
+        const {currentTarget} = e;
+        const category = document.querySelector('#articles-items .category-res');
+        const filter = currentTarget.querySelector('span');
+        const path = currentTarget.querySelectorAll('path');
+
+        category.classList.toggle('hidden');
+        category.classList.toggle('flex');
+
+        filter.classList.toggle('color-green')
+        path.forEach(elem => {
+            elem.classList.toggle('stroke-green')
+        })
+    }
 
     return (
         <section id="articles-items" className="mt-14">
             <div className="filter container mx-auto px-8 md:px-14">
-                <div className="flex flex-wrap items-center border-2 border-[#2aa82a] rounded-xl p-2">
-                    <div className="filter-item border-r-2 border-[#b5b5b5] pr-4">
-                        <div className="flex items-center cursor-pointer w-fit ">
-                            <FilterIcon />
-                            <span className="mx-1 text-[#808080] font-black">
+                <div className="flex flex-wrap flex-col md:flex-row justify-center items-center border-2 border-[#bababa] md:border-[#2aa82a] rounded-xl p-2">
+                    <div className="filter-item md:border-r-2 md:border-[#b5b5b5] pr-4 flex justify-center">
+                        <div className="flex items-center justify-center cursor-pointer w-fit select-none" onClick={showHideCategory}>
+                            <FilterIcon className="duration-300"/>
+                            <span className="mx-1 font-black duration-300">
                                 Filter
                             </span>
                         </div>
                     </div>
-                    <div className="category-wrapper flex flex-wrap items-center justify-center">
-                        <div className="category-item flex items-center cursor-pointer mx-4 lg:mx-8">
-                            <span className="text-[#9f9f9f] font-semibold text-sm">
+                    <div className="category-res w-[70%] border-t border-t-[#c6c6c6] mt-[15px] hidden flex-col items-center justify-center md:hidden">
+                        <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
+                            category number 1
+                        </span>
+                        <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
+                            category number 2
+                        </span>
+                        <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
+                            category number 3
+                        </span>
+                        <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
+                            category number 4
+                        </span>
+                    </div>
+                    <div className="category-wrapper hidden md:flex flex-wrap items-center justify-center">
+                        <div className="category-item flex items-center cursor-pointer mx-4 md:mx-[10px] xl:mx-8">
+                            <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
                                 category number 1
                             </span>
                         </div>
-                        <div className="category-item flex items-center cursor-pointer mx-4 lg:mx-8">
-                            <span className="text-[#9f9f9f] font-semibold text-sm">
+                        <div className="category-item flex items-center cursor-pointer mx-4 md:mx-[10px] xl:mx-8">
+                            <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
                                 category number 2
                             </span>
                         </div>
-                        <div className="category-item flex items-center cursor-pointer mx-4 lg:mx-8">
-                            <span className="text-[#9f9f9f] font-semibold text-sm">
+                        <div className="category-item flex items-center cursor-pointer mx-4 md:mx-[10px] xl:mx-8">
+                            <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
                                 category number 3
                             </span>
                         </div>
-                        <div className="category-item flex items-center cursor-pointer mx-4 lg:mx-8">
-                            <span className="text-[#9f9f9f] font-semibold text-sm">
+                        <div className="category-item flex items-center cursor-pointer mx-4 md:mx-[10px] xl:mx-8">
+                            <span className="text-[#9f9f9f] hover:text-[#6e6e6e] font-semibold text-sm my-3 cursor-pointer duration-200">
                                 category number 4
                             </span>
                         </div>

@@ -110,7 +110,7 @@ const Content = () => {
             <div className="slider-container relative">
                {banners.length > 0 ? (
                 <>
-                  <div className="slider-controls flex justify-end py-2 px-8 mb-2">
+                  <div className="slider-controls flex justify-end py-2 px-8 mb-5">
                     <button onClick={prevSlide} className="slider-prev mx-1">
                       <PrevIcon width="30" height="30"/>
                     </button>

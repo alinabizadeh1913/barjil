@@ -40,7 +40,7 @@ const AboutBarjil = () => {
     })
     
     return (
-        <section id="about-barjil" className="mt-10 py-8 px-2 bg-[#ffeb78]">
+        <section id="about-barjil" className="mt-10 py-8 px-2">
             <div className="flex flex-wrap justify-between items-center">
                <div className="galaxy w-full md:w-4/12 px-3 flex justify-center">
                     <Galaxy className="w-[65%] md:w-[85%]"/>

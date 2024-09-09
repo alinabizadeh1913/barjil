@@ -14,7 +14,7 @@ const Footer = () => {
 
             <div className="container mx-auto flex flex-col relative z-10">
                 <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2">
-                    <div className="footer-item-wrapper md:row-start-1 md:row-end-2 md:col-start-1 md:col-end-2">
+                    <div className="footer-item-wrapper md:row-start-1 md:row-end-2 md:col-start-1 md:col-end-2 order-first">
                         <div className="footer-item h-full">
                             <div className="footer-inner py-8 px-10 h-full">
                                 <div className="description flex items-center justify-center h-full">
@@ -28,7 +28,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="footer-item-wrapper md:row-start-2 md:row-end-3 md:col-start-1 md:col-end-2">
+                    <div className="footer-item-wrapper md:row-start-2 md:row-end-3 md:col-start-1 md:col-end-2 order-4">
                         <div className="footer-item h-full">
                             <div className="footer-inner py-5 px-8 h-full">
                                 <div className="join-us flex flex-col items-center justify-center h-full">
@@ -51,7 +51,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="footer-item-wrapper md:row-start-1 md:row-end-3 md:col-start-2 md:col-end-3">
+                    <div className="footer-item-wrapper md:row-start-1 md:row-end-3 md:col-start-2 md:col-end-3 order-2">
                         <div className="footer-item h-full">
                             <div className="footer-inner py-5 px-8 text-center h-full">
                                 <div className="quick-acces flex flex-col justify-center h-full">
@@ -59,16 +59,16 @@ const Footer = () => {
                                         Quick acces
                                     </h2>
                                     <div className="links mt-4 flex flex-col items-center">
-                                        <a href="#" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href="/" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             Home
-                                        </a>
-                                        <a href="#" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        </Link>
+                                        <Link href="/products" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             Products
-                                        </a>
-                                        <a href="#" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        </Link>
+                                        <Link href="/gallery" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             Gallery
-                                        </a>
-                                        <a href="#" className="text-white text-opacity-60 duration-300 hover:text-opacity-100 ">
+                                        </Link>
+                                        <a href="/articles" className="text-white text-opacity-60 duration-300 hover:text-opacity-100 ">
                                             Articles
                                         </a>
                                     </div>
@@ -76,7 +76,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="footer-item-wrapper md:row-start-1 md:row-end-3 md:col-start-3 md:col-end-4">
+                    <div className="footer-item-wrapper md:row-start-1 md:row-end-3 md:col-start-3 md:col-end-4 order-3">
                         <div className="footer-item h-full">
                             <div className="footer-inner p-6 text-center h-full">
                                 <div className="useful-links flex flex-col justify-center h-full">
@@ -84,12 +84,12 @@ const Footer = () => {
                                         Useful links
                                     </h2>
                                     <div className="links mt-4 flex flex-col items-center">
-                                        <a href="#" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href="/about" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             About us
-                                        </a>
-                                        <a href="#" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
-                                        Contact us
-                                        </a>
+                                        </Link>
+                                        <Link href="/contact" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                            Contact us
+                                        </Link>
                                         <a href="#" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             Help
                                         </a>

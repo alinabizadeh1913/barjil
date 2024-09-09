@@ -1,7 +1,6 @@
 'use client';
 
 import ArticleBanner from "@/app/components/ArticleBanner";
-import Feedback from "@/app/components/Feedback";
 import Footer from "@/app/components/Footer";
 import FullScreenElem from "@/app/components/FullScreenElem";
 import Menu from "@/app/components/Menu";
@@ -32,10 +31,9 @@ const SingleArticles = ({ params }) => {
 
     return (
         <section id="single-article">
-            <Menu/>
+            <Menu background="bg-[#10101087]"/>
             <ArticleBanner />
             <SingleArticleItems currentArticle={slug}/> 
-            <Feedback />
             <SideMenu />
             <FullScreenElem />
             <Footer />

@@ -43,22 +43,33 @@ const ArticleSlider = () => {
             {
               breakpoint: 1024,
               settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                centerPadding: "60px",
+              }
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerPadding: "120px",
               }
             },
             {
               breakpoint: 600,
               settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerPadding: "40px",
               }
             },
             {
               breakpoint: 480,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                centerPadding: "40px",
               }
             }
           ]
@@ -68,7 +79,7 @@ const ArticleSlider = () => {
         <section id="article-slider" className="mt-40">
 
             <div className="title mb-[-10px] md:mb-[-35px]">
-                <h1 className={`${Font.className} text-5xl md:text-9xl text-[#33333338] text-center font-black`}>
+                <h1 className={`${Font.className} text-6xl md:text-9xl text-[#33333338] text-center font-black`}>
                     ARTICLES
                 </h1>
             </div>
