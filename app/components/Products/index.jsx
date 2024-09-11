@@ -101,7 +101,7 @@ const Products = () => {
             <div className="container mx-auto">
                 <div className="flex flex-wrap">
                     <div className="sidebar w-4/12 md:w-5/12 xl:w-1/3 px-2">
-                        <div className="sidebar-inner border-2 border-[#2eba2e] md:border-0 md:shadow-md md:bg-white rounded-lg p-3 md:p-8 sticky top-[100px]">
+                        <div className="sidebar-inner border-2 border-[#2eba2e] md:border-0 md:shadow-md md:bg-white rounded-lg p-3 md:p-8 sticky top-[80px] md:top-[100px]">
                             <div className="filter-res">
                                 <div className="filter-item block md:hidden">
                                     <div className="w-full flex justify-center items-center cursor-pointer">

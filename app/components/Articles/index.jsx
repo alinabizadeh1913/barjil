@@ -134,7 +134,7 @@ const Articles = () => {
                     {
                         articleItems && articleItems.map(item => (
                             <div className="w-full sm:w-1/2 md:w-1/3 px-3 md:px-6 mb-2 md:mb-12" key={item.id}>
-                                <ArticleCard title={`Article number ${item.id}`} category={`${item.id}st category`} link={item.link} image={item.img} description={item.description}/>
+                                <ArticleCard title={`Article number ${item.id}`} category={`${item.id}st category`} link={item.link} image={item.img} description={item.description} hasLink="true"/>
                             </div>
                         ))
                     }

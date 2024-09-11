@@ -36,8 +36,10 @@ const Feedback = () => {
                                     </p>
                                     <p className="text-[#676767] flex items-center">
                                         <span className="mx-2">
-                                            3.9
+                                            {/* 3 */}
                                         </span>
+                                        <StarIcon />
+                                        <StarIcon />
                                         <StarIcon />
                                     </p>
                                 </div>
@@ -62,8 +64,11 @@ const Feedback = () => {
                                     </p>
                                     <p className="text-[#676767] flex items-center">
                                         <span className="mx-2">
-                                            4.5
+                                            {/* 4 */}
                                         </span>
+                                        <StarIcon />
+                                        <StarIcon />
+                                        <StarIcon />
                                         <StarIcon />
                                     </p>
                                 </div>

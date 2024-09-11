@@ -3,22 +3,25 @@
 import React, { useEffect } from "react"
 import Menu from "../components/Menu";
 import Banner from "../components/Banner";
-import { loadMenu } from "../utils/script";
+import { loadBenefits, loadMenu } from "../utils/script";
 import FullScreenElem from "../components/FullScreenElem";
 import SideMenu from "../components/SideMenu";
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
 
 const AboutPage = () => {
-
+32
     useEffect(() => {
       const load1 = setTimeout(() => {
         loadMenu()
       },400)
+      const load2 = setTimeout(() => {
+        loadBenefits();
+      },600)
       const overflowAuto = setTimeout(() => {
         const body = document.body;
         body.style.overflowY = 'auto';
-      },500)
+      },1000)
 
       return () => {
         clearTimeout(load1)

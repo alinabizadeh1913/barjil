@@ -1,11 +1,53 @@
 import React from "react";
-import { CustomersIcon, GoalIcon, InfoIcon, InsightIcon } from "../Icons";
+import { CustomersIcon, GoalIcon, InfoIcon, InsightIcon, StarIcon2, SupportIcon, TruckIcon, UserIcon } from "../Icons";
 import Image from "next/image";
 
 const AboutUs = () => {
     return (
         <section id="about-items" className="mt-14">
-            <div className="container mx-auto">
+            <div className="container mx-auto mt-10">
+                <div className="benefits flex flex-wrap items-center px-8">
+                    <div className="w-1/2 md:w-1/4 px-2">
+                        <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
+                            <SupportIcon width="60" height="80" className="mt-[-38px]"/>
+                            <p className="text-[#006400] font-bold text-center">
+                                24 Hours Support
+                            </p>
+
+                            <div className="line absolute right-[-26px] w-9 h-[4px] bg-[#32CD32]"></div>
+                        </div>
+                    </div>
+                    <div className="w-1/2 md:w-1/4 px-2">
+                        <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
+                            <StarIcon2 width="60" height="80" className="mt-[-38px]"/>
+                            <p className="text-[#006400] font-bold text-center">
+                                Origin & Quality
+                            </p>
+                            
+                            <div className="line absolute right-[-26px] w-9 h-[4px] bg-[#32CD32] hidden md:block"></div>
+                        </div>
+                    </div>
+                    <div className="w-1/2 md:w-1/4 px-2">
+                        <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
+                            <TruckIcon width="60" height="80" className="mt-[-38px]"/>
+                            <p className="text-[#006400] font-bold text-center">
+                                Global Transport
+                            </p>
+                            
+                            <div className="line absolute right-[-26px] w-9 h-[4px] bg-[#32CD32]"></div>
+                        </div>
+                    </div>
+                    <div className="w-1/2 md:w-1/4 px-2">
+                        <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0">
+                            <UserIcon width="60" height="80" className="mt-[-38px]"/>
+                            <p className="text-[#006400] font-bold text-center">
+                                +50 Active Customers
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container mx-auto mt-20">
                 <div className="flex flex-wrap px-8 mb-12">
                     <div className="what-is-barjil flex flex-wrap items-center w-full">
                         <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0">

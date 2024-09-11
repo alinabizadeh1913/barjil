@@ -1,9 +1,10 @@
-import Link from "next/link";
 import React from "react";
-import { CategoryIcon, LikeIcon, RightIcon, RightIcon2, RightIcon3, ShareIcon } from "../Icons";
+import Link from "next/link";
+import { CategoryIcon, LikeIcon, RightIcon2, RightIcon3, ShareIcon } from "../Icons";
 import { Montserrat } from 'next/font/google';
 import Feedback from "../Feedback";
 import ArticleCard from "../Articles/ArticleCard";
+import Slider from "react-slick";
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -12,6 +13,34 @@ const Font = Montserrat({
 
 
 const SingleArticleItems = (props) => {
+
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots : false,
+        arrows: false,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                centerPadding: "60px",
+              }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerPadding: "120px",
+              }
+            }
+          ]
+      };
 
     return (
         <section id="single-article-items" className="px-3 md:px-10">
@@ -200,16 +229,27 @@ const SingleArticleItems = (props) => {
                     </Link>
                 </div>
                 <div className="body mt-16">
-                    <div className="flex flex-wrap justify-center">
-                        <div className="w-full md:w-1/2 lg:w-1/3 px-3 mb-3">
-                            <ArticleCard title="Article number 1"/>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 px-3 mb-3">
-                            <ArticleCard title="Article number 2"/>
-                        </div>
-                        <div className="w-full md:w-1/2 lg:w-1/3 px-3 mb-3">
-                            <ArticleCard title="Article number 3"/>
-                        </div>
+                    <div className="slider-container">
+                        <Slider {...settings}>
+                            <div className='slider-item rounded-md px-3'>
+                                <ArticleCard title="Article number 1"/>
+                            </div>
+                            <div className='slider-item rounded-md px-3'>
+                                <ArticleCard title="Article number 2"/>
+                            </div>
+                            <div className='slider-item rounded-md px-3'>
+                                <ArticleCard title="Article number 3"/>
+                            </div>
+                            <div className='slider-item rounded-md px-3'>
+                                <ArticleCard title="Article number 4"/>
+                            </div>
+                            <div className='slider-item rounded-md px-3'>
+                                <ArticleCard title="Article number 5"/>
+                            </div>
+                            <div className='slider-item rounded-md px-3'>
+                                <ArticleCard title="Article number 6"/>
+                            </div>
+                        </Slider>
                     </div>
                 </div>
             </div>

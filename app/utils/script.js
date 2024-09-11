@@ -235,3 +235,32 @@ export const loadSupport = () => {
         inputGroup.style.opacity = 1;
     }, 2000)
 }
+
+export const loadBenefits = () => {
+    const benefits = document.querySelector('#about-items .benefits');
+
+    benefits.style.transform = 'translateY(0)';
+    benefits.style.visibility = 'visible';
+    benefits.style.opacity = '1';
+}
+
+export const loadArticleSlider = () => {
+    const sliderWrapper = document.querySelector('#article-slider #slider');
+    const slider = document.querySelector('#article-slider #slider .slider-container');
+    const title = document.querySelector('#article-slider .main-title');
+
+    setTimeout(() => {
+        sliderWrapper.style.width = '100%';
+        sliderWrapper.style.visibility = 'visible';
+        sliderWrapper.style.opacity = 1;
+    }, 600)
+    setTimeout(() => {
+        title.style.visibility = 'visible';
+        title.style.opacity = 1;
+    }, 1200)
+    setTimeout(() => {
+        slider.style.transform = 'translateY(0)';
+        slider.style.visibility = 'visible';
+        slider.style.opacity = 1;
+    }, 1800)
+}

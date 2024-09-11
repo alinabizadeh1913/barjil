@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <React.Fragment>
-            <section id="header" className="relative w-full min-h-screen overflow-hidden">
+            <section id="header" className="select-none relative w-full min-h-screen overflow-hidden">
                 <Image src={String(imgSrc)} alt="Header Image" layout="fill" objectFit="cover" />
                 <Content />
             </section>

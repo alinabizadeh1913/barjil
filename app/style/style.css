@@ -201,6 +201,10 @@ body {
   visibility: hidden;
   transition: 0.6313s ease;
 }
+#header #header-content .slider-container a:focus-visible {
+  outline: none !important;
+  box-shadow: unset !important;
+}
 #header #header-content .slider-container .skeleton-item {
   background: linear-gradient(90deg, #54e954, #39d839 42%, #2fbf2f -166%, #39d839 -92%, #54e954);
   background-size: 200% 100%;
@@ -302,22 +306,23 @@ body {
 #products #product-items .sidebar .sidebar-inner .product-details button h2 {
   color: #454545;
 }
-#products #product-items .product .product-card {
+
+.product-card {
   height: 100%;
   background: linear-gradient(90deg, #4af54a, #0d890d 42%, #097609 -166%, #0d890d -92%, #4af54a);
   background-size: 200% 100%;
   background-position: 0;
 }
-#products #product-items .product .product-card:hover {
+.product-card:hover {
   animation: skeletonMove 3s infinite linear;
 }
-#products #product-items .product .product-card .card-content .description h2 {
+.product-card .card-content .description h2 {
   color: rgba(255, 255, 255, 0.8509803922);
 }
-#products #product-items .product .product-card .card-content .link {
+.product-card .card-content .link {
   transition: 0.313s ease;
 }
-#products #product-items .product .product-card .card-content .link:hover {
+.product-card .card-content .link:hover {
   background-color: #fff;
   color: #006400;
 }
@@ -460,11 +465,37 @@ body {
   transform: translateX(90%);
 }
 
+#article-slider .main-title {
+  transition: 0.6313s ease-in;
+  visibility: hidden;
+  opacity: 0;
+}
 #article-slider #slider {
+  transition: 0.6313s ease;
+  width: 0;
+  visibility: hidden;
+  opacity: 0;
   position: relative;
   z-index: 5;
-  min-height: 550px;
   background: linear-gradient(to bottom, #006400 45%, #218b21 45%);
+}
+#article-slider #slider .slider-container {
+  transform: translateY(-30px);
+  transition: 0.6313s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+#article-slider #slider .slider-container .slick-slide {
+  transform: scale(0.7) !important;
+  transition: 0.313s ease;
+}
+#article-slider #slider .slider-container .slick-active {
+  transform: scale(0.8) !important;
+  transition: 0.313s ease;
+}
+#article-slider #slider .slider-container .slick-current {
+  transform: scale(1) !important;
+  transition: 0.313s ease;
 }
 
 #questions .first .engineer-wrapper .engineer-inner {
@@ -574,6 +605,37 @@ body {
   background: linear-gradient(to right, #32CD32, #006400);
 }
 
+#about-items .benefits {
+  transition: all 0.4313s ease;
+  transform: translateY(-25px);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#single-product-items .product-information .link a {
+  background: linear-gradient(to right, #32CD32, #006400);
+}
+#single-product-items .product-information .product-slider .slider-controls button:hover path, #single-product-items .product-information .product-slider .slider-controls button:hover rect {
+  stroke: #32cd32;
+}
+#single-product-items .product-information .product-slider .slider-controls button svg path, #single-product-items .product-information .product-slider .slider-controls button svg rect {
+  transition: 0.313s ease;
+}
+#single-product-items .product-information .product-slider div:focus-visible {
+  outline: none !important;
+}
+#single-product-items .product-information .product-slider .slick-slide {
+  transform: scale(0.8);
+  transition: 0.313s ease;
+}
+#single-product-items .product-information .product-slider .slick-current {
+  transform: scale(1) !important;
+  transition: 0.313s ease;
+}
+#single-product-items .explanations .explanations-inner .text .overlay {
+  background: linear-gradient(to bottom, rgba(238, 243, 240, 0.6901960784), #eef3f0);
+}
+
 #article-banner {
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -620,6 +682,10 @@ body {
   transition: visibility 0.313s ease, opacity 0.313s ease;
 }
 
+.constant {
+  transform: translateY(0) !important;
+}
+
 .stroke-green {
   stroke: #32cd32 !important;
 }
@@ -663,4 +729,17 @@ body {
   100% {
     background-position: 400%;
   }
+}
+.tabs .css-g1imdf {
+  border: 2px solid #D9D9D9;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.tabs .MuiPaper-root {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 2px solid #D9D9D9;
+}
+.tabs .MuiTabs-indicator {
+  display: none;
 }
