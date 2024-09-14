@@ -189,7 +189,7 @@ export const PrevIcon = (props) => {
 
 export const RightIcon = (props) => {
     return (
-        <svg width={props.width || "28"} height={props.height || "28"} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width={props.width || "28"} height={props.height || "28"} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path d="M16.835 6.91846L23.9167 14.0001L16.835 21.0818" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M12.845 14H23.7183" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M4.08334 14H8.13167" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

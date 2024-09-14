@@ -7,12 +7,6 @@ import { ArabicFlagIcon, BurgerMenuIcon, EmailIcon, EnglishFlagIcon, InstagramIc
 import useStore from "@/app/store/Store";
 
 
-import irFont from 'next/font/local';
-
-const iranFont = irFont({
-  src : '../../../public/fonts/iranyekan.woff',
-})
-
 const Font = Roboto({
     subsets : ['latin'],
     weight : ['500']
@@ -51,7 +45,7 @@ const Menu = (props) => {
     }
 
     return (
-        <section id="menu" className={`${language == 'en' ? Font.className : iranFont.className } ${props.static ? 'static' : 'fixed'} ${props.constant ? 'constant' : ''} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${props.background || 'bg-[#33333333]'} select-none`}>
+        <section id="menu" className={`${language == 'en' ? Font.className : 'peyda-medium' } ${props.static ? 'static' : 'fixed'} ${props.constant ? 'constant' : ''} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${props.background || 'bg-[#33333333]'} select-none`}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center justify-between md:justify-normal">
                     <div className="w-4/12 md:w-1/12 order-2 md:order-1">
@@ -82,7 +76,6 @@ const Menu = (props) => {
                                 {
                                         language == 'en' ? 'Gallery' : language == 'ar' ? 'الغاليري' : 'گيلری'
                                 }
-                                
                             </Link>
                             <Link href="/about" className="mb-1 mx-[16px] text-sm">
                                 {
@@ -96,19 +89,19 @@ const Menu = (props) => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-4/12 md:w-1/12 order-1 md:order-3 flex md:justify-center">
-                        <div className="change-language flex justify-center items-center relative">
+                    <div className={`w-4/12 md:w-1/12 ${language == 'en' ? 'order-1' : 'order-3 justify-end'} md:order-3 flex md:justify-center`}>
+                        <div className={`change-language flex ${language == 'en' ? '' : 'flex-row-reverse md:flex-row'} justify-center items-center relative`}>
                             <div className="language cursor-pointer" onClick={showHideLanguageList}>
                                 {
-                                    language == 'en' ? <EnglishFlagIcon /> : language == 'ur' ? <PakistanFlagIcon /> : <ArabicFlagIcon />
+                                    language == 'en' ? <EnglishFlagIcon width="25" height="25"/> : language == 'ur' ? <PakistanFlagIcon width="25" height="25"/> : <ArabicFlagIcon width="25" height="25"/>
                                 }
                             </div>
                             <RightChevronIcon className="mx-2 icon duration-300"/>
 
                             <div className="language-list flex items-center p-[2px] border-2 border-[#dadada99] rounded-full absolute left-[54px] md:top-[40px]">
-                                <PakistanFlagIcon  width="25" className="cursor-pointer" onClick={pakistan}/>
-                                <EnglishFlagIcon className="mx-1 cursor-pointer" width="25"  onClick={english}/>
-                                <ArabicFlagIcon  width="25" className="cursor-pointer" onClick={arabic}/>
+                                <PakistanFlagIcon  width="25" height="25" className="cursor-pointer" onClick={pakistan}/>
+                                <EnglishFlagIcon className="mx-1 cursor-pointer" width="25" height="25"  onClick={english}/>
+                                <ArabicFlagIcon  width="25" height="25" className="cursor-pointer" onClick={arabic}/>
                             </div>
                         </div>
                     </div>
@@ -125,7 +118,7 @@ const Menu = (props) => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-4/12 flex justify-end order-3 md:hidden">
+                    <div className={`w-4/12 flex ${language == 'en' ? 'order-3 justify-end' : 'order-1 justify-start'} md:hidden`}>
                         <div className="burger-menu" onClick={() => {
                             ShowHideSideMenu();
                             ShowHideFullElem()

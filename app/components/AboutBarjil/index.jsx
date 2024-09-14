@@ -5,6 +5,7 @@ import { Galaxy, RightIcon3 } from "../Icons";
 import { Montserrat, Poppins } from 'next/font/google';
 import { useEffect } from "react";
 import { loadAboutBarjil } from "@/app/utils/script";
+import useStore from "@/app/store/Store";
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -17,6 +18,8 @@ const Font2 = Poppins({
 })
 
 const AboutBarjil = () => {
+
+    const {language} = useStore();
 
     useEffect(() => {
         const aboutBarjil = document.querySelector('#about-barjil');
@@ -43,7 +46,7 @@ const AboutBarjil = () => {
         <section id="about-barjil" className="mt-10 py-8 px-2">
             <div className="flex flex-wrap justify-between items-center">
                <div className="galaxy w-full md:w-4/12 px-3 flex justify-center">
-                    <Galaxy className="w-[65%] md:w-[85%]"/>
+                    <Galaxy className={`w-[65%] md:w-[85%] ${language == 'en' ? 'lang-en' : 'lang-other'}`}/>
                 </div> 
                <div className="w-full md:w-8/12 px-3 flex justify-center">
                     <div className="barjil-trading">
@@ -64,7 +67,7 @@ const AboutBarjil = () => {
                             <span className="text-[#32CD32]">
                                 read more 
                             </span>
-                            <RightIcon3 className="mx-1" height="13"/>
+                            <RightIcon3 className={`${language == 'en' ? '' : 'rotate-180'} mx-1`} height="13"/>
                         </Link>
                     </div>
                </div>

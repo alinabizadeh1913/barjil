@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { FilterIcon, NextIcon, PrevIcon } from "../Icons";
 import ArticleCard from "./ArticleCard";
+import useStore from "@/app/store/Store";
 
 const Articles = () => {
     const [articleItems, setArticleItems] = useState([
@@ -205,15 +206,19 @@ const Articles = () => {
         })
     }
 
+    const {language} = useStore()
+
     return (
         <section id="articles-items" className="mt-14">
             <div className="filter container mx-auto px-8 md:px-14">
                 <div className="flex flex-wrap flex-col md:flex-row justify-center items-center border-2 border-[#bababa] md:border-[#2aa82a] rounded-xl p-2">
-                    <div className="filter-item md:border-r-2 md:border-[#b5b5b5] pr-4 flex justify-center">
+                    <div className={`filter-item ${language == 'en' ? 'md:border-r-2' : 'md:border-l-2'} md:border-[#c9c9c9] px-4 flex justify-center`}>
                         <div className="flex items-center justify-center cursor-pointer w-fit select-none" onClick={showHideCategory}>
                             <FilterIcon className="duration-300"/>
                             <span className="mx-1 font-black duration-300">
-                                Filter
+                                {
+                                    language == 'en' ? 'Filter' : language == 'ar' ? 'فلتر' : 'فلٹر'
+                                }
                             </span>
                         </div>
                     </div>
@@ -273,16 +278,24 @@ const Articles = () => {
                     <div className="pagination flex flex-wrap justify-center items-center" dir="ltr">
                         <div onClick={() => goToPage(1)} className={`first-page hidden sm:flex items-center mx-2 py-1 px-2 md:py-2 md:px-3 ${currentPage === 1 ? 'bg-gray-200' : 'cursor-pointer'} border border-[#9f9f9f] rounded-lg h-[40px] text-center text-[#454545] duration-300 hover:bg-[#32cd32] hover:text-white`}>
                             <span className="mx-1 text-sm md:text-base">
-                                first
+                                {
+                                    language == 'en' ? 'first' : language == 'ar' ? 'الأولى' : 'پہلا'
+                                }
                             </span>
                             <span className="mx-1 hidden md:block">
-                                page
+                                {
+                                    language == 'en' ? 'page' : ''
+                                }
                             </span>
                         </div>
 
                         <div onClick={prevPage} className={`prev flex items-center mx-2 py-2 px-3 ${currentPage === 1 ? 'bg-gray-200' : 'cursor-pointer'} border border-[#9f9f9f] rounded-lg h-[40px] text-center text-[#454545] duration-300 hover:bg-[#32cd32] hover:text-white`}>
                             <PrevIcon stroke="#454545" width="20" />
-                            <span className="mx-2 hidden md:block ">prev</span>
+                            <span className="mx-2 hidden md:block ">
+                                {
+                                    language == 'en' ? 'prev' : language == 'ar' ? 'السابق' : 'پچھلا'
+                                }
+                            </span>
                         </div>
 
                         <div className="number mx-2 py-2 px-3 rounded-lg w-[40px] h-[40px] text-center bg-[#32cd32] text-white block md:hidden">
@@ -300,16 +313,24 @@ const Articles = () => {
                         </div>
 
                         <div onClick={nextPage} className={`next flex items-center mx-2 py-2 px-3 ${currentPage === totalPages ? 'bg-gray-200' : 'cursor-pointer'} border border-[#9f9f9f] rounded-lg h-[40px] text-center text-[#454545] duration-300 hover:bg-[#32cd32] hover:text-white`}>
-                            <span className="mx-2 hidden md:block">next</span>
+                            <span className="mx-2 hidden md:block">
+                                {
+                                    language == 'en' ? 'next' : language == 'ar' ? 'التالي' : 'اگلا'
+                                }
+                            </span>
                             <NextIcon stroke="#454545" width="20" />
                         </div>
 
                         <div onClick={() => goToPage(totalPages)} className={`last-page hidden sm:flex items-center mx-2 py-1 px-2 md:py-2 md:px-3 ${currentPage === totalPages ? 'bg-gray-200' : 'cursor-pointer'} border border-[#9f9f9f] rounded-lg h-[40px] text-center text-[#454545] duration-300 hover:bg-[#32cd32] hover:text-white`}>
                             <span className="mx-1">
-                                last
+                                {
+                                    language == 'en' ? 'last' : language == 'ar' ? 'الأخيرة' : 'آخری'
+                                }
                             </span>
                             <span className="mx-1 hidden md:block">
-                                page
+                                {
+                                    language == 'en' ? 'page' : ''
+                                }
                             </span>
                         </div>
                     </div>

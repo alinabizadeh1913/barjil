@@ -64,8 +64,10 @@ const Category = () => {
                         <div className="category-circle hidden md:block c-c-1 absolute z-10 overflow-hidden">
                             <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
-                                <Link href="#" className="text-white font-bold text-center md:text-xl">
-                                    petrochemical and petroleum
+                                <Link href="#" className="text-white font-bold text-center md:text-xl p-2">
+                                    {
+                                        language == 'en' ? 'petrochemical and petroleum' : language == 'ar' ? 'البتروكيماويات والنفط' : 'پیٹروکیمیکل اور پیٹرولیم'
+                                    }
                                 </Link>
                             </div>
                         </div>
@@ -73,8 +75,10 @@ const Category = () => {
                         <div className="category-circle-res block md:hidden c-c-res-1 absolute w-[160px] h-[160px] rounded-full z-10 overflow-hidden">
                             <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full block border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
-                                <Link href="#" className="text-white font-bold text-center md:text-xl">
-                                    petrochemical and petroleum
+                                <Link href="#" className="text-white font-bold text-center md:text-xl p-2">
+                                    {
+                                        language == 'en' ? 'petrochemical and petroleum' : language == 'ar' ? 'البتروكيماويات والنفط' : 'پیٹروکیمیکل اور پیٹرولیم'
+                                    }
                                 </Link>
                             </div>
                         </div>
@@ -134,8 +138,10 @@ const Category = () => {
                         <div className="category-circle hidden md:block c-c-2 absolute z-10 overflow-hidden">
                             <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
-                                <Link href="#" className="text-white font-bold text-center md:text-xl">
-                                    minerals
+                                <Link href="#" className="text-white font-bold text-center md:text-xl p-2">
+                                    {
+                                        language == 'en' ? 'minerals' : language == 'ar' ? 'المواد المعدنية' : 'معدنی مواد'
+                                    }
                                 </Link>
                             </div>
                         </div>
@@ -143,8 +149,10 @@ const Category = () => {
                         <div className="category-circle-res block md:hidden c-c-res-2 w-[160px] h-[160px] rounded-full absolute z-10 overflow-hidden">
                             <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full block border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
-                                <Link href="#" className="text-white font-bold text-center md:text-xl">
-                                    minerals
+                                <Link href="#" className="text-white font-bold text-center md:text-xl p-2">
+                                    {
+                                        language == 'en' ? 'minerals' : language == 'ar' ? 'المواد المعدنية' : 'معدنی مواد'
+                                    }
                                 </Link>
                             </div>
                         </div>

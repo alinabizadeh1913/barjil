@@ -8,6 +8,7 @@ import Products from "../components/Products";
 import { loadMenu } from "../utils/script";
 import SideMenu from "../components/SideMenu";
 import FullScreenElem from "../components/FullScreenElem";
+import useStore from "../store/Store";
 
 const ProductsPage = () => {
 
@@ -26,10 +27,12 @@ const ProductsPage = () => {
       }
       }, [])
 
+      const {language} = useStore()
+
     return (
         <section id="products">
             <Menu />
-            <Banner background="/img/our-product.jpg" title="Our Products"/>
+            <Banner background="/img/our-product.jpg" title={`${language == 'en' ? 'Our Products' : language == 'ar' ? 'منتجاتنا' : 'ہمارے مصنوعات'}`}/>
             <Products />
             <SideMenu />
             <FullScreenElem />

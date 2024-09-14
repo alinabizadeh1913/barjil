@@ -103,9 +103,9 @@ const ArticleSlider = () => {
     return (
         <section id="article-slider" className="mt-40">
 
-            <div className={`main-title ${language == 'en' ? 'mb-[-10px] md:mb-[-35px]' : ''}`}>
+            <div className={`main-title ${language == 'en' ? 'mb-[-10px] md:mb-[-35px]' : language == 'ar' ? 'mb-[-22px] md:mb-[-50px]' : 'mb-[-22px] md:mb-[-30px]'}`}>
                 <h1 className={`${Font.className} text-6xl md:text-9xl text-[#bebebe] text-center font-black`}>
-                {
+                  {
                   language == 'en' ? 'Articles' : language == 'ar' ? 'المقالات' : 'مضامین'
                 }
                 </h1>

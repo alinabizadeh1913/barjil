@@ -139,6 +139,9 @@ export const loadCategory = () => {
         })
     },4400)
     setTimeout(() => {
+        front.style.display = 'none';
+    },4400)
+    setTimeout(() => {
         mainTitle.style.visibility = 'visible'
         mainTitle.style.opacity = 1;
     },4400)
@@ -154,9 +157,7 @@ export const loadCategory = () => {
         title6.style.transform = 'translateY(0)'
         title7.style.transform = 'translateY(0)'
     },5900)
-    setTimeout(() => {
-        front.style.display = 'none';
-    },6000)
+    
 }
 
 export const loadQuestions = () => {

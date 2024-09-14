@@ -8,6 +8,7 @@ import FullScreenElem from "../components/FullScreenElem";
 import SideMenu from "../components/SideMenu";
 import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
+import useStore from "../store/Store";
 
 const GalleryPage = () => {
 
@@ -26,10 +27,12 @@ const GalleryPage = () => {
       }
       }, [])
 
+      const { language } = useStore();
+
     return (
         <section id="gallery">
             <Menu />
-            <Banner background="/img/gallery.jpg" title="Gallery" />
+            <Banner background="/img/gallery.jpg" title={`${language == 'en' ? 'Gallery' : language == 'ar' ? 'الغاليري' : 'گيلری'}`} />
             <Gallery />
             <Footer />
             <SideMenu />

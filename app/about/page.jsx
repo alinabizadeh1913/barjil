@@ -8,6 +8,7 @@ import FullScreenElem from "../components/FullScreenElem";
 import SideMenu from "../components/SideMenu";
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
+import useStore from "../store/Store";
 
 const AboutPage = () => {
 
@@ -29,10 +30,12 @@ const AboutPage = () => {
       }
       }, [])
 
+      const { language } = useStore();
+
     return (
         <section id="about-us">
             <Menu />
-            <Banner background="/img/about-us.jpg" title="About Us" />
+            <Banner background="/img/about-us.jpg" title={`${language == 'en' ? 'About Us' : language == 'ar' ? 'من نحن' : 'ہمارے بارے میں'}`} />
             <AboutUs />
             <Footer />
             <SideMenu />

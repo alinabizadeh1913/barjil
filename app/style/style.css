@@ -32,14 +32,14 @@
   #gallery-items .gallery-wrapper {
     grid-template-rows: 200px 200px !important;
   }
-  #support .form-wrapper form {
+  #support .form-wrapper form.lang-en {
     transform: translateX(-145px) !important;
   }
-  #support .form-wrapper form .circle-wrapper {
+  #support .form-wrapper form.lang-en .circle-wrapper {
     width: 250px !important;
     height: 250px !important;
   }
-  #support .form-wrapper form .input-g {
+  #support .form-wrapper form.lang-en .input-g {
     width: calc(100% - 250px) !important;
   }
   #questions .first {
@@ -49,6 +49,59 @@
     width: calc(100% - 500px) !important;
   }
 }
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url("../../public/fonts/Montserrat-Medium.ttf") format("truetype");
+}
+.montserrat-medium {
+  font-family: "Montserrat-Medium" !important;
+}
+
+@font-face {
+  font-family: "Peyda-Medium";
+  src: url("../../public/fonts/Peyda-Medium.ttf") format("truetype");
+}
+.peyda-medium {
+  font-family: "Peyda-Medium" !important;
+}
+
+@font-face {
+  font-family: "Peyda-Bold";
+  src: url("../../public/fonts/Peyda-Bold.ttf") format("truetype");
+}
+.peyda-bold {
+  font-family: "Peyda-Bold" !important;
+}
+
+@font-face {
+  font-family: "Yekan-Bold";
+  src: url("../../public/fonts/YekanBakh-Bold.ttf");
+}
+.yekan-bold {
+  font-family: "Yekan-Bold" !important;
+}
+
+@font-face {
+  font-family: "Yekan-Exterabold";
+  src: url("../../public/fonts/YekanBakh-Exterabold.ttf");
+}
+.yekan-exterabold {
+  font-family: "Yekan-Exterabold" !important;
+}
+
+body.body-lang-en {
+  font-family: "Montserrat-Medium" !important;
+}
+
+body.body-lang-other {
+  font-family: "Peyda-Medium" !important;
+}
+
+body.body-lang-other h1,
+body.body-lang-other h2 {
+  font-family: "Yekan-Exterabold" !important;
+}
+
 body {
   background-color: rgba(238, 243, 240, 0.9607843137);
   overflow-x: hidden;
@@ -70,6 +123,10 @@ body {
 
 .rotate-180 {
   transform: rotate(180deg) !important;
+}
+
+.flip-horizontal {
+  transform: scaleX(-1) !important;
 }
 
 ::-webkit-scrollbar {
@@ -477,6 +534,9 @@ body {
 #support .image img:last-child {
   transform: translateX(90%);
 }
+#support .image.lang-other {
+  transform: scaleX(-1) !important;
+}
 
 #article-slider .main-title {
   transition: 0.6313s ease-in;
@@ -519,6 +579,13 @@ body {
   opacity: 0;
   transition: 0.4313s ease;
 }
+#questions .first .engineer-wrapper.lang-other {
+  transform: scaleX(-1) !important;
+  justify-content: flex-start;
+}
+#questions .first .engineer-wrapper.lang-other .question-mark {
+  justify-content: flex-end;
+}
 #questions .last .faq-wrapper {
   height: 200px;
   min-height: 210px;
@@ -554,7 +621,6 @@ body {
 #about-barjil .galaxy svg {
   opacity: 0;
   visibility: hidden;
-  transform: translate(-50%, 50%);
   transition: 0.6131s ease;
 }
 @keyframes galaxyRotate {
@@ -564,6 +630,12 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+#about-barjil .galaxy svg.lang-en {
+  transform: translate(-50%, 50%);
+}
+#about-barjil .galaxy svg.lang-other {
+  transform: translate(50%, 50%);
 }
 #about-barjil .barjil-trading .title {
   visibility: hidden;
@@ -665,6 +737,28 @@ body {
   background-position: center !important;
 }
 
+#scroll-down-wrapper .scroll-icons-wrapper {
+  transform: translateY(-25px);
+  animation: scrollDownAnimate 3s infinite step-start;
+}
+@keyframes scrollDownAnimate {
+  0% {
+    transform: translateY(-25px);
+  }
+  25% {
+    transform: translateY(-16px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  75% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-25px);
+  }
+}
+
 #side-menu {
   overflow-y: scroll;
   transform: translateX(101%);
@@ -746,13 +840,23 @@ body {
   animation: galaxyRotate 5s 1 ease-in-out;
 }
 
-.switch-activity {
+.switch-activity-lang-en {
   border-color: #32cd32;
 }
-.switch-activity .switch-inner {
+.switch-activity-lang-en .switch-inner {
   transform: translateX(58.2313%);
 }
-.switch-activity .switch-inner .circle {
+.switch-activity-lang-en .switch-inner .circle {
+  background-color: #32cd32;
+}
+
+.switch-activity-lang-other {
+  border-color: #32cd32;
+}
+.switch-activity-lang-other .switch-inner {
+  transform: translateX(-58.2313%);
+}
+.switch-activity-lang-other .switch-inner .circle {
   background-color: #32cd32;
 }
 

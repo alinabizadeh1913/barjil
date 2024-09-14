@@ -8,6 +8,7 @@ import SideMenu from "../components/SideMenu";
 import FullScreenElem from "../components/FullScreenElem";
 import Articles from "../components/Articles";
 import Footer from "../components/Footer";
+import useStore from "../store/Store";
 
 const ArticlesPage = () => {
 
@@ -26,10 +27,12 @@ const ArticlesPage = () => {
         }
       }, [])
 
+      const {language} = useStore()
+
     return (
         <section id="articles">
             <Menu />
-            <Banner background="/img/articles.jpg" title="Articles" />
+            <Banner background="/img/articles.jpg" title={`${language == 'en' ? 'Articles' : language == 'ar' ? 'المقالات' : 'مضامین'}`} />
             <Articles />
             <Footer />
             <SideMenu />

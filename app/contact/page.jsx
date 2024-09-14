@@ -9,6 +9,7 @@ import FullScreenElem from "../components/FullScreenElem";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 import Support from "../components/Support";
+import useStore from "../store/Store";
 
 const ContactPage = () => {
 
@@ -27,10 +28,13 @@ const ContactPage = () => {
       }
       }, [])
 
+
+      const {language} = useStore()
+
     return (
         <section id="contact">
             <Menu />
-            <Banner background="/img/contact.jpg" title="Contact Us"/>
+            <Banner background="/img/contact.jpg" title={`${language == 'en' ? 'Contact Us' : language == 'ar' ? 'اتصل بنا' : 'ہم سے رابطہ کریں' }`}/>
             <ContactUs />
             <Support hasContainer="true" constant="true"/>
             <Footer />

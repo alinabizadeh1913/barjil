@@ -2,8 +2,11 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { QuestionMark } from "../Icons";
 import { loadFaq, loadQuestions } from "@/app/utils/script";
+import useStore from "@/app/store/Store";
 
 const Questions = () => {
+
+    const {language} = useStore();
 
     useEffect(() => {
         const questions = document.querySelector('#questions');
@@ -41,10 +44,6 @@ const Questions = () => {
                 svgElement.classList.toggle('rotate-180');
             }
 
-            if (titleElement) {
-                titleElement.textContent = titleElement.textContent === 'answer' ? 'question' : 'answer'
-            }
-
             if (contentElement) {
                 if (contentElement.style.visibility === 'hidden' || contentElement.style.visibility === '') {
                     contentElement.style.visibility = 'visible';
@@ -74,7 +73,7 @@ const Questions = () => {
         <section id="questions" className="mt-32">
             <div className="flex flex-wrap justify-between">
                 <div className="first w-[100%] sm:w-6/12">
-                    <div className="engineer-wrapper mb-4 sm:mb-0 h-[450px] sm:h-[440px] md:h-[550px] w-full rounded-tr-[373px] /sm:rounded-tr-[20px] /sm:rounded-br-[20px] bg-[green] flex justify-end sticky top-[50px]">
+                    <div className={`engineer-wrapper mb-4 sm:mb-0 h-[450px] sm:h-[440px] md:h-[550px] w-full rounded-tr-[373px] /sm:rounded-tr-[20px] /sm:rounded-br-[20px] bg-[green] flex justify-end sticky top-[50px] ${language == 'en' ? '' : 'lang-other'}`}>
                         <div className="engineer-inner relative w-[70%] h-[110%] z-10 ">
                             <img src="/img/engineer.png" className="w-full h-full block /sm:rounded-br-[20px]"/>
                         </div>
@@ -102,7 +101,9 @@ const Questions = () => {
                                 <div className="answer w-full p-2 text-center bg-[#FFD700] text-[#4e4e4e] absolute bottom-0">
                                     <div className="top flex items-center justify-center cursor-pointer">
                                         <span className="title mx-2">
-                                            answer
+                                            {
+                                                language == 'en' ? 'answer' : language == 'ar' ? 'الإجابة' : 'جواب'
+                                            }
                                         </span>
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.62658 1.29761C6.39743 0.569342 7.6027 0.569342 8.37355 1.29761L12.8706 5.5462C14.1858 6.78874 13.3064 9 11.4971 9H2.50303C0.693706 9 -0.185655 6.78874 1.12955 5.5462L5.62658 1.29761Z" fill="#666666"/>
@@ -131,7 +132,9 @@ const Questions = () => {
                                 <div className="answer w-full p-2 text-center bg-[#FFD700] text-[#4e4e4e]  min-h-[40px] absolute bottom-0">
                                     <div className="top flex items-center justify-center cursor-pointer">
                                         <span className="title mx-2">
-                                            answer
+                                            {
+                                                language == 'en' ? 'answer' : language == 'ar' ? 'الإجابة' : 'جواب'
+                                            }
                                         </span>
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.62658 1.29761C6.39743 0.569342 7.6027 0.569342 8.37355 1.29761L12.8706 5.5462C14.1858 6.78874 13.3064 9 11.4971 9H2.50303C0.693706 9 -0.185655 6.78874 1.12955 5.5462L5.62658 1.29761Z" fill="#666666"/>
@@ -160,7 +163,9 @@ const Questions = () => {
                                 <div className="answer w-full p-2 text-center bg-[#FFD700] text-[#4e4e4e]  min-h-[40px] absolute bottom-0">
                                     <div className="top flex items-center justify-center cursor-pointer">
                                         <span className="title mx-2">
-                                            answer
+                                            {
+                                                language == 'en' ? 'answer' : language == 'ar' ? 'الإجابة' : 'جواب'
+                                            }
                                         </span>
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.62658 1.29761C6.39743 0.569342 7.6027 0.569342 8.37355 1.29761L12.8706 5.5462C14.1858 6.78874 13.3064 9 11.4971 9H2.50303C0.693706 9 -0.185655 6.78874 1.12955 5.5462L5.62658 1.29761Z" fill="#666666"/>
@@ -189,7 +194,9 @@ const Questions = () => {
                                 <div className="answer w-full p-2 text-center bg-[#FFD700] text-[#4e4e4e]  min-h-[40px] absolute bottom-0">
                                     <div className="top flex items-center justify-center cursor-pointer">
                                         <span className="title mx-2">
-                                            answer
+                                            {
+                                                language == 'en' ? 'answer' : language == 'ar' ? 'الإجابة' : 'جواب'
+                                            }
                                         </span>
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.62658 1.29761C6.39743 0.569342 7.6027 0.569342 8.37355 1.29761L12.8706 5.5462C14.1858 6.78874 13.3064 9 11.4971 9H2.50303C0.693706 9 -0.185655 6.78874 1.12955 5.5462L5.62658 1.29761Z" fill="#666666"/>
@@ -218,7 +225,9 @@ const Questions = () => {
                                 <div className="answer w-full p-2 text-center bg-[#FFD700] text-[#4e4e4e]  min-h-[40px] absolute bottom-0">
                                     <div className="top flex items-center justify-center cursor-pointer">
                                         <span className="title mx-2">
-                                            answer
+                                            {
+                                                language == 'en' ? 'answer' : language == 'ar' ? 'الإجابة' : 'جواب'
+                                            }
                                         </span>
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.62658 1.29761C6.39743 0.569342 7.6027 0.569342 8.37355 1.29761L12.8706 5.5462C14.1858 6.78874 13.3064 9 11.4971 9H2.50303C0.693706 9 -0.185655 6.78874 1.12955 5.5462L5.62658 1.29761Z" fill="#666666"/>
@@ -247,7 +256,9 @@ const Questions = () => {
                                 <div className="answer w-full p-2 text-center bg-[#FFD700] text-[#4e4e4e]  min-h-[40px] absolute bottom-0">
                                     <div className="top flex items-center justify-center cursor-pointer">
                                         <span className="title mx-2">
-                                            answer
+                                            {
+                                                language == 'en' ? 'answer' : language == 'ar' ? 'الإجابة' : 'جواب'
+                                            }
                                         </span>
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.62658 1.29761C6.39743 0.569342 7.6027 0.569342 8.37355 1.29761L12.8706 5.5462C14.1858 6.78874 13.3064 9 11.4971 9H2.50303C0.693706 9 -0.185655 6.78874 1.12955 5.5462L5.62658 1.29761Z" fill="#666666"/>

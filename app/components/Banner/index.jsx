@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useLayoutEffect, useState } from "react";
 import { RightIcon2 } from "../Icons";
+import useStore from "@/app/store/Store";
 
 const Banner = (props) => {
 
@@ -13,6 +14,7 @@ const Banner = (props) => {
         setPath(pathname.substr(1,))
     },[])
     
+    const {language} = useStore();
 
     return (
         <section id="banner">
@@ -23,9 +25,9 @@ const Banner = (props) => {
                     </h1>
                     <div className="breadcrumb flex items-center text-white">
                         <Link href="/" className="text-[#ffffffab]">
-                            Home    
+                            Home
                         </Link>
-                        <RightIcon2 className="mx-2" fill="#ffffffab" width="8" height="13"/>
+                        <RightIcon2 className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`} fill="#ffffffab" width="8" height="13"/>
                         <span className="pathname">
                             {path}
                         </span>

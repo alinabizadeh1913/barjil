@@ -1,8 +1,12 @@
 import React from "react";
 import { CustomersIcon, GoalIcon, InfoIcon, InsightIcon, StarIcon2, SupportIcon, TruckIcon, UserIcon } from "../Icons";
 import Image from "next/image";
+import useStore from "@/app/store/Store";
 
 const AboutUs = () => {
+
+    const {language} = useStore()
+
     return (
         <section id="about-items" className="mt-14">
             <div className="container mx-auto mt-10">
@@ -11,37 +15,42 @@ const AboutUs = () => {
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
                             <SupportIcon width="60" height="80" className="mt-[-38px]"/>
                             <p className="text-[#006400] font-bold text-center">
-                                24 Hours Support
+                                {
+                                    language == 'en' ? '24 Hours Support' : language == 'ar' ? 'دعم على مدار الساعة' : '24 گھنٹے کی مدد'
+                                }
                             </p>
-
-                            <div className="line absolute right-[-26px] w-9 h-[4px] bg-[#32CD32]"></div>
+                            <div className={`line absolute ${language == 'en' ? 'right-[-26px]' : 'left-[-26px]'} w-9 h-[4px] bg-[#32CD32]`}></div>
                         </div>
                     </div>
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
                             <StarIcon2 width="60" height="80" className="mt-[-38px]"/>
                             <p className="text-[#006400] font-bold text-center">
-                                Origin & Quality
+                                {
+                                    language == 'en' ? 'Origin & Quality' : language == 'ar' ? ' الأصل والجودة' : 'ماخذ اور معیار'
+                                }
                             </p>
-                            
-                            <div className="line absolute right-[-26px] w-9 h-[4px] bg-[#32CD32] hidden md:block"></div>
+                            <div className={`line absolute ${language == 'en' ? 'right-[-26px]' : 'left-[-26px]'} w-9 h-[4px] bg-[#32CD32] hidden md:block`}></div>
                         </div>
                     </div>
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
                             <TruckIcon width="60" height="80" className="mt-[-38px]"/>
                             <p className="text-[#006400] font-bold text-center">
-                                Global Transport
+                                {
+                                    language == 'en' ? 'Global Transport' : language == 'ar' ? 'النقل العالمي' : 'عالمی نقل و حمل'
+                                }
                             </p>
-                            
-                            <div className="line absolute right-[-26px] w-9 h-[4px] bg-[#32CD32]"></div>
+                            <div className={`line absolute ${language == 'en' ? 'right-[-26px]' : 'left-[-26px]'} w-9 h-[4px] bg-[#32CD32]`}></div>
                         </div>
                     </div>
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0">
                             <UserIcon width="60" height="80" className="mt-[-38px]"/>
                             <p className="text-[#006400] font-bold text-center">
-                                +50 Active Customers
+                                {
+                                    language == 'en' ? '+50 Active Customers' : language == 'ar' ? '+50 عميل نشط' : '+50 فعال صارفین'
+                                }
                             </p>
                         </div>
                     </div>
