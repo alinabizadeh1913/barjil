@@ -32,7 +32,7 @@ const ContactPage = () => {
             <Menu />
             <Banner background="/img/contact.jpg" title="Contact Us"/>
             <ContactUs />
-            <Support hasContainer="true"/>
+            <Support hasContainer="true" constant="true"/>
             <Footer />
             <SideMenu />
             <FullScreenElem />

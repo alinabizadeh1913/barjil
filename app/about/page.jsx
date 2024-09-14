@@ -10,7 +10,7 @@ import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
 
 const AboutPage = () => {
-32
+
     useEffect(() => {
       const load1 = setTimeout(() => {
         loadMenu()

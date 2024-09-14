@@ -60,7 +60,7 @@ const AboutBarjil = () => {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                             </span>
                         </div>
-                        <Link href="/about" className="link flex items-center font-bold">
+                        <Link href="/about" className="link flex items-center font-bold w-fit">
                             <span className="text-[#32CD32]">
                                 read more 
                             </span>

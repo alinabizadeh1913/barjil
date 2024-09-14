@@ -250,7 +250,7 @@ export const loadArticleSlider = () => {
     const title = document.querySelector('#article-slider .main-title');
 
     setTimeout(() => {
-        sliderWrapper.style.width = '100%';
+        sliderWrapper.style.transform = 'translateY(0)';
         sliderWrapper.style.visibility = 'visible';
         sliderWrapper.style.opacity = 1;
     }, 600)

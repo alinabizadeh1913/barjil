@@ -202,7 +202,7 @@ const SingleProductItems = (props) => {
                     </div>
                 </div>
             </section>
-            <Support hasContainer="true"/>
+            <Support hasContainer="true" constant="true"/>
 
             <div className="related-articles px-3 md:px-10 container mx-auto mt-24">
                 <div className="header flex justify-between">

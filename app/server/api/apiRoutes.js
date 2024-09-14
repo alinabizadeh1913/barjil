@@ -7,3 +7,4 @@ export const getBanners = async () => {
 
     return data;
 }
+

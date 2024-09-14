@@ -4,6 +4,7 @@ import { loadCategory } from "@/app/utils/script";
 import { useEffect, useState } from "react";
 import { Montserrat } from 'next/font/google'
 import Link from "next/link";
+import useStore from "@/app/store/Store";
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -43,6 +44,8 @@ const Category = () => {
 
     })
 
+    const {language} = useStore();
+
     return (
         <section id="category" className="mt-36 relative" dir="ltr">
                 <div className="flex flex-wrap flex-col overflow-hidden justify-center items-center relative">
@@ -57,9 +60,9 @@ const Category = () => {
                     <div className="category-item c-i-9 w-full"></div>
                     <div className="category-item c-i-10 w-full"></div>
 
-                    <div className="category-wrapper absolute top-0 right-0 left-0 bottom-0 w-full h-full flex flex-wrap items-center justify-center p-5">
+                    <div className={`category-wrapper ${language == 'en' ? 'container' : 'w-10/12'} mx-auto absolute top-0 right-0 left-0 bottom-0 h-full flex flex-wrap items-center justify-center p-5`}>
                         <div className="category-circle hidden md:block c-c-1 absolute z-10 overflow-hidden">
-                            <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full"/>
+                            <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
                                 <Link href="#" className="text-white font-bold text-center md:text-xl">
                                     petrochemical and petroleum
@@ -68,54 +71,68 @@ const Category = () => {
                         </div>
                         
                         <div className="category-circle-res block md:hidden c-c-res-1 absolute w-[160px] h-[160px] rounded-full z-10 overflow-hidden">
-                            <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full block"/>
+                            <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full block border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
                                 <Link href="#" className="text-white font-bold text-center md:text-xl">
                                     petrochemical and petroleum
                                 </Link>
                             </div>
                         </div>
-                        <div className={`${Font.className} category-title h-[95%] overflow-hidden flex flex-col justify-center`}>
+                        <div className={`${Font.className} ${language == 'en' ? 'flex' : 'hidden'} category-title h-[95%] overflow-hidden flex-col justify-center`}>
                             
-                            <p className="text-[#333333] text-[36px] font-bold text-opacity-20 select-none h-[40px] overflow-hidden flex items-center t7">
+                            <p className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t7">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
-                            <p className="text-[#333333] text-[36px] font-bold text-opacity-30 select-none h-[40px] overflow-hidden flex items-center t5">
+                            <p className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t5">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
-                            <p className="text-[#333333] text-[36px] font-bold text-opacity-60 select-none h-[40px] overflow-hidden flex items-center t3">
+                            <p className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t3">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
                             <p className="text-[#333333] text-[36px] font-black select-none h-[40px] overflow-hidden flex items-center t1">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
-                            <p className="text-[#333333] text-[36px] font-bold text-opacity-60 select-none h-[40px] overflow-hidden flex items-center t2">
+                            <p className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t2">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
-                            <p className="text-[#333333] text-[36px] font-bold text-opacity-30 select-none h-[40px] overflow-hidden flex items-center t4">
+                            <p className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t4">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
-                            <p className="text-[#333333] text-[36px] font-bold text-opacity-20 select-none h-[40px] overflow-hidden flex items-center t6">
+                            <p className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t6">
                                 <span>
-                                    CATEGORY
+                                    {
+                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
+                                    }
                                 </span>
                             </p>
                             
                         </div>
                         <div className="category-circle hidden md:block c-c-2 absolute z-10 overflow-hidden">
-                            <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full"/>
+                            <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
                                 <Link href="#" className="text-white font-bold text-center md:text-xl">
                                     minerals
@@ -124,7 +141,7 @@ const Category = () => {
                         </div>
 
                         <div className="category-circle-res block md:hidden c-c-res-2 w-[160px] h-[160px] rounded-full absolute z-10 overflow-hidden">
-                            <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full block"/>
+                            <img src="/img/minerals.jpg" alt="" className="w-full h-full object-cover rounded-full block border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
                                 <Link href="#" className="text-white font-bold text-center md:text-xl">
                                     minerals

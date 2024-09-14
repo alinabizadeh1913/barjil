@@ -18,7 +18,7 @@ const Font = Montserrat({
 
 const Content = () => {
   const [currentContent, setCurrentContent] = useState(0);
-  const { setImgSrc } = useStore();
+  const { setImgSrc, language } = useStore();
   const [banners, setBanners] = useState([]);
   const [skeleton,setSkeleton] = useState([
     {
@@ -55,7 +55,8 @@ const Content = () => {
     arrows: false,
     draggable: false,
     swipe: false,
-    swipeToSlide: false, 
+    swipeToSlide: false,
+    rtl: language == 'en' ? false : true,
     afterChange: (index) => {
       updateContent(index);
     }
@@ -85,7 +86,7 @@ const Content = () => {
       <div className="w-full">
         <div className="flex flex-wrap w-full items-center pt-20">
           <div className="w-full md:w-5/12 px-2 mb-2">
-            <div className="content-inner px-7">
+            <div className={`${language == 'en' ? 'lang-en' : 'lang-other'} content-inner px-7`}>
               <h1 className="title text-4xl md:text-[43px] overflow-hidden">
                 <span className={`${Font.className} leading-[45px] md:leading-[50px] block w-fit`}>
                   {banners.length > 0 ? banners[currentContent].title : 'Plaster Production Company'}
@@ -97,20 +98,20 @@ const Content = () => {
                 </span>
               </p>
               <div className="button-group mt-6 flex flex-wrap">
-                <a href="#collaboration" className="collaboration-btn py-2 px-7 mr-2 rounded-md mb-2 ">
+                <a href="#collaboration" className="collaboration-btn py-2 px-7 rounded-md mb-2 ">
                   collaboration
                 </a>
-                <a href="#about" className="about-us-btn border-2 border-white rounded-md py-2 px-7 text-white mb-2">
+                <a href="#about" className="about-us-btn border-2 border-white rounded-md py-2 px-7 text-white mb-2 mx-2">
                   about us
                 </a>
               </div>
             </div>
           </div>
           <div className="w-full md:w-7/12 pl-2 md:pt-40 relative">
-            <div className="slider-container relative">
+            <div className={`slider-container ${language == 'en' ? 'lang-en' : 'lang-other'} relative`}>
                {banners.length > 0 ? (
                 <>
-                  <div className="slider-controls flex justify-end py-2 px-8 mb-5">
+                  <div className={`slider-controls flex ${language == 'en' ? 'justify-end' : 'flex-row-reverse justify-start'} py-2 px-8 mb-5`}>
                     <button onClick={prevSlide} className="slider-prev mx-1">
                       <PrevIcon width="30" height="30"/>
                     </button>
@@ -131,7 +132,7 @@ const Content = () => {
               </>
                 ) : (
                   <div className='spinner flex justify-end'>
-                    <img src="/img/spinner.svg" alt="" />
+                    <img src="/img/spinner.svg" alt="loading ..." className='w-[220px]'/>
                   </div>
                 )}
 

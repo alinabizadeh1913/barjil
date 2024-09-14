@@ -7,7 +7,7 @@ const ArticleCard = (props) => {
     return (
         <React.Fragment>
             {props.hasLink ? <Link href={props.link || '#'} className="block h-full">
-            <div className={`${props.background || "bg-transparent"} article-card p-3 border-2 border-[#b6b6b6] rounded-xl h-full`}>
+            <div className={`${props.background || "bg-transparent"} article-card p-3 border-2 border-[#b6b6b6] rounded-xl h-full duration-300 hover:border-[#32cd32]`}>
                 <div className="image h-[150px] md:h-[200px] relative rounded-lg overflow-hidden">
                     <Image src={props.image || "/img/article-card.jpg"} layout="fill" objectFit="cover"/>
                 </div>
