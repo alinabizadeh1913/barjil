@@ -25,42 +25,42 @@ const SideMenu = () => {
                     </span>
                 </div>
                 <div className="links flex flex-col w-full items-center">
-                    <Link href="/" className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
+                    <Link href={`${language == 'en' ? '/' : language == 'ar' ? '/ar' : '/ur'}`} className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
                         <span className="relative z-5">
                             {
                                 language == 'en' ? 'Home' : language == 'ar' ? 'الرئيسية' : 'ہوم'
                             }
                         </span>
                     </Link>
-                    <Link href="/articles" className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
+                    <Link href={`${language == 'en' ? '/papers' : language == 'ar' ? '/ar/papers' : '/ur/papers'}`} className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
                         <span className="relative z-5">
                             {
                                 language == 'en' ? 'Articles' : language == 'ar' ? 'المقالات' : 'مضامین'
                             }
                         </span>
                     </Link>
-                    <Link href="/products" className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
+                    <Link href={`${language == 'en' ? '/products' : language == 'ar' ? '/ar/products' : '/ur/products'}`} className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
                         <span className="relative z-5">
                             {
                                 language == 'en' ? 'Products' : language == 'ar' ? 'المنتجات' : 'مصنوعات'
                             }
                         </span>
                     </Link>
-                    <Link href="/gallery" className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
+                    <Link href={`${language == 'en' ? '/gallery' : language == 'ar' ? '/ar/gallery' : '/ur/gallery'}`} className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
                         <span className="relative z-5">
                             {
                                 language == 'en' ? 'Gallery' : language == 'ar' ? 'الغاليري' : 'گيلری'
                             }
                         </span>
                     </Link>
-                    <Link href="/about" className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
+                    <Link href={`${language == 'en' ? '/about' : language == 'ar' ? '/ar/about' : '/ur/about'}`} className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
                         <span className="relative z-5">
                             {
                                 language == 'en' ? 'About us' : language == 'ar' ? 'من نحن' : 'ہمارے بارے میں'
                             }
                         </span>
                     </Link>
-                    <Link href="/contact" className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
+                    <Link href={`${language == 'en' ? '/contact' : language == 'ar' ? '/ar/contact' : '/ur/contact'}`} className="w-[55%] flex justify-center items-center py-6 border-b-2 border-[#808080]">
                         <span className="relative z-5">
                             {
                                 language == 'en' ? 'Contact us' : language == 'ar' ? 'اتصل بنا' : 'ہم سے رابطہ کریں'

@@ -32,7 +32,7 @@ const ArticlesPage = () => {
     return (
         <section id="articles">
             <Menu />
-            <Banner background="/img/articles.jpg" title={`${language == 'en' ? 'Articles' : language == 'ar' ? 'المقالات' : 'مضامین'}`} />
+            <Banner background="/img/articles.jpg" title={`${language == 'en' ? 'Articles' : language == 'ar' ? 'المقالات' : 'مضامین'}`} pathname="Articles"/>
             <Articles />
             <Footer />
             <SideMenu />

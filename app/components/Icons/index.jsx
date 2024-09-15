@@ -197,6 +197,27 @@ export const RightIcon = (props) => {
     )
 }
 
+
+export const RightIconGroup = (props) => {
+    return (
+        <svg width={props.width || "29"} height={props.height || "15"} viewBox="0 0 29 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M11 13.06L17.0129 7.03L11 1" stroke={props.stroke || "#B3B3B3"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 13.06L27.0129 7.03L21 1" stroke={props.stroke || "#B3B3B3"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.999969 13.06L7.01289 7.03L0.999969 1" stroke={props.stroke || "#B3B3B3"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}
+
+export const LeftIconGroup = (props) => {
+    return (
+        <svg width={props.width || "29"} height={props.height || "15"} viewBox="0 0 29 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path d="M17.0129 1.00006L11 7.03006L17.0129 13.0601" stroke={props.stroke || "#B3B3B3"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.01294 1.00006L1.00002 7.03006L7.01294 13.0601" stroke={props.stroke || "#B3B3B3"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M27.0129 1.00006L21 7.03006L27.0129 13.0601" stroke={props.stroke || "#B3B3B3"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}
+
 export const RightIcon2 = (props) => {
     return (
         <svg width={props.width || "9"} height={props.height || "18"} viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>

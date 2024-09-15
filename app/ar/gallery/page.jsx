@@ -1,16 +1,22 @@
 'use client';
 
-import React, { useEffect } from "react"
-import Menu from "../components/Menu";
-import Banner from "../components/Banner";
-import { loadMenu } from "../utils/script";
-import FullScreenElem from "../components/FullScreenElem";
-import SideMenu from "../components/SideMenu";
-import Gallery from "../components/Gallery";
-import Footer from "../components/Footer";
-import useStore from "../store/Store";
+import React, { useEffect, useLayoutEffect } from "react"
+import Menu from "../../components/Menu";
+import Banner from "../../components/Banner";
+import { loadMenu } from "../../utils/script";
+import FullScreenElem from "../../components/FullScreenElem";
+import SideMenu from "../../components/SideMenu";
+import Gallery from "../../components/Gallery";
+import Footer from "../../components/Footer";
+import useStore from "../../store/Store";
 
 const GalleryPage = () => {
+
+    const {language,setLanguage} = useStore();
+
+    useLayoutEffect(() => {
+      setLanguage('ar')
+    }, [])
 
     useEffect(() => {
       const load1 = setTimeout(() => {
@@ -27,7 +33,6 @@ const GalleryPage = () => {
       }
       }, [])
 
-      const { language } = useStore();
 
     return (
         <section id="gallery">

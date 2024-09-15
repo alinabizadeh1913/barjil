@@ -1,16 +1,22 @@
 'use client';
 
-import React, { useEffect } from "react";
-import Footer from "../components/Footer";
-import Menu from "../components/Menu";
-import Banner from "../components/Banner";
-import Products from "../components/Products";
-import { loadMenu } from "../utils/script";
-import SideMenu from "../components/SideMenu";
-import FullScreenElem from "../components/FullScreenElem";
-import useStore from "../store/Store";
+import React, { useEffect, useLayoutEffect } from "react";
+import Footer from "../../components/Footer";
+import Menu from "../../components/Menu";
+import Banner from "../../components/Banner";
+import Products from "../../components/Products";
+import { loadMenu } from "../../utils/script";
+import SideMenu from "../../components/SideMenu";
+import FullScreenElem from "../../components/FullScreenElem";
+import useStore from "../../store/Store";
 
 const ProductsPage = () => {
+
+  const {language,setLanguage} = useStore();
+
+    useLayoutEffect(() => {
+      setLanguage('ar')
+    }, [])
 
     useEffect(() => {
       const load1 = setTimeout(() => {
@@ -27,7 +33,6 @@ const ProductsPage = () => {
       }
       }, [])
 
-      const {language} = useStore()
 
     return (
         <section id="products">

@@ -7,13 +7,6 @@ import useStore from "@/app/store/Store";
 
 const Banner = (props) => {
 
-    const [path,setPath] = useState()
-
-    useLayoutEffect(() => {
-        const pathname = window.location.pathname;
-        setPath(pathname.substr(1,))
-    },[])
-    
     const {language} = useStore();
 
     return (
@@ -29,7 +22,7 @@ const Banner = (props) => {
                         </Link>
                         <RightIcon2 className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`} fill="#ffffffab" width="8" height="13"/>
                         <span className="pathname">
-                            {path}
+                            {props.pathname}
                         </span>
                     </div>
                 </div>

@@ -221,7 +221,7 @@ const SingleArticleItems = (props) => {
                         </h1>
                         <div className="back absolute bottom-[3px] w-[105%] h-[10px] rounded-full bg-[#FFA500]"></div>
                     </div>
-                    <Link href="/articles" className="link flex items-center">
+                    <Link href="/papers" className="link flex items-center">
                         <span className="text-[#32CD32]">
                             view all articles
                         </span>

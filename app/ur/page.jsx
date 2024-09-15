@@ -1,21 +1,28 @@
 'use client';
 
 import React, { useEffect, useLayoutEffect } from "react";
-import Menu from "./components/Menu";
-import SideMenu from "./components/SideMenu";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { hideLoading, loadHeaderButtonGroup, loadHeaderDescription, loadHeaderTitle, loadMenu, loadSlider } from "./utils/script";
-import Category from "./components/Category";
-import Questions from "./components/Questions";
-import AboutBarjil from "./components/AboutBarjil";
-import FullScreenElem from "./components/FullScreenElem";
-import Loading from "./components/Loading";
-import Support from "./components/Support";
-import ArticleSlider from "./components/ArticleSlider";
-import TruckSlider from "./components/TruckSlider";
+import Menu from "../components/Menu";
+import SideMenu from "../components/SideMenu";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { hideLoading, loadHeaderButtonGroup, loadHeaderDescription, loadHeaderTitle, loadMenu, loadSlider } from "../utils/script";
+import Category from "../components/Category";
+import Questions from "../components/Questions";
+import AboutBarjil from "../components/AboutBarjil";
+import FullScreenElem from "../components/FullScreenElem";
+import Loading from "../components/Loading";
+import Support from "../components/Support";
+import ArticleSlider from "../components/ArticleSlider";
+import useStore from "../store/Store";
+import TruckSlider from "../components/TruckSlider";
 
 const HomePage = () => {
+
+  const {language,setLanguage} = useStore();
+
+  useLayoutEffect(() => {
+    setLanguage('ur')
+  }, [])
 
   useEffect(() => {
     const load0 =  setTimeout(() => {

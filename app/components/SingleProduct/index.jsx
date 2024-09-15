@@ -11,6 +11,7 @@ import { Montserrat } from "next/font/google";
 import { TabsComponent } from "@/app/ui/MaterialUi";
 import ProductCard from "../Products/ProductCard";
 import Slider from "react-slick";
+import useStore from "@/app/store/Store";
 
 
 const Font = Montserrat({
@@ -19,6 +20,8 @@ const Font = Montserrat({
 })
 
 const SingleProductItems = (props) => {
+
+    const {language} = useStore()
 
     const openClose = () => {
         const text = document.querySelector('#single-product-items .explanations .explanations-inner .text p');
@@ -108,11 +111,11 @@ const SingleProductItems = (props) => {
                     <Link href="/" className="text-[#7b7b7b]">
                         Home
                     </Link>
-                    <RightIcon2 className="mx-2" fill="#7b7b7b" width="8" height="16"/>
+                    <RightIcon2 className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`} fill="#7b7b7b" width="8" height="16"/>
                     <Link href="/products" className="text-[#7b7b7b]">
                         Products
                     </Link>
-                    <RightIcon2 className="mx-2" fill="#7b7b7b" width="8" height="16"/>
+                    <RightIcon2 className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`} fill="#7b7b7b" width="8" height="16"/>
                     <span className="text-[#494949]">
                         {props.currentProduct}
                     </span>
@@ -142,27 +145,27 @@ const SingleProductItems = (props) => {
                             </div>
                         </div>
                         <div className="w-full md:w-1/2 px-3 order-first md:order-last mb-12 md:mb-0">
-                            <div className="product-slider">
+                            <div className={`product-slider ${language == 'en' ? 'lang-en' : 'lang-other'}`}>
                                 <div className="slider-container">
                                     <Slider {...settings2} ref={sliderRef} className="outline-0">
-                                        <div className='slider-item rounded-md outline-0'>
+                                        <div className='slider-item rounded-md px-2'>
                                             <img src="/img/product-card.png" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
                                         </div>
-                                        <div className='slider-item rounded-md'>
+                                        <div className='slider-item rounded-md px-2'>
                                             <img src="/img/product-card-2.jpg" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
                                         </div>
-                                        <div className='slider-item rounded-md'>
+                                        <div className='slider-item rounded-md px-2'>
                                             <img src="/img/product-card-3.jpg" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
                                         </div>
-                                        <div className='slider-item rounded-md'>
+                                        <div className='slider-item rounded-md px-2'>
                                             <img src="/img/product-card.png" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
                                         </div>
-                                        <div className='slider-item rounded-md'>
+                                        <div className='slider-item rounded-md px-2'>
                                             <img src="/img/product-card-3.jpg" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
                                         </div>
                                     </Slider>
 
-                                    <div className="slider-controls flex justify-end py-2 px-8 mb-5">
+                                    <div className={`${language == 'en' ? 'justify-end' : 'flex-row-reverse justify-start'} slider-controls flex py-2 px-8 mb-5`}>
                                         <button onClick={prevSlide} className="slider-prev mx-1">
                                             <PrevIcon width="40" height="40" stroke="#B3B3B3" className="mx-4"/>
                                         </button>

@@ -67,22 +67,22 @@ const Footer = () => {
                                         }
                                     </h2>
                                     <div className="links mt-4 flex flex-col items-center">
-                                        <Link href="/" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href={`${language == 'en' ? '/' : language == 'ar' ? '/ar' : '/ur'}`} className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             {
                                                 language == 'en' ? 'Home' : language == 'ar' ? 'الرئيسية' : 'ہوم'
                                             }
                                         </Link>
-                                        <Link href="/products" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href={`${language == 'en' ? '/products' : language == 'ar' ? '/ar/products' : '/ur/products'}`} className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             {
                                                 language == 'en' ? 'Products' : language == 'ar' ? 'المنتجات' : 'مصنوعات'
                                             }
                                         </Link>
-                                        <Link href="/gallery" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href={`${language == 'en' ? '/gallery' : language == 'ar' ? '/ar/gallery' : '/ur/gallery'}`} className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             {
                                                 language == 'en' ? 'Gallery' : language == 'ar' ? 'الغاليري' : 'گيلری'
                                             }
                                         </Link>
-                                        <a href="/articles" className="text-white text-opacity-60 duration-300 hover:text-opacity-100 ">
+                                        <a href={`${language == 'en' ? '/papers' : language == 'ar' ? '/ar/papers' : '/ur/papers'}`} className="text-white text-opacity-60 duration-300 hover:text-opacity-100 ">
                                             {
                                                 language == 'en' ? 'Articles' : language == 'ar' ? 'المقالات' : 'مضامین'
                                             }
@@ -102,12 +102,12 @@ const Footer = () => {
                                         }
                                     </h2>
                                     <div className="links mt-4 flex flex-col items-center">
-                                        <Link href="/about" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href={`${language == 'en' ? '/about' : language == 'ar' ? '/ar/about' : '/ur/about'}`} className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             {
                                                 language == 'en' ? 'About us' : language == 'ar' ? 'من نحن' : 'ہمارے بارے میں'
                                             }
                                         </Link>
-                                        <Link href="/contact" className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
+                                        <Link href={`${language == 'en' ? '/contact' : language == 'ar' ? '/ar/contact' : '/ur/contact'}`} className="text-white text-opacity-60 mb-3 duration-300 hover:text-opacity-100 ">
                                             {
                                                 language == 'en' ? 'Contact us' : language == 'ar' ? 'اتصل بنا' : 'ہم سے رابطہ کریں'
                                             }

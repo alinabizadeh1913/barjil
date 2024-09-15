@@ -10,61 +10,61 @@ const Articles = () => {
         {
             id : 1,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'articles/article1',
+            link : 'papers/article1',
             img : '/img/product-card-3.jpg'
         },
         {
             id : 2,
             description : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus.',
-            link : 'articles/article2',
+            link : 'papers/article2',
             img : '/img/product-card.png'
         },
         {
             id : 3,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article3',
+            link : 'papers/article3',
             img : '/img/product-card-2.jpg'
         },
         {
             id : 4,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'articles/article4',
+            link : 'papers/article4',
             img : '/img/petrochemical.jpg'
         },
         {
             id : 5,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit facilis est?',
-            link : 'articles/article5',
+            link : 'papers/article5',
             img : '/img/minerals.jpg'
         },
         {
             id : 6,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'articles/article6',
+            link : 'papers/article6',
             img : '/img/our-product.jpg'
         },
         {
             id : 7,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article7',
+            link : 'papers/article7',
             img : '/img/petrochemical.jpg'
         },
         {
             id : 8,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'articles/article8',
+            link : 'papers/article8',
             img : '/img/product-card-3.jpg'
         },
         {
             id : 9,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article9',
+            link : 'papers/article9',
             img : '/img/product-card.png'
         },
         {
             id : 10,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'articles/article10',
+            link : 'papers/article10',
             img : '/img/product-card-3.jpg'
         },
         {
@@ -76,13 +76,13 @@ const Articles = () => {
         {
             id : 12,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article12',
+            link : 'papers/article12',
             img : '/img/product-card-2.jpg'
         },
         {
             id : 13,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'articles/article13',
+            link : 'papers/article13',
             img : '/img/petrochemical.jpg'
         },
         {
@@ -100,7 +100,7 @@ const Articles = () => {
         {
             id : 16,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article16',
+            link : 'papers/article16',
             img : '/img/petrochemical.jpg'
         },
         {
@@ -112,7 +112,7 @@ const Articles = () => {
         {
             id : 18,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article18',
+            link : 'papers/article18',
             img : '/img/product-card.png'
         },
         {
@@ -124,37 +124,37 @@ const Articles = () => {
         {
             id : 20,
             description : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus.',
-            link : 'articles/article20',
+            link : 'papers/article20',
             img : '/img/product-card.png'
         },
         {
             id : 21,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article21',
+            link : 'papers/article21',
             img : '/img/product-card-2.jpg'
         },
         {
             id : 22,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'articles/article22',
+            link : 'papers/article22',
             img : '/img/petrochemical.jpg'
         },
         {
             id : 23,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit facilis est?',
-            link : 'articles/article23',
+            link : 'papers/article23',
             img : '/img/minerals.jpg'
         },
         {
             id : 24,
             description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'articles/article24',
+            link : 'papers/article24',
             img : '/img/our-product.jpg'
         },
         {
             id : 25,
             description : 'Lorem ipsum dolor sit amet.',
-            link : 'articles/article25',
+            link : 'papers/article25',
             img : '/img/petrochemical.jpg'
         },
     ]);

@@ -719,11 +719,11 @@ body {
 #single-product-items .product-information .product-slider div:focus-visible {
   outline: none !important;
 }
-#single-product-items .product-information .product-slider .slick-slide {
+#single-product-items .product-information .product-slider.lang-en .slick-slide {
   transform: scale(0.8);
   transition: 0.313s ease;
 }
-#single-product-items .product-information .product-slider .slick-current {
+#single-product-items .product-information .product-slider.lang-en .slick-current {
   transform: scale(1) !important;
   transition: 0.313s ease;
 }
