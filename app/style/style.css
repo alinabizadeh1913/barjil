@@ -32,21 +32,55 @@
   #gallery-items .gallery-wrapper {
     grid-template-rows: 200px 200px !important;
   }
+  #questions .first {
+    width: 500px !important;
+  }
+  #questions .last {
+    width: calc(100% - 500px) !important;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1024px) {
+  #support .form-wrapper form.lang-en {
+    transform: translateX(-125px) !important;
+  }
+  #support .form-wrapper form.lang-en .circle-wrapper-ltr {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  #support .form-wrapper form.lang-en .input-g {
+    width: calc(100% - 200px) !important;
+  }
+  #support .form-wrapper form.lang-other {
+    transform: translateX(125px) !important;
+  }
+  #support .form-wrapper form.lang-other .circle-wrapper-rtl {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  #support .form-wrapper form.lang-other .input-g {
+    width: calc(100% - 200px) !important;
+  }
+}
+@media screen and (min-width: 1024px) {
   #support .form-wrapper form.lang-en {
     transform: translateX(-145px) !important;
   }
-  #support .form-wrapper form.lang-en .circle-wrapper {
+  #support .form-wrapper form.lang-en .circle-wrapper-ltr {
     width: 250px !important;
     height: 250px !important;
   }
   #support .form-wrapper form.lang-en .input-g {
     width: calc(100% - 250px) !important;
   }
-  #questions .first {
-    width: 500px !important;
+  #support .form-wrapper form.lang-other {
+    transform: translateX(145px) !important;
   }
-  #questions .last {
-    width: calc(100% - 500px) !important;
+  #support .form-wrapper form.lang-other .circle-wrapper-rtl {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  #support .form-wrapper form.lang-other .input-g {
+    width: calc(100% - 250px) !important;
   }
 }
 @font-face {
@@ -516,7 +550,7 @@ body {
   letter-spacing: 3px;
   text-fill-color: white;
 }
-#support .form-wrapper form .circle-wrapper {
+#support .form-wrapper form .circle-wrapper-ltr {
   width: 200px;
   height: 200px;
   border: 7px solid #32cd32;
@@ -525,14 +559,32 @@ body {
   opacity: 0;
   transition: transform 0.313s ease-in-out, opacity 0.4313s ease, visibility 0.4313s ease;
 }
-#support .form-wrapper form .circle-wrapper .circle-number:nth-child(2) {
+#support .form-wrapper form .circle-wrapper-ltr .circle-number:nth-child(2) {
   transform: rotate(-90deg);
 }
-#support .form-wrapper form .circle-wrapper .circle-number:nth-child(3) {
+#support .form-wrapper form .circle-wrapper-ltr .circle-number:nth-child(3) {
   transform: rotate(180deg);
 }
-#support .form-wrapper form .circle-wrapper .circle-number:nth-child(4) {
+#support .form-wrapper form .circle-wrapper-ltr .circle-number:nth-child(4) {
   transform: rotate(90deg);
+}
+#support .form-wrapper form .circle-wrapper-rtl {
+  width: 200px;
+  height: 200px;
+  border: 7px solid #32cd32;
+  border-radius: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.313s ease-in-out, opacity 0.4313s ease, visibility 0.4313s ease;
+}
+#support .form-wrapper form .circle-wrapper-rtl .circle-number:nth-child(2) {
+  transform: rotate(90deg);
+}
+#support .form-wrapper form .circle-wrapper-rtl .circle-number:nth-child(3) {
+  transform: rotate(180deg);
+}
+#support .form-wrapper form .circle-wrapper-rtl .circle-number:nth-child(4) {
+  transform: rotate(-90deg);
 }
 #support .form-wrapper form .input-g {
   width: 100%;
@@ -549,6 +601,11 @@ body {
 }
 #support .form-wrapper form .input-g button svg path {
   transition: 0.313s ease-in-out;
+}
+#support .form-wrapper form .input-g .input-wrapper .input-label label {
+  padding: 0 11px;
+  background: rgba(238, 243, 240, 0.9607843137);
+  margin: 0 15px;
 }
 #support .image img {
   transition: 0.4313s ease-in-out;
@@ -845,7 +902,7 @@ body {
   transition: visibility 0.313s ease, opacity 0.313s ease;
 }
 
-.support-constant .form-wrapper form .circle-wrapper {
+.support-constant .form-wrapper form .circle-wrapper-ltr, .support-constant .form-wrapper form .circle-wrapper-rtl {
   visibility: visible !important;
   opacity: 1 !important;
 }

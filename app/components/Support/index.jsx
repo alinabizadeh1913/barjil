@@ -29,84 +29,129 @@ const Support = (props) => {
         const input = document.querySelector('#support .form-wrapper form input');
         const button = document.querySelector('#support .form-wrapper form button');
         const svg = document.querySelector('#support .form-wrapper form button svg path');
-        const circleWrapper = document.querySelector('#support .form-wrapper form .circle-wrapper');
+        const circleLtr = document.querySelector('#support .form-wrapper form .circle-wrapper-ltr');
+        const circleRtl = document.querySelector('#support .form-wrapper form .circle-wrapper-rtl');
         const form = document.querySelector('#support .form-wrapper form');
+
+        const nameError = document.querySelector('#support .form-wrapper form .input-g .error-success .name-error');
+        const familyError = document.querySelector('#support .form-wrapper form .input-g .error-success .family-error');
+        const phoneError = document.querySelector('#support .form-wrapper form .input-g .error-success .phone-error');
+        const requestError = document.querySelector('#support .form-wrapper form .input-g .error-success .request-error');
+        const requestSuccess = document.querySelector('#support .form-wrapper form .input-g .error-success .request-success');
+
+        const nameLabel = document.querySelector('#support .form-wrapper form .input-g .input-label label .name');
+        const familyLabel = document.querySelector('#support .form-wrapper form .input-g .input-label label .family');
+        const phoneLabel = document.querySelector('#support .form-wrapper form .input-g .input-label label .phone');
+        const requestLabel = document.querySelector('#support .form-wrapper form .input-g .input-label label .request');
 
         setTimeout(() => {
             input.value = '';
         },313)
 
-        if (count < 4) {
-            setCount(count + 1);
-        }
-        
         if (count == 0) {
-            setTimeout(() => {
-                input.setAttribute('placeholder','last name')
-                input.setAttribute('name','family');
-            },200)
-            setInformation(info => {
-                return {
-                    ...info,
-                    name : input.value
-                }
-            })
+            if (input.value.length > 0) {
+                setTimeout(() => {
+                    input.setAttribute('name','family');
+                },200)
+            
+                setInformation(info => {
+                    return {
+                        ...info,
+                        name : input.value
+                    }
+                })
 
-            circleWrapper.style.transform = 'rotate(90deg)';
+                setCount(count + 1);
+
+                circleLtr.style.transform = 'rotate(90deg)';
+                circleRtl.style.transform = 'rotate(-90deg)';
+
+                nameError.classList.add('hidden');
+                nameLabel.classList.add('hidden');
+                familyLabel.classList.remove('hidden');
+            }else{
+                nameError.classList.remove('hidden')
+            }
+
         }
         if (count == 1) {
-            setTimeout(() => {
-                input.setAttribute('placeholder','phone number')
-                input.setAttribute('name','phone')
-                input.setAttribute('type','number')
-            },200)
-            setInformation(info => {
-                return {
-                    ...info,
-                    family : input.value
-                }
-            })
+            if(input.value.length > 0) {
+                setTimeout(() => {
+                    input.setAttribute('name','phone')
+                    input.setAttribute('type','number')
+                },200)
 
-            circleWrapper.style.transform = 'rotate(180deg)';
+                setInformation(info => {
+                    return {
+                        ...info,
+                        family : input.value
+                    }
+                })
+
+                setCount(count + 1);
+
+                circleLtr.style.transform = 'rotate(180deg)';
+                circleRtl.style.transform = 'rotate(-180deg)';
+
+                familyError.classList.add('hidden');
+                familyLabel.classList.add('hidden');
+                phoneLabel.classList.remove('hidden');
+            }else{
+                familyError.classList.remove('hidden')
+            }
+
         }
         if (count == 2) {
-            setTimeout(() => {
-                input.setAttribute('placeholder','your request')
-                input.setAttribute('name','request')
-            },200)
-            setInformation(info => {
-                return {
-                 ...info,
-                 phone : input.value
-                }
-             })
+            if(input.value.length > 0) {
+                setTimeout(() => {
+                    input.setAttribute('name','request')
+                },200)
 
-            circleWrapper.style.transform = 'rotate(270deg)';
+                setInformation(info => {
+                    return {
+                     ...info,
+                     phone : input.value
+                    }
+                })
+
+                setCount(count + 1);
+
+                circleLtr.style.transform = 'rotate(270deg)';
+                circleRtl.style.transform = 'rotate(-270deg)';
+
+                phoneError.classList.add('hidden');
+                phoneLabel.classList.add('hidden');
+                requestLabel.classList.remove('hidden');
+            }else{
+                phoneError.classList.remove('hidden')
+            }
+
         }
         if (count == 3) {
-            setInformation(info => {
-                return {
-                 ...info,
-                 request : input.value
-                }
-             })
-            circleWrapper.style.transform = 'translateX(-50%) rotate(270deg)';
-            input.style.display = 'none';
-            button.style.width = '100%';
-            button.style.backgroundColor = '#32cd32';
-            svg.style.stroke = '#fff';
+            if (input.value.length > 0) {
+                setInformation(info => {
+                    return {
+                     ...info,
+                     request : input.value
+                    }
+                 })
 
-            setTimeout(() => {
-                console.log(information);
-            },600)
-            setTimeout(() => {
-                form.submit();
-            },700)
+                 setCount(count + 1);
+
+                 input.style.display = 'none';
+                 button.style.width = '95%';
+                 button.style.backgroundColor = '#32cd32';
+                 svg.style.stroke = '#fff';
+
+                 requestLabel.classList.add('hidden');
+                 requestError.classList.add('hidden');
+                 requestSuccess.classList.remove('hidden');
+            }else{
+                requestError.classList.remove('hidden')
+            }
+            
         }
 
-        setTimeout(() => {
-            console.log(information,input.name);
-        },700)
     }
 
     useEffect(() => {
@@ -131,7 +176,7 @@ const Support = (props) => {
     return (
         <section id="support" className="mt-28">
             <div className={`${props.hasContainer === 'true' ? 'wrapper mx-auto' : 'w-full'} ${props.constant ? 'support-constant' : ''} flex flex-col items-center`}>
-                <div className={`title ${language == 'en' ? 'md:w-[79%]' : 'md:w-[87%]'} px-6 md:p-0`}>
+                <div className={`title md:w-[79%] px-6 md:p-0`}>
                     <h1 className={`${Font.className} text-4xl md:text-5xl text-[#006400] mb-6 text-center md:text-start`}>
                         {
                             language == 'en' ? 'Consultation and Support' : language == 'ar' ? 'الاستشارة والدعم' : 'مشاورت اور سپورٹ'
@@ -147,12 +192,34 @@ const Support = (props) => {
                     </p>
                 </div>
                 <div className="w-full flex flex-wrap items-center md:mt-[-115px]">
-                    <div className="w-full md:w-7/12">
-                        <div className="form-wrapper overflow-hidden">
+                    <div className="w-full md:w-7/12 mb-[50px] md:mb-0">
+                        <div className="form-wrapper md:overflow-hidden">
                             
-                            <form action="" className={`flex items-center w-full ${language == 'en' ? 'lang-en' : ''} `}>
-                                <div className={`circle-wrapper hidden ${language == 'en' ? 'md:flex' : 'md:hidden'} relative justify-center items-center`}>
-                                    <div className="circle-number absolute w-[35px] h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center right-[-10%] md:right-[-8%]">
+                            <form action="" className={`flex items-center w-full ${language == 'en' ? 'lang-en' : 'lang-other'} `}>
+                                <div className={`circle-wrapper-ltr hidden ${language == 'en' ? 'md:flex' : 'md:hidden'} relative justify-center items-center`}>
+                                    <div className="circle-number absolute w-[20px] h-[20px] md:w-[35px] md:h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center right-[-10%] md:right-[-8%]">
+                                        <span className="text-lg font-black text-white">
+                                            1
+                                        </span>
+                                    </div>
+                                    <div className="circle-number absolute w-[20px] h-[20px] md:w-[35px] md:h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center top-[-10%] md:top-[-8%]">
+                                        <span className="text-lg font-black text-white">
+                                            2
+                                        </span>
+                                    </div>
+                                    <div className="circle-number absolute w-[20px] h-[20px] md:w-[35px] md:h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center left-[-10%] md:left-[-8%]">
+                                        <span className="text-lg font-black text-white">
+                                            3
+                                        </span>
+                                    </div>
+                                    <div className="circle-number absolute w-[20px] h-[20px] md:w-[35px] md:h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center bottom-[-10%] md:bottom-[-8%]">
+                                        <span className="text-lg font-black text-white">
+                                            4
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className={`circle-wrapper-rtl hidden ${language == 'en' ? 'md:hidden' : 'md:flex'} relative justify-center items-center`}>
+                                    <div className="circle-number absolute w-[20px] h-[20px] md:w-[35px] md:h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center left-[-10%] md:left-[-8%]">
                                         <span className="text-lg font-black text-white">
                                             1
                                         </span>
@@ -162,7 +229,7 @@ const Support = (props) => {
                                             2
                                         </span>
                                     </div>
-                                    <div className="circle-number absolute w-[35px] h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center left-[-10%] md:left-[-8%]">
+                                    <div className="circle-number absolute w-[35px] h-[35px] rounded-full text-center bg-[#32CD32] flex justify-center items-center right-[-10%] md:right-[-8%]">
                                         <span className="text-lg font-black text-white">
                                             3
                                         </span>
@@ -175,7 +242,43 @@ const Support = (props) => {
                                 </div>
                                 <div className="input-g flex flex-col px-5">
                                     <div className="flex flex-wrap items-center justify-center">
-                                        <input type="text" name="name" placeholder="first name" className="text-[#757575] rounded-lg p-2 border-2 border-[#b2b2b2] bg-transparent outline-0 mx-2 md:mx-3 w-[80%] md:w-[75%] mb-3" required/>
+                                        <div className="input-wrapper mx-2 md:mx-3 w-[80%] md:w-[75%] mb-3 relative flex justify-center">
+                                            <input type="text" name="name" id="support-input" className="text-[#757575] rounded-lg p-2 border-2 border-[#b2b2b2] bg-transparent outline-0 w-full" required/>
+
+                                            <div className="input-label absolute bottom-[32px] left-0 right-0">
+                                                <label htmlFor="support-input" className="text-[#757575] text-sm cursor-pointer">
+                                                    <span className="name">
+                                                        {language == 'en' ? 'first name' : language == 'ar' ? 'الاسم الأول' : 'پہلا نام'}
+                                                    </span>
+                                                    <span className="family hidden">
+                                                        {language == 'en' ? 'last name' : language == 'ar' ? 'اسم العائلة' : 'آخری نام'}
+                                                    </span>
+                                                    <span className="phone hidden">
+                                                        {language == 'en' ? 'phone number' : language == 'ar' ? 'رقم الهاتف' : 'فون نمبر'}
+                                                    </span>
+                                                    <span className="request hidden">
+                                                        {language == 'en' ? 'request' : language == 'ar' ? 'طلبية' : 'درخواست'}
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div className="error-success text-center absolute top-[60px] select-none">
+                                                <div className="name-error text-red-500 text-sm font-bold hidden">
+                                                    {language == 'en' ? 'please enter your name' : language == 'ar' ? 'من فضلك ادخل اسمك' : 'براہ کرم اپنا نام درج کریں'}
+                                                </div>
+                                                <div className="family-error text-red-500 text-sm font-bold hidden">
+                                                    {language == 'en' ? 'please enter your last name' : language == 'ar' ? 'من فضلك أدخل اسم العائلة' : 'براہ کرم اپنا آخری نام درج کریں'}
+                                                </div>
+                                                <div className="phone-error text-red-500 text-sm font-bold hidden">
+                                                    {language == 'en' ? 'please enter your phone number' : language == 'ar' ? 'من فضلك أدخل رقم الهاتف' : 'براہ کرم اپنا فون نمبر درج کریں'}
+                                                </div>
+                                                <div className="request-error text-red-500 text-sm font-bold hidden">
+                                                    {language == 'en' ? 'please enter your request' : language == 'ar' ? 'من فضلك أدخل طلبك' : 'براہ کرم اپنی درخواست درج کریں'}
+                                                </div>
+                                                <div className="request-success text-[#32cd32] text-sm font-bold mt-2 hidden ">
+                                                    {language == 'en' ? 'your request has been sent. our experts will call you soon' : language == 'ar' ? 'تم إرسال طلبك. سيتصل بك خبراؤنا قريبًا.' : 'آپ کی درخواست بھیج دی گئی ہے۔ ہمارے ماہرین جلد ہی آپ کو کال کریں گے۔'}
+                                                </div>
+                                            </div>
+                                        </div>
                                         <button type="submit" onClick={e => handleSubmit(e)} className="border-2 border-[#32CD32] rounded-lg p-2 flex items-center justify-center md:w-[44px] md:h-[44px] duration-300 hover:bg-[#32cd32] mb-3">
                                             <CheckIcon />
                                         </button>
@@ -185,7 +288,7 @@ const Support = (props) => {
                         </div>
                     </div>
                     <div className="w-full md:w-5/12 px-4">
-                        <div className={`image relative flex justify-end overflow-hidden ${language == 'en' ? '' : 'lang-other'}`}>
+                        <div className={`image relative flex overflow-hidden ${language == 'en' ? 'justify-end' : 'lang-other justify-start'}`}>
                             <img src="/img/desk.png" alt="" className="desk-image"/>
                             <img src="/img/boy.png" alt="" className="boy-image absolute right-0 bottom-0"/>
                         </div>

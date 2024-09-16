@@ -218,7 +218,8 @@ export const hideLoading = () => {
 export const loadSupport = () => {
     const deskImg = document.querySelector('#support .image .desk-image');
     const boyImg = document.querySelector('#support .image .boy-image');
-    const circleWrapper = document.querySelector('#support .form-wrapper .circle-wrapper');
+    const circleWrapperLtr = document.querySelector('#support .form-wrapper .circle-wrapper-ltr');
+    const circleWrapperRtl = document.querySelector('#support .form-wrapper .circle-wrapper-rtl');
     const inputGroup = document.querySelector('#support .form-wrapper .input-g');
 
     setTimeout(() => {
@@ -228,8 +229,10 @@ export const loadSupport = () => {
         boyImg.style.transform = 'translateX(0)'
     }, 1000)
     setTimeout(() => {
-        circleWrapper.style.visibility = 'visible';
-        circleWrapper.style.opacity = 1;
+        circleWrapperLtr.style.visibility = 'visible';
+        circleWrapperLtr.style.opacity = 1;
+        circleWrapperRtl.style.visibility = 'visible';
+        circleWrapperRtl.style.opacity = 1;
     }, 1500)
     setTimeout(() => {
         inputGroup.style.visibility = 'visible';
