@@ -5,6 +5,7 @@ import { Montserrat } from 'next/font/google';
 import Feedback from "../Feedback";
 import ArticleCard from "../Articles/ArticleCard";
 import Slider from "react-slick";
+import useStore from "@/app/store/Store";
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -14,6 +15,7 @@ const Font = Montserrat({
 
 const SingleArticleItems = (props) => {
 
+    const {language} = useStore();
 
     const settings = {
         dots: true,
@@ -48,11 +50,11 @@ const SingleArticleItems = (props) => {
                 <Link href="/" className="text-[#7b7b7b]">
                     Home
                 </Link>
-                <RightIcon2 className="mx-2" fill="#7b7b7b" width="8" height="16"/>
+                <RightIcon2 className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`} fill="#7b7b7b" width="8" height="16"/>
                 <Link href="/articles" className="text-[#7b7b7b]">
                     Articles
                 </Link>
-                <RightIcon2 className="mx-2" fill="#7b7b7b" width="8" height="16"/>
+                <RightIcon2 className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`} fill="#7b7b7b" width="8" height="16"/>
                 <span className="text-[#494949]">
                     {props.currentArticle}
                 </span>

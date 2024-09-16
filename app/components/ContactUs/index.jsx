@@ -34,12 +34,16 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-wrap mt-28 mb-16 md:px-6">
                     <div className="w-full md:w-6/12 md:px-6 mb-4">
-                        <div className="email flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
-                                example@gmail.com
-                            </a>
+                        <div className="contact email flex justify-center items-center text-center border-2 border-[#cbcbcb] rounded-full relative">
+                            <div className="link relative w-full h-full py-8 px-[52px] overflow-hidden rounded-full">
+                                <a href="#" className="text-center font-black text-md md:text-xl text-[#727272] relative z-20">
+                                    example@gmail.com
+                                </a>
 
-                            <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
+                                <div className="front absolute bottom-0 left-0 w-full bg-[#32cd32] rounded-full"></div>
+                            </div>
+
+                            <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center z-10">
                                 <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
                                     <MessageIcon className="w-[27px] h-[27px] md:w-[37px] md:h-[37px]"/>
                                 </div>
@@ -47,10 +51,15 @@ const ContactUs = () => {
                         </div>
                     </div>
                     <div className="w-full md:w-6/12 md:px-6 mb-4">
-                        <div className="instagram flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
-                                barjiltrading.co
-                            </a>
+                        <div className="contact instagram flex justify-center items-center text-center border-2 border-[#cbcbcb] rounded-full relative">
+                            <div className="link relative w-full h-full py-8 px-[52px] overflow-hidden rounded-full">
+                                <a href="#" className="text-center font-black text-md md:text-xl text-[#727272] relative z-20">
+                                    barjiltrading.co
+                                </a>
+
+                                <div className="front absolute bottom-0 left-0 w-full bg-[#32cd32] rounded-full"></div>
+                            </div>
+                            
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
                                 <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
@@ -60,10 +69,15 @@ const ContactUs = () => {
                         </div>
                     </div>
                     <div className="w-full md:w-6/12 md:px-6 mb-4">
-                        <div className="whatsapp flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
-                                barjiltrading_company
-                            </a>
+                        <div className="contact whatsapp flex justify-center items-center text-center border-2 border-[#cbcbcb] rounded-full relative">
+                            
+                            <div className="link relative w-full h-full py-8 px-[52px] overflow-hidden rounded-full">
+                                <a href="#" className="text-center font-black text-md md:text-xl text-[#727272] relative z-20">
+                                    barjiltrading_company
+                                </a>
+
+                                <div className="front absolute bottom-0 left-0 w-full bg-[#32cd32] rounded-full"></div>
+                            </div>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
                                 <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
@@ -73,10 +87,15 @@ const ContactUs = () => {
                         </div>
                     </div>
                     <div className="w-full md:w-6/12 md:px-6 mb-4">
-                        <div className="phone flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
-                                +98 32 3434 5678
-                            </a>
+                        <div className="contact phone flex justify-center items-center text-center border-2 border-[#cbcbcb] rounded-full relative">
+
+                            <div className="link relative w-full h-full py-8 px-[52px] overflow-hidden rounded-full">
+                                <a href="#" className="text-center font-black text-md md:text-xl text-[#727272] relative z-20">
+                                    +98 32 3434 5678
+                                </a>
+
+                                <div className="front absolute bottom-0 left-0 w-full bg-[#32cd32] rounded-full"></div>
+                            </div>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
                                 <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">
@@ -86,10 +105,15 @@ const ContactUs = () => {
                         </div>
                     </div>
                     <div className="w-full md:px-6 mb-4">
-                        <div className="location flex justify-center items-center text-center py-8 px-[52px] border-2 border-[#cbcbcb] rounded-full relative">
-                            <a href="#" className="text-center font-black text-md md:text-xl text-[#727272]">
-                                Iran, Khoozestan, Lorem Ipsum is simply dummy text of...
-                            </a>
+                        <div className="contact location flex justify-center items-center text-center border-2 border-[#cbcbcb] rounded-full relative">
+
+                            <div className="link relative w-full h-full py-8 px-[52px] overflow-hidden rounded-full">
+                                <a href="#" className="text-center font-black text-md md:text-xl text-[#727272] relative z-20">
+                                    Iran, Khoozestan, Lorem Ipsum is simply dummy text of...
+                                </a>
+
+                                <div className="front absolute bottom-0 left-0 w-full bg-[#32cd32] rounded-full"></div>
+                            </div>
 
                             <div className="icon-wrapper absolute top-0 left-[-22px] bottom-0 h-full flex justify-center items-center">
                                 <div className="icon-inner w-[55px] h-[55px] md:w-[72px] md:h-[72px] rounded-full bg-[#FFA500] flex items-center justify-center">

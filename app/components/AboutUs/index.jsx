@@ -57,7 +57,7 @@ const AboutUs = () => {
                 </div>
             </div>
             <div className="container mx-auto mt-20">
-                <div className="flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-8 mb-12">
                     <div className="what-is-barjil flex flex-wrap items-center w-full">
                         <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0">
                             <div className="title">
@@ -87,7 +87,7 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-8 mb-12">
                     <div className="our-insight flex flex-wrap items-center w-full">
                         <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0 order-first md:order-last">
                             <div className="title">
@@ -118,7 +118,7 @@ const AboutUs = () => {
                         
                     </div>
                 </div>
-                <div className="flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-8 mb-12">
                     <div className="barjil-goals flex flex-wrap items-center w-full">
                         <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0">
                             <div className="title">
@@ -148,7 +148,7 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-8 mb-12">
                     <div className="our-customers flex flex-wrap items-center w-full">
                         <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0 order-first md:order-last">
                             <div className="title">

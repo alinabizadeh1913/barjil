@@ -9,7 +9,7 @@ const RootLayout = ({ children }) => {
   return (
     <html dir={language === 'en' ? 'ltr' : 'rtl'}>
       <head>
-        <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/img/logo.svg" type="image/x-icon" />
         <title>Barjil Trading</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       </head>
