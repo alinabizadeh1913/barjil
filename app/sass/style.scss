@@ -42,6 +42,56 @@ $h2-gray-color : #454545;
 
 }
 
+@media screen and (max-width : 576px) {
+    #truck-slider{
+        #truck-slider-wrapper{
+            .swiper-wrapper.active{
+                transform: translateX(-100vw);
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 576px) and (max-width : 768px) {
+    #truck-slider{
+        #truck-slider-wrapper{
+            .swiper-wrapper.active{
+                transform: translateX(-66.66vw);
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    #truck-slider{
+        #truck-slider-wrapper{
+            .swiper-wrapper.active{
+                transform: translateX(-50vw);
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 1024px) and (max-width : 1280px) {
+    #truck-slider{
+        #truck-slider-wrapper{
+            .swiper-wrapper.active{
+                transform: translateX(-33vw);
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 1280px) {
+    #truck-slider{
+        #truck-slider-wrapper{
+            .swiper-wrapper.active{
+                transform: translateX(-25vw);
+            }
+        }
+    }
+}
+
 @media screen and (max-width : 900px) {
     #menu{
         .change-language{
@@ -166,6 +216,38 @@ $h2-gray-color : #454545;
 
 // Fonts
 
+body.body-lang-en{
+    font-family: 'Montserrat-Medium';
+}
+
+body.body-lang-other {
+    font-family: 'Peyda-Medium';
+}
+
+body.body-lang-en h1,
+body.body-lang-en h2{
+    font-family: 'Montserrat-Exterabold';
+}
+
+body.body-lang-other h1,
+body.body-lang-other h2 {
+    font-family: 'Yekan-Exterabold';
+}
+
+@font-face {
+    font-family: 'Poppins-ExtraBold';
+    src: url('../../public/fonts/Poppins-ExtraBold.ttf') format('truetype');
+}
+.poppins-exterabold {
+    font-family: 'Poppins-ExtraBold' !important;
+}
+@font-face {
+    font-family: 'Montserrat-Exterabold';
+    src: url('../../public/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+}
+.montserrat-exterabold {
+    font-family: 'Montserrat-Exterabold' !important;
+}
 @font-face {
     font-family: 'Montserrat-Medium';
     src: url('../../public/fonts/Montserrat-Medium.ttf') format('truetype');
@@ -202,18 +284,7 @@ $h2-gray-color : #454545;
     font-family: 'Yekan-Exterabold' !important;
 }
 
-body.body-lang-en{
-    font-family: 'Montserrat-Medium' !important;
-}
 
-body.body-lang-other {
-    font-family: 'Peyda-Medium' !important;
-}
-
-body.body-lang-other h1,
-body.body-lang-other h2 {
-    font-family: 'Yekan-Exterabold' !important;
-}
 
 // Fonts
 
@@ -222,7 +293,6 @@ body.body-lang-other h2 {
 body{
     background-color: $body-color;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 ::selection{
@@ -248,6 +318,15 @@ body{
 
 .flip-horizontal{
     transform: scaleX(-1) !important;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 ::-webkit-scrollbar{
@@ -443,7 +522,7 @@ body{
                         background-position: 0;
                     } 
                     100%{
-                        background-position: 200%;
+                        background-position: 100%;
                     }
                 }
             }
@@ -616,17 +695,26 @@ body{
 }
 // Product Card
 .product-card{
+    // height: 100%;
+    // background: linear-gradient(90deg, #25923d, #0b631f 42%, #0e680e -166%, #0b631f -92%, #25923d);
+    // background-size: 200% 100%;
+    // background-position: 0;
     height: 100%;
-    background: linear-gradient(90deg, #22ba45, #069126 42%, #0b4b0b -166%, #069126 -92%, #22ba45);
+    background: linear-gradient(90deg, #32cd32, #016a01 42%, #0e680e -166%, #016a01 -92%, #32cd32);
     background-size: 200% 100%;
     background-position: 0;
     &:hover{
-        animation: skeletonMove 2s 1 linear;
+        animation: skeletonMove 0.5s 1 linear forwards;
     }
     .card-content{
         .description{
-            h2{
+            h3{
                 color : $h2-white-color;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }   
         .link{
@@ -861,37 +949,40 @@ body{
         opacity: 0;
         position: relative;
         z-index: 5;
-        background: linear-gradient(to bottom, #006400 45%, #218b21 45%);
+        // background: linear-gradient(to bottom, #006400 45%, #218b21 45%);
+        background-color: #006400;
         .slider-container{
             transform: translateY(-30px);
             transition: 0.6313s ease-in-out;
             visibility: hidden;
             opacity: 0;
-            
-        }
-        .slider-container.lang-en{
-            .slick-slide{
-                transform: scale(0.7) !important;
+            .swiper-slide{
+                transform: scale(0.65);
+                opacity: 0.5;
                 transition: 0.313s ease;
             }
-            .slick-active{
-                transform: scale(0.8) !important;
+            .swiper-slide-prev,.swiper-slide-next{
+                transform: scale(0.75);
+                opacity: 1 !important;
                 transition: 0.313s ease;
             }
-            .slick-current{
+            .swiper-slide-active{
                 transform: scale(1) !important;
+                opacity: 1 !important;
                 transition: 0.313s ease;
             }
         }
+    }
+    .oval{
+        transition: visibility 0.313s ease,opacity 0.313s ease;
+        visibility: hidden;
+        opacity: 0;
     }
 }
 // Questions
 #questions{
     .first{
         .engineer-wrapper{
-            .engineer-inner{
-                transform: translateY(-9%);
-            }
             .question-mark{
                 visibility: hidden;
                 opacity: 0;
@@ -933,6 +1024,11 @@ body{
                 height: 40px;
                 transition: 0.313s ease;
                 .bottom{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 7;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                     visibility: hidden;
                     opacity: 0;
                     transition: 0.313s ease;
@@ -1006,15 +1102,21 @@ body{
             width: calc(100% - 120px);
         }
     }
-    .article{
-        .article-card{
+}
+.article-card{
+    overflow: hidden;
+    .image{
+        width: 100%;
+    }
+    .description{
+        p{
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
             overflow: hidden;
-            .image{
-                width: 100%;
-            }
         }
     }
-    
 }
 // Pagination
 .pagination {
@@ -1109,20 +1211,41 @@ body{
             }
         }
         .product-slider{
-            .slider-controls{
-                button{
-                    &:hover{
-                        path,rect{
-                            stroke : #32cd32
+            .slider-container{
+                .swiper-slide-prev{
+                    transform: scale(0.8);
+                    transition: 0.313s ease;
+                }
+                .swiper-slide-next{
+                    transform: scale(0.8);
+                    transition: 0.313s ease;
+                }
+                .swiper-slide{
+                    transform: scale(0.8);
+                    transition: 0.313s ease;
+                }
+                .swiper-slide-active{
+                    transform: scale(1) !important;
+                    transition: 0.313s ease;
+                }
+
+                .slider-controls{
+                
+                    button{
+                        &:hover{
+                            path,rect{
+                                stroke : #32cd32
+                            }
                         }
-                    }
-                    svg{
-                        path,rect{
-                            transition: 0.313s ease;
+                        svg{
+                            path,rect{
+                                transition: 0.313s ease;
+                            }
                         }
                     }
                 }
             }
+            
             div{
                 &:focus-visible{
                     outline: none !important;
@@ -1156,6 +1279,15 @@ body{
     background-size: cover !important;
     background-position: center !important;
 }
+// Truck Slider
+#truck-slider{
+    #truck-slider-wrapper{
+        .swiper-wrapper{
+            transition: 1.7s ease;
+            transform: translateX(100%);
+        }
+    }
+}
 // Scroll Down
 #scroll-down-wrapper{
     .scroll-icons-wrapper{
@@ -1186,6 +1318,11 @@ body{
     transform: translateX(101%);
     transition: transform 0.313s ease;
     z-index: 100;
+    .sidemenu-inner{
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
     .links{
         a{
             position: relative;
@@ -1220,6 +1357,26 @@ body{
 #loading{
     backdrop-filter: blur(20px);
     transition: visibility 0.313s ease,opacity 0.313s ease;
+}
+// Skeleton
+#skeleton-card{
+    .items{
+        animation: skeleton 2s infinite ease;
+    }
+    @keyframes skeleton {
+        0%{
+            opacity: 1;
+        }
+        50%{
+            opacity: 0.4;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+}
+#skeleton-rectangle{
+    animation: skeleton 2s infinite ease;
 }
 // Activity Class
 
@@ -1282,6 +1439,15 @@ body{
             background-color: #32cd32;
         }
     }
+}
+.slick-slide {
+    display: flex;
+    align-items: stretch; /* همه آیتم‌ها به ارتفاع بلندترین آیتم می‌رسند */
+  }
+  
+.slick-slide > div {
+width: 100%;
+height: 100%;
 }
 // Activity Class
 

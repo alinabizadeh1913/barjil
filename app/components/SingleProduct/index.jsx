@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useCallback, useRef } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Feedback from "../Feedback";
 import Support from "../Support";
 import Link from "next/link";
@@ -12,6 +10,10 @@ import { TabsComponent } from "@/app/ui/MaterialUi";
 import ProductCard from "../Products/ProductCard";
 import Slider from "react-slick";
 import useStore from "@/app/store/Store";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import ArticleCard from "../Articles/ArticleCard";
 
 
 const Font = Montserrat({
@@ -27,82 +29,12 @@ const SingleProductItems = (props) => {
         const text = document.querySelector('#single-product-items .explanations .explanations-inner .text p');
         const overlay = document.querySelector('#single-product-items .explanations .explanations-inner .text .overlay');
         const svg = document.querySelector('#single-product-items .explanations .explanations-inner .read-more svg');
-        const read = document.querySelector('#single-product-items .explanations .explanations-inner .read-more span');
         text.classList.toggle('h-[145px]');
         overlay.classList.toggle('hidden');
         svg.classList.toggle('rotate-180');
-
-        read.textContent === 'read more' ? read.textContent = 'read less' : read.textContent = 'read more';
     }
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots : false,
-        arrows: false,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                centerPadding: "60px",
-              }
-            },
-            {
-              breakpoint: 900,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                centerPadding: "120px",
-              }
-            }
-          ]
-      };
-
-    const settings2 = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        dots : false,
-        arrows: false,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                centerPadding: "60px",
-              }
-            },
-            {
-              breakpoint: 900,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                centerPadding: "120px",
-              }
-            }
-          ]
-      };
-
-      const sliderRef = useRef(null);
-
-      const nextSlide = useCallback(() => {
-        if (sliderRef.current) {
-          sliderRef.current.slickNext();
-        }
-      }, []);
-      
-      const prevSlide = useCallback(() => {
-        if (sliderRef.current) {
-          sliderRef.current.slickPrev();
-        }
-      }, []);
-
+    const swiperRef = useRef(null);
 
     return (
         <>
@@ -140,37 +72,73 @@ const SingleProductItems = (props) => {
 
                             <div className="link mt-5">
                                 <a href="#" className="block w-full text-center text-white py-4 text-lg px-6 rounded-lg">
-                                    Go To Request Box
+                                    {
+                                        language === "en" ? 'Go To Request Box' : language == 'ar' ? 'انتقل إلى صندوق الطلبات' : 'درخواست باکس پر جائیں'
+                                    }
                                 </a>
                             </div>
                         </div>
                         <div className="w-full md:w-1/2 px-3 order-first md:order-last mb-12 md:mb-0">
                             <div className={`product-slider ${language == 'en' ? 'lang-en' : 'lang-other'}`}>
-                                <div className="slider-container">
-                                    <Slider {...settings2} ref={sliderRef} className="outline-0">
-                                        <div className='slider-item rounded-md px-2'>
-                                            <img src="/img/product-card.png" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
-                                        </div>
-                                        <div className='slider-item rounded-md px-2'>
-                                            <img src="/img/product-card-2.jpg" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
-                                        </div>
-                                        <div className='slider-item rounded-md px-2'>
-                                            <img src="/img/product-card-3.jpg" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
-                                        </div>
-                                        <div className='slider-item rounded-md px-2'>
-                                            <img src="/img/product-card.png" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
-                                        </div>
-                                        <div className='slider-item rounded-md px-2'>
-                                            <img src="/img/product-card-3.jpg" alt="" className="w-full h-[350px] block outline-0 rounded-lg border-[3px] border-[#32CD32] hover:border-[#319131] duration-300"/>
-                                        </div>
-                                    </Slider>
+                                <div className="slider-container" dir="ltr">
+                                    <Swiper
+                                        onBeforeInit={(swiper) => {
+                                            swiperRef.current = swiper;
+                                        }}
+                                        slidesPerView={2}
+                                        spaceBetween={10}
+                                        loop={true}
+                                        className="mySwiper"
+                                    >
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card.png" alt="product1" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card-2.jpg" alt="product2" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card-3.jpg" alt="product3" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card-4.jpg" alt="product4" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card-2.jpg" alt="product5" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card-3.jpg" alt="product6" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="w-full h-full">
+                                                <img src="/img/product-card-4.jpg" alt="product7" className="w-full h-[300px] md:h-[350px] rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"/>
+                                            </div>
+                                        </SwiperSlide>
+                                    </Swiper>
 
-                                    <div className={`${language == 'en' ? 'justify-end' : 'flex-row-reverse justify-start'} slider-controls flex py-2 px-8 mb-5`}>
-                                        <button onClick={prevSlide} className="slider-prev mx-1">
-                                            <PrevIcon width="40" height="40" stroke="#B3B3B3" className="mx-4"/>
+                                    <div className={`slider-controls mt-10 flex ${language == 'en' ? 'justify-end' : 'justify-start'}`}>
+                                        <button
+                                        className="custom-prev mx-6" 
+                                        onClick={() => swiperRef.current.slidePrev()}
+                                        >
+                                            <PrevIcon stroke="#979797"/>
                                         </button>
-                                        <button onClick={nextSlide} className="slider-next mx-1">
-                                            <NextIcon width="40" height="40" stroke="#B3B3B3" className="mx-4"/>
+                                        <button
+                                        className="custom-next mx-6"
+                                        onClick={() => swiperRef.current.slideNext()}
+                                        >
+                                            <NextIcon stroke="#979797"/>
                                         </button>
                                     </div>
                                 </div>
@@ -182,7 +150,9 @@ const SingleProductItems = (props) => {
                 <div className="explanations container mx-auto mt-16">
                     <div className="title relative flex justify-center select-none w-fit mb-8">
                         <h1 className={`${Font.className} text-[#717171] text-2xl relative z-10`}>
-                            Complementary Explanations
+                            {
+                                language == 'en' ? 'Complementary Explanations' : language == 'ar' ? 'تفسيرات تكميلية' : 'تکمیلی وضاحتیں'
+                            }
                         </h1>
                         <div className="back absolute bottom-[3px] w-[105%] h-[10px] rounded-full bg-[#FFA500]"></div>
                     </div>
@@ -197,7 +167,9 @@ const SingleProductItems = (props) => {
                         <div className="mt-4 flex justify-center">
                             <button className="read-more flex items-center" onClick={openClose}>
                                 <span className="text-[#6d6d6d] mx-2">
-                                    read more
+                                    {
+                                        language == 'en' ? 'read more' : language == 'ar' ? 'اقرأ المزيد' : 'مزید پڑھیں'
+                                    }
                                 </span>
                                 <DownChevronIcon2 width="25" fill="#6d6d6d"/>
                             </button>
@@ -211,36 +183,61 @@ const SingleProductItems = (props) => {
                 <div className="header flex justify-between">
                     <div className="title relative flex justify-center select-none">
                         <h1 className={`${Font.className} text-[#717171] text-2xl relative z-10`}>
-                            Related Products
+                            {
+                                language == 'en' ? 'Related Products' : language == 'ar' ? 'المنتجات ذات الصلة' : 'متعلقہ مصنوعات'
+                            }
                         </h1>
                         <div className="back absolute bottom-[3px] w-[105%] h-[10px] rounded-full bg-[#FFA500]"></div>
                     </div>
-                    <Link href="/products" className="link flex items-center">
+                    <Link href={`${language == 'en' ? '/products' : language == 'ar' ? '/ar/products' : '/ur/products'}`} className="link flex items-center">
                         <span className="text-[#32CD32]">
-                            view all products
+                            {
+                                language == 'en' ? 'view all products' : language == 'ar' ? 'عرض جميع المنتجات' : 'تمام مصنوعات دیکھیں'
+                            }
                         </span>
-                        <RightIcon3 width="9" className="mx-2"/>
+                        <RightIcon3 width="9" className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`}/>
                     </Link>
                 </div>
                 <div className="body mt-16">
-                    <div className="slider-container">
-                        <Slider {...settings}>
-                            <div className='slider-item rounded-md px-3'>
-                                <ProductCard title="Product 1"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
-                                <ProductCard title="Product 2"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
-                                <ProductCard title="Product 3"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
-                                <ProductCard title="Product 4"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
-                                <ProductCard title="Product 5"/>
-                            </div>
-                        </Slider>
+                    <div className="slider-container" dir="ltr">
+                        <Swiper
+                            spaceBetween={30}
+                            loop={true}
+                            breakpoints={{
+                                578:{
+                                    slidesPerView: 1,
+                                },
+                                768: {
+                                slidesPerView: 2,
+                                },
+                                1024: {
+                                slidesPerView: 3,
+                                },
+                            }}
+                            className="mySwiper"
+                        >
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ProductCard />
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
             </div>

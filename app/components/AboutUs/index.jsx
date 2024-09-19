@@ -13,8 +13,8 @@ const AboutUs = () => {
                 <div className="benefits flex flex-wrap items-center px-8">
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
-                            <SupportIcon width="60" height="80" className="mt-[-38px]"/>
-                            <p className="text-[#006400] font-bold text-center">
+                            <SupportIcon className="w-[40px] h-[60px] md:w-[60px] md:h-[80px] mt-[-35px] md:mt-[-38px]"/>
+                            <p className="text-sm md:text-base text-[#006400] font-bold text-center">
                                 {
                                     language == 'en' ? '24 Hours Support' : language == 'ar' ? 'دعم على مدار الساعة' : '24 گھنٹے کی مدد'
                                 }
@@ -24,8 +24,8 @@ const AboutUs = () => {
                     </div>
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
-                            <StarIcon2 width="60" height="80" className="mt-[-38px]"/>
-                            <p className="text-[#006400] font-bold text-center">
+                            <StarIcon2 className="w-[40px] h-[60px] md:w-[60px] md:h-[80px] mt-[-35px] md:mt-[-38px]"/>
+                            <p className="text-sm md:text-base text-[#006400] font-bold text-center">
                                 {
                                     language == 'en' ? 'Origin & Quality' : language == 'ar' ? ' الأصل والجودة' : 'ماخذ اور معیار'
                                 }
@@ -35,8 +35,8 @@ const AboutUs = () => {
                     </div>
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0 relative">
-                            <TruckIcon width="60" height="80" className="mt-[-38px]"/>
-                            <p className="text-[#006400] font-bold text-center">
+                            <TruckIcon className="w-[40px] h-[60px] md:w-[60px] md:h-[80px] mt-[-35px] md:mt-[-38px]"/>
+                            <p className="text-sm md:text-base text-[#006400] font-bold text-center">
                                 {
                                     language == 'en' ? 'Global Transport' : language == 'ar' ? 'النقل العالمي' : 'عالمی نقل و حمل'
                                 }
@@ -46,8 +46,8 @@ const AboutUs = () => {
                     </div>
                     <div className="w-1/2 md:w-1/4 px-2">
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0">
-                            <UserIcon width="60" height="80" className="mt-[-38px]"/>
-                            <p className="text-[#006400] font-bold text-center">
+                            <UserIcon className="w-[40px] h-[60px] md:w-[60px] md:h-[80px] mt-[-35px] md:mt-[-38px]"/>
+                            <p className="text-sm md:text-base text-[#006400] font-bold text-center">
                                 {
                                     language == 'en' ? '+50 Active Customers' : language == 'ar' ? '+50 عميل نشط' : '+50 فعال صارفین'
                                 }
@@ -57,12 +57,12 @@ const AboutUs = () => {
                 </div>
             </div>
             <div className="container mx-auto mt-20">
-                <div className="about-us-content flex flex-wrap px-8 mb-12">
-                    <div className="what-is-barjil flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0">
+                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
+                    <div className="about-us-inner flex flex-wrap items-center w-full">
+                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0">
                             <div className="title">
                                 <h1 className="text-2xl font-bold flex items-center cursor-default">
-                                    <InfoIcon width="45"/>
+                                    <img src="/img/info-icon.svg" alt="icon" className="w-[45px] h-[45px]"/>
                                     <span className="text-[#5f5f5f] mx-3">
                                         What is Barjil?
                                     </span>
@@ -74,7 +74,7 @@ const AboutUs = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-full md:w-5/12 px-6">
+                        <div className="w-full md:w-5/12 px-3 md:px-6">
                             <div className="image-wrapper w-full flex justify-center md:justify-end">
                                 <div className="image-inner relative w-[90%]">
                                     <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
@@ -87,9 +87,9 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="about-us-content flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
                     <div className="our-insight flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0 order-first md:order-last">
+                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0 order-first md:order-last">
                             <div className="title">
                                 <h1 className="text-2xl font-bold flex items-center cursor-default">
                                     <InsightIcon width="50"/>
@@ -104,7 +104,7 @@ const AboutUs = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-full md:w-5/12 px-6 order-last md:order-first">
+                        <div className="w-full md:w-5/12 px-3 md:px-6 order-last md:order-first">
                                 <div className="image-wrapper w-full flex justify-center md:justify-start">
                                     <div className="image-inner relative w-[90%]">
                                         <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
@@ -118,9 +118,9 @@ const AboutUs = () => {
                         
                     </div>
                 </div>
-                <div className="about-us-content flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
                     <div className="barjil-goals flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0">
+                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0">
                             <div className="title">
                                 <h1 className="text-2xl font-bold flex items-center cursor-default">
                                     <GoalIcon width="45"/>
@@ -135,7 +135,7 @@ const AboutUs = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-full md:w-5/12 px-6">
+                        <div className="w-full md:w-5/12 px-3 md:px-6">
                             <div className="image-wrapper w-full flex justify-center md:justify-end">
                                 <div className="image-inner relative w-[90%]">
                                     <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
@@ -148,9 +148,9 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="about-us-content flex flex-wrap px-8 mb-12">
+                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
                     <div className="our-customers flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-6 mb-4 md:mb-0 order-first md:order-last">
+                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0 order-first md:order-last">
                             <div className="title">
                                 <h1 className="text-2xl font-bold flex items-center cursor-default">
                                     <CustomersIcon width="45"/>
@@ -165,7 +165,7 @@ const AboutUs = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-full md:w-5/12 px-6 order-last md:order-first">
+                        <div className="w-full md:w-5/12 px-3 md:px-6 order-last md:order-first">
                                 <div className="image-wrapper w-full flex justify-center md:justify-start">
                                     <div className="image-inner relative w-[90%]">
                                         <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">

@@ -4,151 +4,20 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from "./ProductCard"
 import { DownChevronIcon, FilterIcon, NextIcon, PrevIcon } from "../Icons";
 import useStore from '@/app/store/Store';
+import { getProducts } from '@/app/server/api/apiRoutes';
+import { SkeletonCard } from '../Skeleton';
 
 const Products = () => {
 
-    const [productItems,setProductItems] = useState([
-        {
-            id : 1,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'products/product1',
-            img : '/img/product-card-3.jpg'
-        },
-        {
-            id : 2,
-            description : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus.',
-            link : 'products/product2',
-            img : '/img/product-card.png'
-        },
-        {
-            id : 3,
-            description : 'Lorem ipsum dolor sit amet.',
-            link : 'products/product3',
-            img : '/img/product-card-2.jpg'
-        },
-        {
-            id : 4,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product4',
-            img : '/img/petrochemical.jpg'
-        },
-        {
-            id : 5,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit facilis est?',
-            link : 'products/product5',
-            img : '/img/minerals.jpg'
-        },
-        {
-            id : 6,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'products/product6',
-            img : '/img/our-product.jpg'
-        },
-        {
-            id : 7,
-            description : 'Lorem ipsum dolor sit amet.',
-            link : 'products/product7',
-            img : '/img/petrochemical.jpg'
-        },
-        {
-            id : 8,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product8',
-            img : '/img/product-card-3.jpg'
-        },
-        {
-            id : 9,
-            description : 'Lorem ipsum dolor sit amet.',
-            link : 'products/product9',
-            img : '/img/product-card.png'
-        },
-        {
-            id : 10,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product10',
-            img : '/img/minerals.jpg'
-        },
-        {
-            id : 11,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'products/product11',
-            img : '/img/product-card-3.jpg'
-        },
-        {
-            id : 12,
-            description : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus.',
-            link : 'products/product12',
-            img : '/img/petrochemical.jpg'
-        },
-        {
-            id : 13,
-            description : 'Lorem ipsum dolor sit amet.',
-            link : 'products/product13',
-            img : '/img/product-card-2.jpg'
-        },
-        {
-            id : 14,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product14',
-            img : '/img/petrochemical.jpg'
-        },
-        {
-            id : 15,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit facilis est?',
-            link : 'products/product15',
-            img : '/img/product-card-3.jpg'
-            
-        },
-        {
-            id : 16,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'products/product16',
-            img : '/img/our-product.jpg'
-        },
-        {
-            id : 17,
-            description : 'Lorem ipsum dolor sit amet.',
-            link : 'products/product17',
-            img : '/img/product-card.png'
-        },
-        {
-            id : 18,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product18',
-            img : '/img/product-card-3.jpg'
-        },
-        {
-            id : 19,
-            description : 'Lorem ipsum dolor sit amet.',
-            link : 'products/product19',
-            img : '/img/product-card.png'
-        },
-        {
-            id : 20,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product20',
-            img : '/img/product-card-2.jpg'
-        },
-        {
-            id : 21,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint, dolore veritatis quibusdam repudiandae debitis?',
-            link : 'products/product21',
-            img : '/img/petrochemical.jpg'
-        },
-        {
-            id : 22,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odit facilis est?',
-            link : 'products/product22',
-            img : '/img/minerals.jpg'
-        },
-        {
-            id : 23,
-            description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, doloremque!',
-            link : 'products/product23',
-            img : '/img/our-product.jpg'
-        },
-    ]);
+    const [productItems,setProductItems] = useState([]);
 
+    useEffect(() => {
+        getProducts().then(result => {
+            setProductItems(result)
+            console.log(result);
+        }).catch(e => console.log(e))
+    }, [])
+    
     const { language } = useStore();
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 10;
@@ -248,7 +117,9 @@ const Products = () => {
                             <div className="sidebar-content hidden md:block">
                                 <div className="available-products flex items-center justify-between mb-8">
                                     <h3 className="mr-2">
-                                        only available products
+                                        {
+                                            language == 'en' ? 'only available products' : language == 'ar' ? 'المنتجات المتاحة فقط' : 'صرف دستیاب پروڈکٹس'
+                                        }
                                     </h3>
                                     <div className="switch border-2 border-[#c4c4c4] rounded-full w-[60px] h-[30px] flex items-center p-[2px] cursor-pointer overflow-hidden duration-300" onClick={switchActive}>
                                         <div className="switch-inner w-full">
@@ -258,9 +129,9 @@ const Products = () => {
                                 </div>
                                 <div className="product-details mb-4">
                                     <button className="brand rounded-md p-4 flex justify-center items-center">
-                                        <h2>
+                                        <h3>
                                             brand
-                                        </h2>
+                                        </h3>
                                         <DownChevronIcon className="mx-2 duration-300" width="11"/>
                                     </button>
                                     <div className="content overflow-hidden my-2">
@@ -292,9 +163,9 @@ const Products = () => {
                                 </div>
                                 <div className="product-details mb-4">
                                     <button className="color rounded-md p-4 flex justify-center items-center">
-                                        <h2>
+                                        <h3>
                                             color
-                                        </h2>
+                                        </h3>
                                         <DownChevronIcon className="mx-2" width="11"/>
                                     </button>
                                     <div className="content">
@@ -303,9 +174,9 @@ const Products = () => {
                                 </div>
                                 <div className="product-details mb-4">
                                     <button className="weight rounded-md p-4 flex justify-center items-center">
-                                        <h2>
+                                        <h3>
                                             weight
-                                        </h2>
+                                        </h3>
                                         <DownChevronIcon className="mx-2" width="11"/>
                                     </button>
                                     <div className="content">
@@ -314,9 +185,9 @@ const Products = () => {
                                 </div>
                                 <div className="product-details mb-4">
                                     <button className="price rounded-md p-4 flex justify-center items-center">
-                                        <h2>
+                                        <h3>
                                             price
-                                        </h2>
+                                        </h3>
                                         <DownChevronIcon className="mx-2" width="11"/>
                                     </button>
                                     <div className="content">
@@ -328,18 +199,32 @@ const Products = () => {
                     </div>
                     <div className="product w-full mt-4 md:mt-0 md:w-7/12 xl:w-2/3 flex flex-wrap px-2">
                         {
-                            currentProducts.map(item => (
+                            productItems.length > 0 ? currentProducts.map(item => (
                                 <div className="w-full xl:w-1/2 md:px-8 xl:px-3 mb-3">
-                                    <ProductCard description={item.description} link={item.link} image={item.img}/>
+                                    <ProductCard description={`${language == 'en' ? item.translations.en.short_text : language == 'ar' ? item.translations.ar.short_text : item.translations.ur.short_text}`} title={`${language == 'en' ? item.translations.en.title : language == 'ar' ? item.translations.ar.title : item.translations.ur.title}`} link={item.link} image={item.image} alt={`${language == 'en' ? item.translations.en.title : language == 'ar' ? item.translations.ar.title : item.translations.ur.title}`}/>
                                 </div>
                             ))
+                            : <>
+                                <div className="w-full xl:w-1/2 md:px-8 xl:px-3 mb-3">
+                                    <SkeletonCard />
+                                </div>
+                                <div className="w-full xl:w-1/2 md:px-8 xl:px-3 mb-3">
+                                    <SkeletonCard />
+                                </div>
+                                <div className="w-full xl:w-1/2 md:px-8 xl:px-3 mb-3">
+                                    <SkeletonCard />
+                                </div>
+                                <div className="w-full xl:w-1/2 md:px-8 xl:px-3 mb-3">
+                                    <SkeletonCard />
+                                </div>
+                            </>
                         }
 
                     </div>
                 </div>
             </div>
 
-            <div className="container mx-auto px-8 md:px-14 mt-10">
+            {productItems.length > 0 && <div className="container mx-auto px-8 md:px-14 mt-10">
                 <div className="w-full flex flex-wrap justify-center">
                     <div className="pagination flex flex-wrap justify-center items-center">
                         <div onClick={() => goToPage(1)} className={`first-page hidden sm:flex items-center mx-2 py-1 px-2 md:py-2 md:px-3 ${currentPage === 1 ? 'bg-gray-200' : 'cursor-pointer'} border border-[#9f9f9f] rounded-lg h-[40px] text-center text-[#454545] duration-300 hover:bg-[#32cd32] hover:text-white`}>
@@ -402,6 +287,7 @@ const Products = () => {
                     </div>
                 </div>
             </div>
+            }
 
 
             <div className='full-filter md:hidden w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[999] bg-[#0e0e0ee0] px-3' onClick={e => {
@@ -413,7 +299,9 @@ const Products = () => {
                 <div className="sidebar-content bg-white rounded-lg p-8 m-auto max-w-[400px] my-[15vh]">
                     <div className="available-products flex items-center justify-between mb-8">
                         <h3 className="mr-2">
-                            only available products
+                            {
+                                language == 'en' ? 'only available products' : language == 'ar' ? 'المنتجات المتاحة فقط' : 'صرف دستیاب پروڈکٹس'
+                            }
                         </h3>
                         <div className="switch border-2 border-[#c4c4c4] rounded-full w-[60px] h-[30px] flex items-center p-[2px] cursor-pointer overflow-hidden duration-300" onClick={switchActive}>
                             <div className="switch-inner w-full">
@@ -423,9 +311,9 @@ const Products = () => {
                     </div>
                     <div className="product-details mb-4">
                         <button className="brand rounded-md p-4 flex justify-center items-center">
-                            <h2>
+                            <h3>
                                 brand
-                            </h2>
+                            </h3>
                             <DownChevronIcon className="mx-2 duration-300" width="11"/>
                         </button>
                         <div className="content overflow-hidden my-2">
@@ -457,9 +345,9 @@ const Products = () => {
                     </div>
                     <div className="product-details mb-4">
                         <button className="color rounded-md p-4 flex justify-center items-center">
-                            <h2>
+                            <h3>
                                 color
-                            </h2>
+                            </h3>
                             <DownChevronIcon className="mx-2" width="11"/>
                         </button>
                         <div className="content">
@@ -468,9 +356,9 @@ const Products = () => {
                     </div>
                     <div className="product-details mb-4">
                         <button className="weight rounded-md p-4 flex justify-center items-center">
-                            <h2>
+                            <h3>
                                 weight
-                            </h2>
+                            </h3>
                             <DownChevronIcon className="mx-2" width="11"/>
                         </button>
                         <div className="content">
@@ -479,9 +367,9 @@ const Products = () => {
                     </div>
                     <div className="product-details mb-4">
                         <button className="price rounded-md p-4 flex justify-center items-center">
-                            <h2>
+                            <h3>
                                 price
-                            </h2>
+                            </h3>
                             <DownChevronIcon className="mx-2" width="11"/>
                         </button>
                         <div className="content">

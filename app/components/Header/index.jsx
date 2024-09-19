@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <React.Fragment>
             <section id="header" className="select-none relative w-full min-h-screen overflow-hidden">
-                <Image src={String(imgSrc)} alt="Header Image" layout="fill" objectFit="cover" />
+                <Image src={String(imgSrc)} alt="Header Image" fill style={{ objectFit: 'cover' }} />
                 <Content />
             </section>
             <div id="scroll-down-wrapper" className="flex justify-center items-start lg:h-[33px] xl:bg-[#32CD32] text-center relative select-none">

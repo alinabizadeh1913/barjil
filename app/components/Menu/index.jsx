@@ -1,21 +1,18 @@
 'use client';
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useRouter, usePathname } from 'next/navigation';
 import { ShowHideSideMenu } from '../../utils/script';
-import { Roboto } from 'next/font/google';
 import { ArabicFlagIcon, BurgerMenuIcon, EmailIcon, EnglishFlagIcon, InstagramIcon, LogoIcon, PakistanFlagIcon, RightChevronIcon, WhatsappIcon } from "../Icons";
 import useStore from "@/app/store/Store";
 
-const Font = Roboto({
-    subsets : ['latin'],
-    weight : ['500']
-})
+
 
 const Menu = (props) => {
     const {language, setLanguage} = useStore();
     const router = useRouter();
     const pathname = usePathname();
+    const langWrapRef = useRef(null);
 
     const stripLanguageFromPath = (path) => {
         return path.replace(/^\/(ar|ur)/, '');
@@ -36,6 +33,22 @@ const Menu = (props) => {
         fullScreenElement.classList.toggle('show-hidden-activity');
     }
 
+   useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (langWrapRef.current && !langWrapRef.current.contains(e.target)) {
+                const languageList = document.querySelector('#menu .change-language .language-list');
+                const icon = document.querySelector('#menu .change-language .icon');
+                languageList.classList.remove('show-hidden-activity');
+                icon.classList.remove('rotate-270');
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     const showHideLanguageList = () => {
         const languageList = document.querySelector('#menu .change-language .language-list');
         const icon = document.querySelector('#menu .change-language .icon');
@@ -45,7 +58,7 @@ const Menu = (props) => {
 
 
     return (
-        <section id="menu" className={`${language == 'en' ? Font.className : 'peyda-medium' } ${props.static ? 'static' : 'fixed'} ${props.constant ? 'constant' : ''} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${props.background || 'bg-[#33333333]'} select-none`}>
+        <section id="menu" className={`${props.static ? 'static' : 'fixed'} ${props.constant ? 'constant' : ''} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${props.background || 'bg-[#33333333]'} select-none`}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center justify-between md:justify-normal">
                     <div className="w-4/12 md:w-1/12 order-2 md:order-1">
@@ -90,13 +103,15 @@ const Menu = (props) => {
                         </div>
                     </div>
                     <div className={`w-4/12 md:w-1/12 ${language == 'en' ? 'order-1' : 'order-3 justify-end'} md:order-3 flex md:justify-center`}>
-                        <div className={`change-language flex ${language == 'en' ? '' : 'flex-row-reverse md:flex-row'} justify-center items-center relative`}>
-                            <div className="language cursor-pointer" onClick={showHideLanguageList}>
-                                {
-                                    language == 'en' ? <EnglishFlagIcon width="25" height="25"/> : language == 'ur' ? <PakistanFlagIcon width="25" height="25"/> : <ArabicFlagIcon width="25" height="25"/>
-                                }
+                        <div className={`change-language flex justify-center relative`} ref={langWrapRef}>
+                            <div className={`lang-wrap flex ${language == 'en' ? '' : 'flex-row-reverse md:flex-row'} justify-center items-center relative`} onClick={showHideLanguageList}>
+                                <div className="language cursor-pointer">
+                                    {
+                                        language == 'en' ? <EnglishFlagIcon width="25" height="25"/> : language == 'ur' ? <PakistanFlagIcon width="25" height="25"/> : <ArabicFlagIcon width="25" height="25"/>
+                                    }
+                                </div>
+                                <RightChevronIcon className="lang-icon mx-2 icon duration-300 cursor-pointer"/>
                             </div>
-                            <RightChevronIcon className="mx-2 icon duration-300"/>
 
                             <div className="language-list flex items-center p-[2px] border-2 border-[#dadada99] rounded-full absolute left-[54px] md:top-[40px]">
                                 <PakistanFlagIcon  width="25" height="25" className="cursor-pointer" onClick={() => {

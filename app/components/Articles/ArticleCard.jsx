@@ -18,7 +18,7 @@ const ArticleCard = (props) => {
                 </div>
                 <div className="category flex items-center mb-4">
                     <CategoryIcon stroke="#7b7b7b"/>
-                    <span className="text-[#7b7b7b] mx-2">
+                    <span className="text-[#7b7b7b] mx-2 text-sm md:text-base">
                         {props.category || "1st category"}
                     </span>
                     
@@ -31,7 +31,7 @@ const ArticleCard = (props) => {
             </div>
         </Link> : <div className={`${props.background || "bg-transparent"} article-card p-3 border-2 border-[#b6b6b6] rounded-xl h-full`}>
                 <div className="image h-[150px] md:h-[200px] relative rounded-lg overflow-hidden">
-                    <Image src={props.image || "/img/article-card.jpg"} layout="fill" objectFit="cover"/>
+                    <Image src={props.image || "/img/article-card.jpg"} alt={props.title || "Article Image"} fill  objectFit="cover" priority />
                 </div>
                 <div className="title">
                     <h1 className="text-[22px] font-black mt-3 mb-2 text-[#333333]">
@@ -40,7 +40,7 @@ const ArticleCard = (props) => {
                 </div>
                 <div className="category flex items-center mb-4">
                     <CategoryIcon stroke="#7b7b7b"/>
-                    <span className="text-[#7b7b7b] mx-2">
+                    <span className="text-[#7b7b7b] mx-2 text-sm md:text-base">
                         {props.category || "1st category"}
                     </span>
                     

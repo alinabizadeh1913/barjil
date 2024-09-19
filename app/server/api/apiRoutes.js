@@ -23,3 +23,19 @@ export const getArticlesCategory = async () => {
 
     return data;
 }
+
+export const getProducts = async () => {
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/products/products/`
+    const fetchData = await axios.get(baseUrl);
+    const data = await fetchData.data;
+
+    return data;
+}
+
+export const getFaq = async () => {
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/settings/faqs/`;
+    const fetchData = await axios.get(baseUrl);
+    const data = await fetchData.data;
+
+    return data;
+}

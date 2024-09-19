@@ -2,20 +2,9 @@
 
 import Link from "next/link";
 import { Galaxy, RightIcon3 } from "../Icons";
-import { Montserrat, Poppins } from 'next/font/google';
 import { useEffect } from "react";
 import { loadAboutBarjil } from "@/app/utils/script";
 import useStore from "@/app/store/Store";
-
-const Font = Montserrat({
-    subsets : ['latin'],
-    weight : ['900']
-})
-
-const Font2 = Poppins({
-    subsets : ['latin'],
-    weight : ['900']
-})
 
 const AboutBarjil = () => {
 
@@ -43,20 +32,20 @@ const AboutBarjil = () => {
     })
     
     return (
-        <section id="about-barjil" className="mt-10 py-8 px-2">
+        <section id="about-barjil" className="mt-10 py-8 px-2 wrapper mx-auto">
             <div className="flex flex-wrap justify-between items-center">
                <div className="galaxy w-full md:w-4/12 px-3 flex justify-center">
-                    <Galaxy className={`w-[65%] md:w-[85%] ${language == 'en' ? 'lang-en' : 'lang-other'}`}/>
+                    <Galaxy className={`w-[45%] md:w-[80%] h-[200px] md:h-[350px] ${language == 'en' ? 'lang-en' : 'lang-other'}`}/>
                 </div> 
                <div className="w-full md:w-8/12 px-3 flex justify-center">
                     <div className="barjil-trading">
                         <div className="title">
-                            <p className={`about-title text-4xl md:text-6xl ${Font2.className} text-[#333333]`}>
+                            <h1 className={`about-title text-4xl md:text-6xl ${language == 'en' ? 'poppins-exterabold' : 'yekan-exterabold'} text-[#333333]`}>
                                 About 
-                            </p>
-                            <p className={`text-6xl md:text-8xl ${Font.className} text-[#333333]`}>
+                            </h1>
+                            <h1 className={`text-5xl md:text-6xl lg:text-7xl text-[#333333]`}>
                                 BarJil Trading
-                            </p>
+                            </h1>
                         </div>
                         <div className="description mt-4 mb-3 overflow-hidden">
                             <span className="text-[##666666]">

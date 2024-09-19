@@ -251,6 +251,7 @@ export const loadBenefits = () => {
 export const loadArticleSlider = () => {
     const sliderWrapper = document.querySelector('#article-slider #slider');
     const slider = document.querySelector('#article-slider #slider .slider-container');
+    const oval = document.querySelector('#article-slider .oval')
     const title = document.querySelector('#article-slider .main-title');
 
     setTimeout(() => {
@@ -258,6 +259,10 @@ export const loadArticleSlider = () => {
         sliderWrapper.style.visibility = 'visible';
         sliderWrapper.style.opacity = 1;
     }, 600)
+    setTimeout(() => {
+        oval.style.visibility = 'visible';
+        oval.style.opacity = 1;
+    }, 1100)
     setTimeout(() => {
         title.style.visibility = 'visible';
         title.style.opacity = 1;
@@ -267,4 +272,11 @@ export const loadArticleSlider = () => {
         slider.style.visibility = 'visible';
         slider.style.opacity = 1;
     }, 1800)
+    
+}
+
+export const loadTruckSlider = () => {
+    const truckSliderWrapper = document.querySelector('#truck-slider-wrapper .swiper-wrapper');
+    truckSliderWrapper.style.transform = 'translateX(0)';
+    
 }

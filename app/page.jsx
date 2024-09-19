@@ -74,7 +74,7 @@ const HomePage = () => {
       <Category />
       <TruckSlider />
       <ArticleSlider />
-      <Support hasContainer="false"/>
+      <Support hasContainer="true"/>
       <Questions />
       <AboutBarjil />
       <Footer />

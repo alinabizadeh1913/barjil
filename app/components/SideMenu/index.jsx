@@ -1,23 +1,18 @@
 'use client';
 import React from "react";
-import { Montserrat } from 'next/font/google';
 import { ShowHideSideMenu } from '../../utils/script';
 import Link from "next/link";
 import { LogoIcon } from "../Icons";
 import useStore from "@/app/store/Store";
 
-const Font = Montserrat({
-  subsets: ['latin'],
-  weight: ['700'],
-});
 
 const SideMenu = () => {
 
     const {language} = useStore();
 
     return (
-        <section id="side-menu" className={`${Font.className} fixed w-[70vw] h-[100vh] top-0 right-0 flex flex-col md:hidden py-5`}>
-            <div className="sidemenu-inner bg-[#333333] h-full w-full rounded-tl-lg rounded-bl-lg flex flex-col items-center justify-center">
+        <section id="side-menu" className={`fixed w-[70vw] h-[100vh] top-0 right-0 flex flex-col md:hidden py-5`}>
+            <div className="sidemenu-inner bg-[#333333] h-full w-full rounded-tl-lg rounded-bl-lg flex flex-col items-center overflow-y-scroll pb-6">
                 <div className="logo w-[65%] flex justify-center items-center pt-4 pb-2 border-b-2 border-[#808080] cursor-default">
                     <LogoIcon fill="#32CD32" width="35"/>
                     <span className="mx-2 text-xl text-[#32cd32]">

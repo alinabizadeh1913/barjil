@@ -1,15 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { Poppins } from 'next/font/google';
 import { CheckIcon } from "../Icons";
 import { loadSupport } from "@/app/utils/script";
 import useStore from "@/app/store/Store";
 
-const Font = Poppins({
-    subsets : ['latin'],
-    weight : ['900']
-})
 
 const Support = (props) => {
 
@@ -149,7 +144,6 @@ const Support = (props) => {
             }else{
                 requestError.classList.remove('hidden')
             }
-            
         }
 
     }
@@ -174,10 +168,10 @@ const Support = (props) => {
     })
 
     return (
-        <section id="support" className="mt-28">
+        <section id="support" className="mt-20">
             <div className={`${props.hasContainer === 'true' ? 'wrapper mx-auto' : 'w-full'} ${props.constant ? 'support-constant' : ''} flex flex-col items-center`}>
                 <div className={`title md:w-[79%] px-6 md:p-0`}>
-                    <h1 className={`${Font.className} text-4xl md:text-5xl text-[#006400] mb-6 text-center md:text-start`}>
+                    <h1 className={`${language == 'en' ? 'poppins-exterabold' : 'yekan-exterabold'} text-4xl md:text-5xl text-[#006400] mb-6 text-center md:text-start`}>
                         {
                             language == 'en' ? 'Consultation and Support' : language == 'ar' ? 'الاستشارة والدعم' : 'مشاورت اور سپورٹ'
                         }
@@ -191,7 +185,7 @@ const Support = (props) => {
                         </svg>
                     </p>
                 </div>
-                <div className="w-full flex flex-wrap items-center md:mt-[-115px]">
+                <div className="w-full flex flex-wrap justify-end items-center md:mt-[-115px]">
                     <div className="w-full md:w-7/12 mb-[50px] md:mb-0">
                         <div className="form-wrapper md:overflow-hidden">
                             
@@ -242,7 +236,7 @@ const Support = (props) => {
                                 </div>
                                 <div className="input-g flex flex-col px-5">
                                     <div className="flex flex-wrap items-center justify-center">
-                                        <div className="input-wrapper mx-2 md:mx-3 w-[80%] md:w-[75%] mb-3 relative flex justify-center">
+                                        <div className="input-wrapper mx-2 md:mx-3 w-[65%] md:w-[75%] mb-3 relative flex justify-center">
                                             <input type="text" name="name" id="support-input" className="text-[#757575] rounded-lg p-2 border-2 border-[#b2b2b2] bg-transparent outline-0 w-full" required/>
 
                                             <div className="input-label absolute bottom-[32px] left-0 right-0">
@@ -279,15 +273,15 @@ const Support = (props) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" onClick={e => handleSubmit(e)} className="border-2 border-[#32CD32] rounded-lg p-2 flex items-center justify-center md:w-[44px] md:h-[44px] duration-300 hover:bg-[#32cd32] mb-3">
-                                            <CheckIcon />
+                                        <button type="submit" onClick={e => handleSubmit(e)} className="border-2 border-[#32CD32] rounded-lg py-[14px] px-3 flex items-center justify-center md:w-[44px] md:h-[44px] duration-300 hover:bg-[#32cd32] mb-3">
+                                            <CheckIcon className="w-[24px] h-[14px]"/>
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div className="w-full md:w-5/12 px-4">
+                    <div className="w-9/12 md:w-5/12 px-4">
                         <div className={`image relative flex overflow-hidden ${language == 'en' ? 'justify-end' : 'lang-other justify-start'}`}>
                             <img src="/img/desk.png" alt="" className="desk-image"/>
                             <img src="/img/boy.png" alt="" className="boy-image absolute right-0 bottom-0"/>

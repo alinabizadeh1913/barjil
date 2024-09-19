@@ -47,7 +47,7 @@ const Category = () => {
     const {language} = useStore();
 
     return (
-        <section id="category" className="mt-36 relative" dir="ltr">
+        <section id="category" className="mt-20 wrapper mx-auto relative" dir="ltr">
                 <div className="flex flex-wrap flex-col overflow-hidden justify-center items-center relative">
                     <div className="category-item c-i-1 w-full"></div>
                     <div className="category-item c-i-2 w-full"></div>
@@ -84,55 +84,55 @@ const Category = () => {
                         </div>
                         <div className={`${Font.className} ${language == 'en' ? 'flex' : 'hidden'} category-title h-[95%] overflow-hidden flex-col justify-center`}>
                             
-                            <p className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t7">
+                            <h1 className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t7">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
-                            <p className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t5">
+                            </h1>
+                            <h1 className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t5">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
-                            <p className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t3">
+                            </h1>
+                            <h1 className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t3">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
-                            <p className="text-[#333333] text-[36px] font-black select-none h-[40px] overflow-hidden flex items-center t1">
+                            </h1>
+                            <h1 className="text-[#333333] text-[36px] font-black select-none h-[40px] overflow-hidden flex items-center t1">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
-                            <p className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t2">
+                            </h1>
+                            <h1 className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t2">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
-                            <p className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t4">
+                            </h1>
+                            <h1 className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t4">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
-                            <p className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t6">
+                            </h1>
+                            <h1 className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t6">
                                 <span>
                                     {
                                         language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
                                     }
                                 </span>
-                            </p>
+                            </h1>
                             
                         </div>
                         <div className="category-circle hidden md:block c-c-2 absolute z-10 overflow-hidden">

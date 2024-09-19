@@ -4,8 +4,10 @@ import { CategoryIcon, LikeIcon, RightIcon2, RightIcon3, ShareIcon } from "../Ic
 import { Montserrat } from 'next/font/google';
 import Feedback from "../Feedback";
 import ArticleCard from "../Articles/ArticleCard";
-import Slider from "react-slick";
 import useStore from "@/app/store/Store";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -17,32 +19,7 @@ const SingleArticleItems = (props) => {
 
     const {language} = useStore();
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots : false,
-        arrows: false,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                centerPadding: "60px",
-              }
-            },
-            {
-              breakpoint: 900,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                centerPadding: "120px",
-              }
-            }
-          ]
-      };
+
 
     return (
         <section id="single-article-items" className="px-3 md:px-10">
@@ -126,7 +103,9 @@ const SingleArticleItems = (props) => {
                 <div className="sidebar-wrapper w-full md:w-4/12 px-2">
                     <div className="sidebar-inner sticky top-[20%] border-2 border-[#b2b2b2] py-3 px-6 rounded-lg">
                         <h1 className="${Font.className} title text-[#666666] text-[22px] font-black pb-3 border-b border-[#b9b9b9]">
-                            Top articles
+                            {
+                                language == 'en' ? 'related articles' : language == 'ar' ? 'المقالات ذات الصلة' : 'متعلقہ مضامین'
+                            }
                         </h1>
 
                         <div className="top-article py-2 border-b border-[#b9b9b9] flex items-center">
@@ -218,40 +197,62 @@ const SingleArticleItems = (props) => {
             <div className="related-articles container mx-auto mt-24">
                 <div className="header flex justify-between">
                     <div className="title relative flex justify-center select-none">
-                        <h1 className={`${Font.className} text-[#717171] text-2xl relative z-10`}>
-                            Related Articles
+                        <h1 className={`${Font.className} text-[#717171] text-lg sm:text-xl md:text-2xl relative z-10`}>
+                            {
+                                language == 'en' ? 'Related Articles' : language == 'ar' ? 'المقالات ذات الصلة' : 'متعلقہ مضامین'
+                            }
                         </h1>
                         <div className="back absolute bottom-[3px] w-[105%] h-[10px] rounded-full bg-[#FFA500]"></div>
                     </div>
-                    <Link href="/papers" className="link flex items-center">
-                        <span className="text-[#32CD32]">
-                            view all articles
+                    <Link href={`${language == 'en' ? '/papers' : language == 'ar' ? '/ar/papers' : '/ur/papers'}`} className="link flex items-center">
+                        <span className="text-[#32CD32] text-sm sm:text-[15px] md:text-base">
+                            {
+                                language == 'en' ? 'view all articles' : language == 'ar' ? 'عرض جميع المقالات' : 'تمام مضامین دیکھیں'
+                            }
                         </span>
-                        <RightIcon3 width="9" className="mx-2"/>
+                        <RightIcon3 width="9" className={`mx-2 ${language == 'en' ? '' : 'rotate-180'}`}/>
                     </Link>
                 </div>
                 <div className="body mt-16">
-                    <div className="slider-container">
-                        <Slider {...settings}>
-                            <div className='slider-item rounded-md px-3'>
+                    <div className="slider-container" dir="ltr">
+                        <Swiper
+                            spaceBetween={30}
+                            loop={true}
+                            breakpoints={{
+                                578:{
+                                    slidesPerView: 1,
+                                },
+                                768: {
+                                slidesPerView: 2,
+                                },
+                                1024: {
+                                slidesPerView: 3,
+                                },
+                            }}
+                            className="mySwiper"
+                        >
+                            <SwiperSlide>
                                 <ArticleCard title="Article number 1"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
+                            </SwiperSlide>
+                            <SwiperSlide>
                                 <ArticleCard title="Article number 2"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
+                            </SwiperSlide>
+                            <SwiperSlide>
                                 <ArticleCard title="Article number 3"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
+                            </SwiperSlide>
+                            <SwiperSlide>
                                 <ArticleCard title="Article number 4"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
+                            </SwiperSlide>
+                            <SwiperSlide>
                                 <ArticleCard title="Article number 5"/>
-                            </div>
-                            <div className='slider-item rounded-md px-3'>
+                            </SwiperSlide>
+                            <SwiperSlide>
                                 <ArticleCard title="Article number 6"/>
-                            </div>
-                        </Slider>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <ArticleCard title="Article number 7"/>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
             </div>

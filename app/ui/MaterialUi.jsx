@@ -8,6 +8,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import useStore from '../store/Store';
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;
@@ -43,6 +44,8 @@ const a11yProps = (index) => {
 }
 
 export const TabsComponent = (props) => {
+
+  const {language} = useStore();
     
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
@@ -64,9 +67,9 @@ export const TabsComponent = (props) => {
                 variant="fullWidth"
                 aria-label="full width tabs example"
             >
-                <Tab label={props.label1 || "Description"} {...a11yProps(0)} sx={{textTransform : 'none',color : '#666666',borderRight : '2px solid #D9D9D9'}} className='text-base font-bold'/>
+                <Tab label={props.label1 || "Description"} {...a11yProps(0)} sx={{textTransform : 'none',color : '#666666',borderRight : `${language == 'en' ? '2px solid #D9D9D9' : ''} `}} className='text-base font-bold'/>
                 <Tab label={props.label2 || "Features"} {...a11yProps(1)} sx={{textTransform : 'none',color : '#666666',borderRight : '2px solid #D9D9D9'}} className='text-base font-bold'/>
-                <Tab label={props.label3 || "Compare"} {...a11yProps(2)} sx={{textTransform : 'none',color : '#666666'}} className='text-base font-bold'/>
+                <Tab label={props.label3 || "Compare"} {...a11yProps(2)} sx={{textTransform : 'none',color : '#666666',borderRight : `${language == 'en' ? '' : '2px solid #D9D9D9'}`}} className='text-base font-bold'/>
             </Tabs>
             </AppBar>
             <TabPanel value={value} index={0} dir={theme.direction} className="text-[#808080]">
