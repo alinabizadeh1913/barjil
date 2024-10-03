@@ -43,6 +43,9 @@
   }
 }
 @media screen and (min-width: 900px) {
+  #articles-items .filter .filter-item {
+    width: 120px !important;
+  }
   #articles-items .filter .filter-item span {
     color: #808080 !important;
   }
@@ -811,9 +814,6 @@ input[type=number]::-webkit-outer-spin-button {
   transition: 0.613s ease;
 }
 
-#articles-items .filter .filter-item {
-  width: 120px;
-}
 #articles-items .filter .filter-item span {
   color: #808080;
 }

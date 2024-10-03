@@ -74,6 +74,7 @@ const Support = (props) => {
                 setTimeout(() => {
                     input.setAttribute('name','phone')
                     input.setAttribute('type','number')
+                    input.style.direction = 'ltr'
                 },200)
 
                 setInformation(info => {
@@ -273,7 +274,7 @@ const Support = (props) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" onClick={e => handleSubmit(e)} className="border-2 border-[#32CD32] rounded-lg py-[14px] px-3 flex items-center justify-center md:w-[44px] md:h-[44px] duration-300 hover:bg-[#32cd32] mb-3">
+                                        <button type="submit" onClick={e => handleSubmit(e)} className="border-2 border-[#32CD32] rounded-lg py-[14px] px-3 flex items-center justify-center md:w-[44px] md:h-[44px] duration-300 hover:bg-[#32cd32] mb-3 bg-transparent">
                                             <CheckIcon className="w-[24px] h-[14px]"/>
                                         </button>
                                     </div>

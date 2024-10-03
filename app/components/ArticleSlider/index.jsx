@@ -103,11 +103,11 @@ const ArticleSlider = () => {
 
                   <div className="w-full flex justify-center md:mt-0">
                     <div className={`slider-controls flex justify-between py-2 px-8 mt-6 w-11/12 sm:w-10/12 md:w-1/2`}>
-                        <button onClick={() => swiperRef.current.slidePrev()} className="custom-prev px-3">
-                          <PrevIcon2 className="w-[55px] sm:w-[75px] md:w-[90px]"/>
+                        <button onClick={() => swiperRef.current.slidePrev()} className="custom-prev shadow-none border-0 outline-0 bg-transparent px-3">
+                          <PrevIcon2 className="w-[55px] sm:w-[75px] md:w-[90px] shadow-none border-0 outline-0 bg-transparent"/>
                         </button>
-                        <button onClick={() => swiperRef.current.slideNext()} className="custom-next px-3">
-                          <NextIcon2 className="w-[55px] sm:w-[75px] md:w-[90px]"/>
+                        <button onClick={() => swiperRef.current.slideNext()} className="custom-next shadow-none border-0 outline-0 bg-transparent px-3">
+                          <NextIcon2 className="w-[55px] sm:w-[75px] md:w-[90px] shadow-none border-0 outline-0 bg-transparent"/>
                         </button>
                     </div>
                   </div>

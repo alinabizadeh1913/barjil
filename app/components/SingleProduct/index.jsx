@@ -1,19 +1,16 @@
 'use client';
 
-import React, { useCallback, useRef } from "react";
+import React, { useRef } from "react";
 import Feedback from "../Feedback";
 import Support from "../Support";
 import Link from "next/link";
 import { CategoryIcon, DownChevronIcon2, NextIcon, PrevIcon, RightIcon2, RightIcon3 } from "../Icons";
 import { Montserrat } from "next/font/google";
-import { TabsComponent } from "@/app/ui/MaterialUi";
 import ProductCard from "../Products/ProductCard";
-import Slider from "react-slick";
 import useStore from "@/app/store/Store";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import ArticleCard from "../Articles/ArticleCard";
 
 
 const Font = Montserrat({
@@ -66,8 +63,33 @@ const SingleProductItems = (props) => {
                                 </span>
                             </div>
 
-                            <div className="tabs">
-                                <TabsComponent />
+                            <div className="tabs-wrapper border-2 border-[#ccc] rounded-lg">
+                                <div className="tab-header flex items-stretch justify-between">
+                                    <div className={`tabs-control w-1/3 p-3 text-center flex justify-center ${language == 'en' ? 'border-r-2 border-[#D9D9D9]' : ''}`}>
+                                        <p className="text-base md:text-lg text-[#666666] cursor-pointer w-fit hover:text-[#3f3f3f] duration-300">
+                                            {
+                                                language == 'en' ? 'Description' : language == 'ar' ? 'Description' : 'Description'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div className={`tabs-control w-1/3 p-3 text-center flex justify-center border-r-2 border-[#D9D9D9]`}>
+                                        <p className="text-base md:text-lg text-[#666666] cursor-pointer w-fit hover:text-[#3f3f3f] duration-300">
+                                            {
+                                                language == 'en' ? 'Features' : language == 'ar' ? 'Features' : 'Features'
+                                            }
+                                        </p>
+                                    </div>
+                                    <div className={`tabs-control w-1/3 p-3 text-center flex justify-center ${language == 'en' ? '' : 'border-r-2 border-[#D9D9D9]'}`}>
+                                        <p className="text-base md:text-lg  text-[#666666] cursor-pointer w-fit hover:text-[#3f3f3f] duration-300">
+                                            {
+                                                language == 'en' ? 'Compare' : language == 'ar' ? 'Compare' : 'Compare'
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="tab-body">
+
+                                </div>
                             </div>
 
                             <div className="link mt-5">

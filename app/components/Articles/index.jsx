@@ -96,11 +96,11 @@ const Articles = () => {
         <section id="articles-items" className="mt-14">
             <div className="filter container mx-auto px-8 md:px-14">
                 <div className="flex flex-wrap flex-col md:flex-row justify-center items-center border-2 border-[#bababa] md:border-[#2aa82a] rounded-xl p-2">
-                    <div className={`filter-item ${language == 'en' ? 'md:border-r-2' : 'md:border-l-2'} md:border-[#c9c9c9] px-4 flex justify-center`}>
-                        <div className="flex items-center justify-center cursor-pointer w-fit select-none" onClick={() => {
+                    <div className={`filter-item w-full cursor-pointer ${language == 'en' ? 'md:border-r-2' : 'md:border-l-2'} md:border-[#c9c9c9] px-4 flex justify-center`} onClick={() => {
                             showHideCategory();
                             showAllArticles()
                         }}>
+                        <div className="flex items-center justify-center cursor-pointer w-fit select-none" >
                             <FilterIcon className="duration-300"/>
                             <span className="mx-1 font-black duration-300">
                                 {

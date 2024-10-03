@@ -39,3 +39,11 @@ export const getFaq = async () => {
 
     return data;
 }
+
+export const getAbout = async () => {
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/settings/aboutus/`;
+    const fetchData = await axios.get(baseUrl);
+    const data = await fetchData.data;
+
+    return data;
+}

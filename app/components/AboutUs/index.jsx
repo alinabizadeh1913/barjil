@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CustomersIcon, GoalIcon, InfoIcon, InsightIcon, StarIcon2, SupportIcon, TruckIcon, UserIcon } from "../Icons";
 import Image from "next/image";
 import useStore from "@/app/store/Store";
+import { getAbout } from "@/app/server/api/apiRoutes";
 
 const AboutUs = () => {
 
-    const {language} = useStore()
+    const {language} = useStore();
+
+    useEffect(() => {
+        getAbout().then(result => {
+            console.log(result);
+        }).catch(error => console.log(error))
+    }, [])
 
     return (
         <section id="about-items" className="mt-14">
@@ -78,7 +85,7 @@ const AboutUs = () => {
                             <div className="image-wrapper w-full flex justify-center md:justify-end">
                                 <div className="image-inner relative w-[90%]">
                                     <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
-                                        <Image src="/img/04.png" layout="fill" objectFit="cover" className="rounded-sm"/>
+                                        <Image src="/img/04.jpg" layout="fill" objectFit="cover" className="rounded-sm"/>
                                     </div>
 
                                     <div className="back absolute top-[15px] left-[-17px] w-full h-full bg-[#ffd7004d] z-[-1] border-4 border-[#ffd700] rounded-xl"></div>

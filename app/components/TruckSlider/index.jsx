@@ -8,11 +8,21 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { loadTruckSlider } from "@/app/utils/script";
 import ProductCard from "../Products/ProductCard";
+import { getProducts } from "@/app/server/api/apiRoutes";
 
 const TruckSlider = () => {
   const { language } = useStore();
 
   const [readyToDisplayTruck, setReadyToDisplayTruck] = useState(false);
+  const [products,setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts().then(result => {
+      setTimeout(() => {
+        console.log(result);
+      },4000)
+    }).catch(e => console.log(e))
+  }, [])
 
   useEffect(() => {
     const truckSlider = document.querySelector("#truck-slider-wrapper");

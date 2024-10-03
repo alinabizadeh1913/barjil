@@ -120,6 +120,7 @@ $h2-gray-color : #454545;
     #articles-items{
         .filter{
             .filter-item{
+                width: 120px !important;
                 span{
                     color: #808080 !important;
                 }
@@ -1093,7 +1094,6 @@ input[type="number"]::-webkit-outer-spin-button {
 #articles-items{
     .filter{
         .filter-item{
-            width: 120px;
             span{
                 color: #808080;
             }

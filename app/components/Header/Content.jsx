@@ -136,7 +136,7 @@ const Content = () => {
 
                   <Slider ref={sliderRef} {...settings}>
                   {banners.map(item => (
-                    <div className='slider-item border-2 border-white rounded-md' key={item.id}>
+                    <div className='slider-item border-2 border-white bg-transparent rounded-md' key={item.id}>
                       <Link href="#" className='relative'>
                         <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.file}`} alt={item.translations.en.title} layout="responsive" objectFit='cover' width={800} height={450} placeholder='blur' blurDataURL={`${process.env.NEXT_PUBLIC_BASE_URL}/${item.thumbnail}`} className='rounded-[4px] h-[150px] sm:h-[135px] md:h-[150px] xl:h-[25vh] w-full'/>
                       </Link>
@@ -149,7 +149,6 @@ const Content = () => {
                     <img src="/img/spinner.svg" alt="loading ..." className='w-[220px]'/>
                   </div>
                 )}
-
             </div>
           </div>
         </div>
