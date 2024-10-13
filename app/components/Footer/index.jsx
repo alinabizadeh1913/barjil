@@ -1,11 +1,54 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useState } from "react";
 import { LogoIcon, RightIcon } from "../Icons";
 import Link from "next/link";
 import useStore from "@/app/store/Store";
+import axios from "axios";
 
 const Footer = () => {
 
     const {language} = useStore();
+    const [email,setEmail] = useState('');
+    const emailInput = useRef();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emptyEmail = document.querySelectorAll('#footer .email-validation small')[0];
+        const invalidEmail = document.querySelectorAll('#footer .email-validation small')[1];
+        const sendError = document.querySelectorAll('#footer .email-validation small')[2];
+        const sendSuccess = document.querySelectorAll('#footer .email-validation small')[3];
+        if (email == '') {
+            emptyEmail.classList.remove('hidden');
+            invalidEmail.classList.add('hidden');
+            sendError.classList.add('hidden');
+            sendSuccess.classList.add('hidden');
+        }
+        if (!emailRegex.test(email) && email !== '') {
+            invalidEmail.classList.remove('hidden');
+            emptyEmail.classList.add('hidden');
+            sendError.classList.add('hidden');
+            sendSuccess.classList.add('hidden');
+        }
+        if (emailRegex.test(email) && email !== '') {
+            emailInput.current.value = '';
+            emailInput.current
+            axios.post(process.env.NEXT_PUBLIC_BASE_URL + 'settings/newsletter/', {
+                email : email
+              }).then(res => {
+                sendSuccess.classList.remove('hidden');
+                emptyEmail.classList.add('hidden');
+                invalidEmail.classList.add('hidden');
+                sendError.classList.add('hidden');
+              }).catch(err => {
+                sendError.classList.remove('hidden');
+                emptyEmail.classList.add('hidden');
+                invalidEmail.classList.add('hidden');
+                sendSuccess.classList.add('hidden');
+              })
+        }
+    }
     
     return (
         <footer id="footer" className="w-full mt-20 bg-[#333333] pt-20 px-10 relative">
@@ -44,15 +87,38 @@ const Footer = () => {
                                     <form action="" className="w-full">
                                         <div className="input-g flex flex-wrap">
                                             <div className="w-[80%]">
-                                                <input type="email" name="email" id="" placeholder="exapmle@gmail.com" className="w-full h-full px-3 rounded-md bg-[#d2ffc14a] bg-opacity-25 outline-0 text-white text-base sm:text-sm md:text-base"/>
+                                                <input type="email" name="email" id="" placeholder="exapmle@gmail.com" className="w-full h-full px-3 rounded-md bg-[#d2ffc14a] bg-opacity-25 outline-0 text-white text-base sm:text-sm md:text-base" ref={emailInput} onInput={e => {
+                                                    const {value} = e.currentTarget;
+                                                    setEmail(value);
+                                                }}/>
                                             </div>
                                             <div className="w-[20%] flex justify-center">
-                                                <button type="submit" className="flex items-center justify-center p-1 bg-transparent outline-0 border-2 border-white rounded-md" onClick={e => {
-                                                    e.preventDefault();
-                                                }}>
+                                                <button type="submit" className="flex items-center justify-center p-1 bg-transparent outline-0 border-2 border-white rounded-md" onClick={handleSubmit}>
                                                     <RightIcon className={language == 'en' ? '' : 'rotate-180'}/>
                                                 </button>
                                             </div>
+                                        </div>
+                                        <div className="email-validation flex flex-col mt-2">
+                                            <small className="text-white hidden">
+                                                {
+                                                    language == 'en' ? 'Please enter your email!' : language == 'ar' ? 'يرجى إدخال بريدك الإلكتروني!' : 'براہ کرم اپنا ای میل درج کریں!'
+                                                }
+                                            </small>
+                                            <small className="text-white hidden">
+                                                {
+                                                    language == 'en' ? 'The email address provided is not valid!' : language == 'ar' ? 'البريد الإلكتروني المدخل غير صالح!' : 'داخل کردہ ای میل درست نہیں ہے!'
+                                                }
+                                            </small>
+                                            <small className="text-white hidden">
+                                                {
+                                                    language == 'en' ? 'There was a problem sending the email!' : language == 'ar' ? 'حدثت مشكلة في إرسال البريد الإلكتروني!' : 'ای میل بھیجنے میں ایک مسئلہ درپیش ہوا ہے!'
+                                                }
+                                            </small>
+                                            <small className="text-white hidden">
+                                                {
+                                                    language == 'en' ? 'The email was sent successfully!' : language == 'ar' ? 'تم إرسال البريد الإلكتروني بنجاح!' : 'ای میل کامیابی کے ساتھ بھیج دی گئی ہے!'
+                                                }
+                                            </small>
                                         </div>
                                     </form>
                                 </div>

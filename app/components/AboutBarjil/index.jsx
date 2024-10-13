@@ -44,7 +44,7 @@ const AboutBarjil = () => {
                                 About 
                             </h1>
                             <h1 className={`text-5xl md:text-6xl lg:text-7xl text-[#333333]`}>
-                                BarJil Trading
+                                BarJil Group
                             </h1>
                         </div>
                         <div className="description mt-4 mb-3 overflow-hidden">
