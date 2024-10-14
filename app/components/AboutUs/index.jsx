@@ -1,17 +1,26 @@
-import React, { useEffect } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { CustomersIcon, GoalIcon, InfoIcon, InsightIcon, StarIcon2, SupportIcon, TruckIcon, UserIcon } from "../Icons";
 import Image from "next/image";
 import useStore from "@/app/store/Store";
-import { getAbout } from "@/app/server/api/apiRoutes";
+import { getAbout, getSettings } from "@/app/server/api/apiRoutes";
 
 const AboutUs = () => {
 
     const {language} = useStore();
+    const [aboutItems,setAboutitems] = useState([]);
+    const [customers,setCustomers] = useState(0);
 
     useEffect(() => {
         getAbout().then(result => {
-            console.log(result);
+            setAboutitems(result);
         }).catch(error => console.log(error))
+
+        getSettings().then(result => {
+            setCustomers(result.active_customers);
+        }
+        )
     }, [])
 
     return (
@@ -55,37 +64,35 @@ const AboutUs = () => {
                         <div className="benefits-item bg-[#32CD32] rounded-full p-3 flex flex-col items-center justify-center mb-6 md:mb-0">
                             <UserIcon className="w-[40px] h-[60px] md:w-[60px] md:h-[80px] mt-[-35px] md:mt-[-38px]"/>
                             <p className="text-sm md:text-base text-[#006400] font-bold text-center">
-                                {
-                                    language == 'en' ? '+50 Active Customers' : language == 'ar' ? '+50 عميل نشط' : '+50 فعال صارفین'
-                                }
+                                +{customers} {language == 'en' ? 'Active Customers' : language == 'ar' ? 'عميل نشط' : 'فعال صارفین'}
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="container mx-auto mt-20">
-                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
+                {
+                    aboutItems.length > 0 && aboutItems.map(item => (
+                        <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
                     <div className="about-us-inner flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0">
+                        <div className={`w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0  ${item.id % 2 == 0 ? 'order-first md:order-last' : ''}`}>
                             <div className="title">
                                 <h1 className="text-2xl font-bold flex items-center cursor-default">
-                                    <img src="/img/info-icon.svg" alt="icon" className="w-[45px] h-[45px]"/>
+                                    <Image src={item.icon} alt={item.translations.en.title} width={45} height={45} />
                                     <span className="text-[#5f5f5f] mx-3">
-                                        What is Barjil?
+                                        {language == 'en' ? item.translations.en.title : language == 'ar' ? item.translations.ar.title : item.translations.ur.title}
                                     </span>
                                 </h1>
                             </div>
                             <div className="description md:px-16">
-                                <p className="text-[#808080] text-sm leading-6">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorum nihil eos quia, odit sed. Est non laboriosam alias! Amet eius praesentium nam deleniti accusamus minima hic ipsam blanditiis minus quisquam expedita adipisci cupiditate, est itaque et. Libero voluptatibus voluptate laboriosam architecto accusamus quibusdam corporis? Ipsam praesentium est, asperiores optio beatae itaque nesciunt aspernatur doloribus repudiandae, officiis nihil minima sit.
-                                </p>
+                                <p className="text-[#808080] text-sm leading-6" dangerouslySetInnerHTML={{__html: language == 'en' ? item.translations.en.text : language == 'ar' ? item.translations.ar.text : item.translations.ur.text}}></p>
                             </div>
                         </div>
-                        <div className="w-full md:w-5/12 px-3 md:px-6">
-                            <div className="image-wrapper w-full flex justify-center md:justify-end">
+                        <div className={`w-full md:w-5/12 px-3 md:px-6 ${item.id % 2 == 0 ? 'order-last md:order-first' : ''}`}>
+                            <div className={`image-wrapper w-full flex justify-center ${item.id % 2 == 0 ? 'md:justify-start' : 'justify-end'}`}>
                                 <div className="image-inner relative w-[90%]">
                                     <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
-                                        <Image src="/img/04.jpg" layout="fill" objectFit="cover" className="rounded-sm"/>
+                                        <Image src={item.image} layout="fill" objectFit="cover" className="rounded-sm"/>
                                     </div>
 
                                     <div className="back absolute top-[15px] left-[-17px] w-full h-full bg-[#ffd7004d] z-[-1] border-4 border-[#ffd700] rounded-xl"></div>
@@ -94,98 +101,8 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
-                    <div className="our-insight flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0 order-first md:order-last">
-                            <div className="title">
-                                <h1 className="text-2xl font-bold flex items-center cursor-default">
-                                    <InsightIcon width="50"/>
-                                    <span className="text-[#5f5f5f] mx-3">
-                                        Our Insight !
-                                    </span>
-                                </h1>
-                            </div>
-                            <div className="description md:px-16">
-                                <p className="text-[#808080] text-sm leading-6">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorum nihil eos quia, odit sed. Est non laboriosam alias! Amet eius praesentium nam deleniti accusamus minima hic ipsam blanditiis minus quisquam expedita adipisci cupiditate, est itaque et. Libero voluptatibus voluptate laboriosam architecto accusamus quibusdam corporis? Ipsam praesentium est, asperiores optio beatae itaque nesciunt aspernatur doloribus repudiandae, officiis nihil minima sit.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-5/12 px-3 md:px-6 order-last md:order-first">
-                                <div className="image-wrapper w-full flex justify-center md:justify-start">
-                                    <div className="image-inner relative w-[90%]">
-                                        <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
-                                            <Image src="/img/about-us.jpg" layout="fill" objectFit="cover" className="rounded-sm"/>
-                                        </div>
-
-                                        <div className="back absolute top-[15px] left-[-17px] w-full h-full bg-[#ffd7004d] z-[-1] border-4 border-[#ffd700] rounded-xl"></div>
-                                    </div>
-                                </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
-                    <div className="barjil-goals flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0">
-                            <div className="title">
-                                <h1 className="text-2xl font-bold flex items-center cursor-default">
-                                    <GoalIcon width="45"/>
-                                    <span className="text-[#5f5f5f] mx-3">
-                                        Barjil Goals !
-                                    </span>
-                                </h1>
-                            </div>
-                            <div className="description md:px-16">
-                                <p className="text-[#808080] text-sm leading-6">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorum nihil eos quia, odit sed. Est non laboriosam alias! Amet eius praesentium nam deleniti accusamus minima hic ipsam blanditiis minus quisquam expedita adipisci cupiditate, est itaque et. Libero voluptatibus voluptate laboriosam architecto accusamus quibusdam corporis? Ipsam praesentium est, asperiores optio beatae itaque nesciunt aspernatur doloribus repudiandae, officiis nihil minima sit.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-5/12 px-3 md:px-6">
-                            <div className="image-wrapper w-full flex justify-center md:justify-end">
-                                <div className="image-inner relative w-[90%]">
-                                    <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
-                                        <Image src="/img/gallery.jpg" layout="fill" objectFit="cover" className="rounded-sm"/>
-                                    </div>
-
-                                    <div className="back absolute top-[15px] left-[-17px] w-full h-full bg-[#ffd7004d] z-[-1] border-4 border-[#ffd700] rounded-xl"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="about-us-content flex flex-wrap px-2 sm:px-4 md:px-8 mb-12">
-                    <div className="our-customers flex flex-wrap items-center w-full">
-                        <div className="w-full md:w-7/12 px-3 md:px-6 mb-4 md:mb-0 order-first md:order-last">
-                            <div className="title">
-                                <h1 className="text-2xl font-bold flex items-center cursor-default">
-                                    <CustomersIcon width="45"/>
-                                    <span className="text-[#5f5f5f] mx-3">
-                                        Our Customers
-                                    </span>
-                                </h1>
-                            </div>
-                            <div className="description md:px-16">
-                                <p className="text-[#808080] text-sm leading-6">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium dolorum nihil eos quia, odit sed. Est non laboriosam alias! Amet eius praesentium nam deleniti accusamus minima hic ipsam blanditiis minus quisquam expedita adipisci cupiditate, est itaque et. Libero voluptatibus voluptate laboriosam architecto accusamus quibusdam corporis? Ipsam praesentium est, asperiores optio beatae itaque nesciunt aspernatur doloribus repudiandae, officiis nihil minima sit.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-5/12 px-3 md:px-6 order-last md:order-first">
-                                <div className="image-wrapper w-full flex justify-center md:justify-start">
-                                    <div className="image-inner relative w-[90%]">
-                                        <div className="image border-[6px] border-[#FFA500] rounded-lg overflow-hidden relative w-full h-[270px] z-5">
-                                            <Image src="/img/customers.jpg" layout="fill" objectFit="cover" className="rounded-sm"/>
-                                        </div>
-
-                                        <div className="back absolute top-[15px] left-[-17px] w-full h-full bg-[#ffd7004d] z-[-1] border-4 border-[#ffd700] rounded-xl"></div>
-                                    </div>
-                                </div>
-                        </div>
-                        
-                    </div>
-                </div>
+                    ))
+                }
             </div>
         </section>
     )

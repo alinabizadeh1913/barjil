@@ -24,7 +24,6 @@ const Category = () => {
             const sectionTop = category.offsetTop;
             const scrollY = window.scrollY;
     
-            // مقایسه دقیق‌تر موقعیت سکشن با موقعیت اسکرول
             if (scrollY + window.innerHeight >= sectionTop + 200) {
                 setReadyToDisplayCategory(true);
             }
@@ -36,7 +35,6 @@ const Category = () => {
     
         window.addEventListener('scroll', handleScroll);
     
-        // پاک کردن event listener هنگام unmount کامپوننت
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }
@@ -60,7 +58,7 @@ const Category = () => {
                     <div className="category-item c-i-9 w-full"></div>
                     <div className="category-item c-i-10 w-full"></div>
 
-                    <div className={`category-wrapper ${language == 'en' ? 'container' : 'w-10/12'} mx-auto absolute top-0 right-0 left-0 bottom-0 h-full flex flex-wrap items-center justify-center p-5`}>
+                    <div className="category-wrapper mx-auto absolute top-0 right-0 left-0 bottom-0 h-full flex flex-wrap items-center justify-center p-5">
                         <div className="category-circle hidden md:block c-c-1 absolute z-10 overflow-hidden">
                             <img src="/img/petrochemical.jpg" alt="" className="w-full h-full object-cover rounded-full border-[3px] border-white"/>
                             <div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-opacity-45 p-8 flex items-end justify-center">
@@ -82,55 +80,41 @@ const Category = () => {
                                 </Link>
                             </div>
                         </div>
-                        <div className={`${Font.className} ${language == 'en' ? 'flex' : 'hidden'} category-title h-[95%] overflow-hidden flex-col justify-center`}>
+                        <div className="category-title h-[95%] overflow-hidden flex flex-col justify-center">
                             
-                            <h1 className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t7">
+                            <h1 className="montserrat-exterabold text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t7">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
-                            <h1 className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t5">
+                            <h1 className="montserrat-exterabold text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t5">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
-                            <h1 className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t3">
+                            <h1 className="montserrat-exterabold text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t3">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
-                            <h1 className="text-[#333333] text-[36px] font-black select-none h-[40px] overflow-hidden flex items-center t1">
+                            <h1 className="montserrat-exterabold text-[#333333] text-[36px] font-black select-none h-[40px] overflow-hidden flex items-center t1">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
-                            <h1 className="text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t2">
+                            <h1 className="montserrat-exterabold text-[#85751f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t2">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
-                            <h1 className="text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t4">
+                            <h1 className="montserrat-exterabold text-[#c1a50f] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t4">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
-                            <h1 className="text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t6">
+                            <h1 className="montserrat-exterabold text-[#d6b60a] text-[36px] font-bold select-none h-[40px] overflow-hidden flex items-center t6">
                                 <span>
-                                    {
-                                        language == 'en' ? 'CATEGORY' : language == 'ar' ? 'فئة' : 'دسته‌ بندی'
-                                    }
+                                CATEGORY
                                 </span>
                             </h1>
                             

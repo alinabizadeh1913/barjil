@@ -291,6 +291,10 @@ body.body-lang-other h2 {
 
 // Reboot
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: $body-color;
     overflow-x: hidden;
@@ -584,9 +588,9 @@ input[type="number"]::-webkit-outer-spin-button {
             // background-size: 200% 100% !important;
             // padding: 2px;
             // background: linear-gradient(90deg, #32cd32, #23bb42 20%, #92f0b5 50%, #23bb42 85%, #32cd32);
-            &:hover{
-                animation: moveBg 2s infinite linear;
-            }
+            // &:hover{
+            //     animation: moveBg 2s infinite linear;
+            // }
             .footer-inner{
                 border-radius: 5px;
             }
@@ -617,6 +621,12 @@ input[type="number"]::-webkit-outer-spin-button {
                         }
                     }
                 }
+            }
+            .footer-short-text{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 3;
             }
         }
     }
@@ -825,17 +835,17 @@ input[type="number"]::-webkit-outer-spin-button {
         }
 
         .category-circle,.category-circle-res{
-            &:hover{
-                .overlay{
-                    visibility: visible;
-                    opacity: 1;
-                }
-            }
+            // &:hover{
+            //     .overlay{
+            //         visibility: visible;
+            //         opacity: 1;
+            //     }
+            // }
             .overlay{
                 visibility: hidden;
                 opacity: 0;
                 transition: 0.313s ease;
-                background: linear-gradient(to top, #121212, #ffffff00);
+                background: linear-gradient(to top, #121212cf, #ffffff00);
             }
         }
     }
@@ -1077,7 +1087,7 @@ input[type="number"]::-webkit-outer-spin-button {
             }
         }
         .description{
-            span{
+            .description-inner{
                 display: block;
                 transform: translateY(100%);
                 transition: 0.613s ease;

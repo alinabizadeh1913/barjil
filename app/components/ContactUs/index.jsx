@@ -23,7 +23,7 @@ const ContactUs = () => {
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                 </p>
                             </div>
-                            <a href="#" className="link w-fit text-white py-2 px-6 rounded-lg text-sm">
+                            <a href="#support" className="link w-fit text-white py-2 px-6 rounded-lg text-sm">
                                 Go To Request Box
                             </a>
                         </div>

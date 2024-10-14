@@ -1,49 +1,47 @@
-import axios from 'axios';
+const revalidate = 60;
+
+export const apiGet = async (url) => {
+  try {
+    const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${url}`;
+
+    const response = await fetch(apiUrl, {
+      next: { revalidate },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+};
 
 export const getBanners = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL + 'settings/banners/';
-    const getData = await axios.get(baseUrl);
-    const data = await getData.data;
-
-    return data;
+    return apiGet('settings/banners/')
 }
 
 export const getArticles = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL + 'blog/articles/';
-    const getData = await axios.get(baseUrl);
-    const data = await getData.data;
-
-    return data;
+    return apiGet('blog/articles/')
 }
 
 export const getArticlesCategory = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL + 'blog/categories/'
-    const getData = await axios.get(baseUrl);
-    const data = await getData.data;
-
-    return data;
+    return apiGet('blog/categories/')
 }
 
 export const getProducts = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL + 'products/products/'
-    const fetchData = await axios.get(baseUrl);
-    const data = await fetchData.data;
-
-    return data;
+    return apiGet('products/products/')
 }
 
 export const getFaq = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL + 'settings/faqs/';
-    const fetchData = await axios.get(baseUrl);
-    const data = await fetchData.data;
-
-    return data;
+    return apiGet('settings/faqs/')
 }
 
 export const getAbout = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL + 'settings/aboutus/';
-    const fetchData = await axios.get(baseUrl);
-    const data = await fetchData.data;
+    return apiGet('settings/about/')
+}
 
-    return data;
+export const getSettings = async () => {
+    return apiGet('settings/settings/')
 }

@@ -100,7 +100,7 @@ const Content = () => {
       <div className="w-full">
         <div className="flex flex-wrap w-full items-center pt-20">
           <div className="w-full md:w-5/12 px-2 mb-2">
-            <div className={`${language == 'en' ? 'lang-en' : 'lang-other'} content-inner px-7`}>
+            <div className={`${language == 'en' ? 'lang-en' : 'lang-other'} content-inner px-3 md:px-7`}>
               <h1 className="title text-2xl sm:text-4xl md:text-[43px] overflow-hidden">
                 <span className={`leading-[45px] md:leading-[50px] block w-fit`}>
                   {getTitle()}

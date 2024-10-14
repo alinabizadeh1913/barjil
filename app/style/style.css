@@ -186,6 +186,10 @@ body.body-lang-other h2 {
   font-family: "Yekan-Exterabold" !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: rgba(238, 243, 240, 0.9607843137);
   overflow-x: hidden;
@@ -421,9 +425,6 @@ input[type=number]::-webkit-outer-spin-button {
 #footer .footer-item-wrapper .footer-item {
   background: linear-gradient(to right, #32cd32, #097b09);
 }
-#footer .footer-item-wrapper .footer-item:hover {
-  animation: moveBg 2s infinite linear;
-}
 #footer .footer-item-wrapper .footer-item .footer-inner {
   border-radius: 5px;
 }
@@ -444,6 +445,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 #footer .footer-item-wrapper .footer-item .join-us form .input-g button path {
   transition: stroke 0.313s ease;
+}
+#footer .footer-item-wrapper .footer-item .footer-short-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
 }
 #footer .footer-item-wrapper:nth-child(1) .footer-item {
   border-radius: 60px 16px 16px 16px;
@@ -596,15 +603,11 @@ input[type=number]::-webkit-outer-spin-button {
   transform: translateY(65%);
   transition: 0.4313s ease-in-out;
 }
-#category .category-wrapper .category-circle:hover .overlay, #category .category-wrapper .category-circle-res:hover .overlay {
-  visibility: visible;
-  opacity: 1;
-}
 #category .category-wrapper .category-circle .overlay, #category .category-wrapper .category-circle-res .overlay {
   visibility: hidden;
   opacity: 0;
   transition: 0.313s ease;
-  background: linear-gradient(to top, #121212, rgba(255, 255, 255, 0));
+  background: linear-gradient(to top, rgba(18, 18, 18, 0.8117647059), rgba(255, 255, 255, 0));
 }
 
 #support .title h1 {
@@ -803,7 +806,7 @@ input[type=number]::-webkit-outer-spin-button {
   letter-spacing: 3px;
   text-fill-color: white;
 }
-#about-barjil .barjil-trading .description span {
+#about-barjil .barjil-trading .description .description-inner {
   display: block;
   transform: translateY(100%);
   transition: 0.613s ease;

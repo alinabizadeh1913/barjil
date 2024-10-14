@@ -50,6 +50,7 @@ export const loadCategory = () => {
     const circleRes2 = category.querySelector('.category-wrapper .c-c-res-2');
 
     const images = category.querySelectorAll('.category-wrapper img');
+    const imagesOverlay = category.querySelectorAll('.category-wrapper .overlay');
 
     const mainTitle = category.querySelector('.category-title .t1');
     const title2 = category.querySelector('.category-title .t2 span');
@@ -142,6 +143,12 @@ export const loadCategory = () => {
         front.style.display = 'none';
     },4400)
     setTimeout(() => {
+        imagesOverlay.forEach(overlay => {
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = 1;
+        })
+    },4500)
+    setTimeout(() => {
         mainTitle.style.visibility = 'visible'
         mainTitle.style.opacity = 1;
     },4400)
@@ -185,7 +192,7 @@ export const loadAboutBarjil = () => {
     const aboutBarjil = document.querySelector('#about-barjil');
     const galaxy = aboutBarjil.querySelector('.galaxy svg');
     const title = aboutBarjil.querySelector('.barjil-trading .title')
-    const description = aboutBarjil.querySelector('.barjil-trading .description span')
+    const description = aboutBarjil.querySelector('.barjil-trading .description .description-inner')
     const link = aboutBarjil.querySelector('.barjil-trading .link')
 
     setTimeout(() => {
