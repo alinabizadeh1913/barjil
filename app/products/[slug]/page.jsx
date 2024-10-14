@@ -29,7 +29,7 @@ const SingleProduct = ({params}) => {
 
     return (
         <section id="single-product">
-            <Menu static="true" background="bg-[#333333]" constant="true"/>
+            <Menu sticky="true" background="bg-[#333333]" constant="true"/>
             <SingleProductItems currentProduct={slug}/>
             <SideMenu />
             <FullScreenElem />

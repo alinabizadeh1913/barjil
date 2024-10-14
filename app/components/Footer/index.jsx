@@ -23,6 +23,7 @@ const Footer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailValidation = document.querySelector("#footer .email-validation");
     const emptyEmail = document.querySelectorAll(
       "#footer .email-validation small"
     )[0];
@@ -36,18 +37,25 @@ const Footer = () => {
       "#footer .email-validation small"
     )[3];
     if (email == "") {
+      console.log(emailValidation);
+      emailValidation.style.visibility = "visible";
+      emailValidation.style.opacity = "1";
       emptyEmail.classList.remove("hidden");
       invalidEmail.classList.add("hidden");
       sendError.classList.add("hidden");
       sendSuccess.classList.add("hidden");
     }
     if (!emailRegex.test(email) && email !== "") {
+      emailValidation.style.visibility = "visible";
+      emailValidation.style.opacity = "1";
       invalidEmail.classList.remove("hidden");
       emptyEmail.classList.add("hidden");
       sendError.classList.add("hidden");
       sendSuccess.classList.add("hidden");
     }
     if (emailRegex.test(email) && email !== "") {
+      emailValidation.style.visibility = "visible";
+      emailValidation.style.opacity = "1";
       emailInput.current.value = "";
       emailInput.current;
       axios
@@ -55,24 +63,26 @@ const Footer = () => {
           email: email,
         })
         .then((res) => {
+          emailValidation.style.visibility = "visible";
+          emailValidation.style.opacity = "1";
           sendSuccess.classList.remove("hidden");
           emptyEmail.classList.add("hidden");
           invalidEmail.classList.add("hidden");
           sendError.classList.add("hidden");
-          setTimeout(() => {
-            sendSuccess.classList.add("hidden");
-          }, 3000);
         })
         .catch((err) => {
+          emailValidation.style.visibility = "visible";
+          emailValidation.style.opacity = "1";
           sendError.classList.remove("hidden");
           emptyEmail.classList.add("hidden");
           invalidEmail.classList.add("hidden");
           sendSuccess.classList.add("hidden");
-          setTimeout(() => {
-            sendError.classList.add("hidden");
-          }, 3000);
         });
     }
+    setTimeout(() => {
+      emailValidation.style.visibility = "hidden";
+      emailValidation.style.opacity = "0";
+    }, 3000);
   };
 
   return (
@@ -134,7 +144,7 @@ const Footer = () => {
                       ? "انضم إلى فريق عملائنا!"
                       : "ہمارے صارفین کی ٹیم میں شامل ہوں!"}
                   </h2>
-                  <form action="" className="w-full">
+                  <form action="" className="w-full relative">
                     <div className="input-g flex flex-wrap">
                       <div className="w-[80%]">
                         <input
@@ -163,28 +173,28 @@ const Footer = () => {
                       </div>
                     </div>
                     <div className="email-validation flex flex-col mt-2">
-                      <small className="text-white hidden">
+                      <small className="hidden">
                         {language == "en"
                           ? "Please enter your email!"
                           : language == "ar"
                           ? "يرجى إدخال بريدك الإلكتروني!"
                           : "براہ کرم اپنا ای میل درج کریں!"}
                       </small>
-                      <small className="text-white hidden">
+                      <small className="hidden">
                         {language == "en"
                           ? "The email address provided is not valid!"
                           : language == "ar"
                           ? "البريد الإلكتروني المدخل غير صالح!"
                           : "داخل کردہ ای میل درست نہیں ہے!"}
                       </small>
-                      <small className="text-white hidden">
+                      <small className="hidden">
                         {language == "en"
                           ? "There was a problem sending the email!"
                           : language == "ar"
                           ? "حدثت مشكلة في إرسال البريد الإلكتروني!"
                           : "ای میل بھیجنے میں ایک مسئلہ درپیش ہوا ہے!"}
                       </small>
-                      <small className="text-white hidden">
+                      <small className="hidden">
                         {language == "en"
                           ? "The email was sent successfully!"
                           : language == "ar"

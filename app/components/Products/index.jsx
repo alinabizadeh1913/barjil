@@ -138,65 +138,22 @@ const Products = () => {
                                         </div>
                                     </div>
                                 </div> */}
-                <div className="product-details mb-4">
-                  <button className="brand rounded-md p-4 flex justify-center items-center">
-                    <h3 className="text-[#666666] font-bold">Category 1</h3>
-                    {/* <DownChevronIcon className="mx-2 duration-300" width="11"/> */}
-                  </button>
-                  {/* <div className="content overflow-hidden my-2">
-                                        <div className="brand-wrapper flex items-center my-1">
-                                            <input type="radio" name="brand" id="radio1" className="w-[15px] h-[15px]"/>
-                                            <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio1">
-                                                brand number #1
-                                            </label>
-                                        </div>
-                                        <div className="brand-wrapper flex items-center my-1">
-                                            <input type="radio" name="brand" id="radio2" className="w-[15px] h-[15px]"/>
-                                            <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio2">
-                                                brand number #2
-                                            </label>
-                                        </div>
-                                        <div className="brand-wrapper flex items-center my-1">
-                                            <input type="radio" name="brand" id="radio3" className="w-[15px] h-[15px]"/>
-                                            <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio3">
-                                                brand number #3
-                                            </label>
-                                        </div>
-                                        <div className="brand-wrapper flex items-center my-1">
-                                            <input type="radio" name="brand" id="radio4" className="w-[15px] h-[15px]"/>
-                                            <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio4">
-                                                brand number #4
-                                            </label>
-                                        </div>
-                                    </div> */}
-                </div>
-                <div className="product-details mb-4">
-                  <button className="color rounded-md p-4 flex justify-center items-center">
-                    <h3 className="text-[#666666] font-bold">Category 2</h3>
-                    {/* <DownChevronIcon className="mx-2" width="11"/> */}
-                  </button>
-                  {/* <div className="content">
-
-                                    </div> */}
-                </div>
-                <div className="product-details mb-4">
-                  <button className="weight rounded-md p-4 flex justify-center items-center">
-                    <h3 className="text-[#666666] font-bold">Category 3</h3>
-                    {/* <DownChevronIcon className="mx-2" width="11"/> */}
-                  </button>
-                  {/* <div className="content">
-
-                                    </div> */}
-                </div>
-                <div className="product-details mb-4">
-                  <button className="price rounded-md p-4 flex justify-center items-center">
-                    <h3 className="text-[#666666] font-bold">Category 4</h3>
-                    {/* <DownChevronIcon className="mx-2" width="11"/> */}
-                  </button>
-                  {/* <div className="content">
-
-                                    </div> */}
-                </div>
+                {category.length > 0 &&
+                  category.map((item, index) => (
+                    <div className="product-details mb-4" key={index}>
+                      <Link href={`products/category/${item?.slug}`}>
+                        <button className="rounded-md p-4 flex justify-center items-center">
+                          <h3 className="text-[#666666] font-bold">
+                            {language == "en"
+                              ? item?.translations?.en?.title
+                              : language == "ar"
+                              ? item?.translations?.ar?.title
+                              : item?.translations?.ur?.title}
+                          </h3>
+                        </button>
+                      </Link>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

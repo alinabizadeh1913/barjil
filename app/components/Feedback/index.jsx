@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 import { StarIcon } from "../Icons";
 import Link from "next/link";
 import useStore from "@/app/store/Store";
+import Image from "next/image";
 
 const Font = Montserrat({
     subsets : ['latin'],
@@ -21,7 +22,7 @@ const Feedback = () => {
                     <div className="w-full md:w-6/12 px-3 mb-24 md:mb-0">
                         <div className="feedback-wrapper flex flex-wrap items-center border-2 border-[#b4b4b4] rounded-lg p-3 mb-3">
                             <div className="image">
-                                <img src="/img/person1.jpg" alt="person" className="w-[90px] h-[90px] rounded-full border-[3px] border-[#FFA500]"/>
+                                <Image src="/img/not-image.svg" alt="person" width={80} height={80} className="rounded-full"/>
                             </div>
                             <div className="content">
                                 <div className="flex flex-wrap justify-between">
@@ -46,7 +47,7 @@ const Feedback = () => {
                         </div>
                         <div className="feedback-wrapper flex flex-wrap items-center border-2 border-[#b4b4b4] rounded-lg p-3 mb-3">
                             <div className="image">
-                                <img src="/img/person2.jpg" alt="person" className="w-[90px] h-[90px] rounded-full border-[3px] border-[#FFA500]"/>
+                                <Image src="/img/not-image.svg" alt="person" width={80} height={80} className="rounded-full"/>
                             </div>
                             <div className="content">
                                 <div className="flex flex-wrap justify-between">

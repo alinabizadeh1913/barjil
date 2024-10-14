@@ -77,7 +77,7 @@ const Menu = (props) => {
       id="menu"
       className={`${props.static ? "static" : "fixed"} ${
         props.constant ? "constant" : ""
-      } top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${
+      } ${props.sticky ? 'sticky' : ''} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${
         props.background || "bg-[#33333333]"
       } select-none`}
     >

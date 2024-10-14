@@ -30,12 +30,20 @@ export const getArticlesCategory = async () => {
     return apiGet('blog/categories/')
 }
 
+export const getArticlesBySlug = async (slug) => {
+    return apiGet(`blog/articles/${slug}`)
+}
+
 export const getProducts = async () => {
     return apiGet('products/products/')
 }
 
 export const getProductsCategory = async () => {
     return apiGet('products/categories/')
+}
+
+export const getProductsBySlug = async (slug) => {
+    return apiGet(`products/products/${slug}`)
 }
 
 export const getFaq = async () => {

@@ -12,7 +12,7 @@ const ArticleCard = (props) => {
                     <Image src={props.image || "/img/article-card.jpg"} layout="fill" objectFit="cover"/>
                 </div>
                 <div className="title">
-                    <h1 className="text-[22px] font-black mt-3 mb-2 text-[#333333]">
+                    <h1 className="text-[22px] font-black mt-3 mb-2 text-[#333333] text-nowrap overflow-hidden text-ellipsis">
                         {props.title || "Article number 1"}
                     </h1>
                 </div>
