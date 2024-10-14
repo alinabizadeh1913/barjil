@@ -34,6 +34,10 @@ export const getProducts = async () => {
     return apiGet('products/products/')
 }
 
+export const getProductsCategory = async () => {
+    return apiGet('products/categories/')
+}
+
 export const getFaq = async () => {
     return apiGet('settings/faqs/')
 }

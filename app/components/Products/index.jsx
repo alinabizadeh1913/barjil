@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { DownChevronIcon, FilterIcon, NextIcon, PrevIcon } from "../Icons";
 import useStore from "@/app/store/Store";
-import { getProducts } from "@/app/server/api/apiRoutes";
+import { getProducts, getProductsCategory } from "@/app/server/api/apiRoutes";
 import { SkeletonCard } from "../Skeleton";
+import Link from "next/link";
 
 const Products = () => {
   const [productItems, setProductItems] = useState([]);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
     getProducts()
@@ -17,6 +19,12 @@ const Products = () => {
         console.log(result);
       })
       .catch((e) => console.log(e));
+  }, []);
+
+  useEffect(() => {
+    getProductsCategory().then((result) => {
+      setCategory(result);
+    });
   }, []);
 
   const { language } = useStore();
@@ -371,70 +379,38 @@ const Products = () => {
       >
         <div className="sidebar-content bg-white rounded-lg p-8 m-auto max-w-[400px] my-[15vh]">
           {/* <div className="available-products flex items-center justify-between mb-8">
-                        <h3 className="mr-2">
-                            {
-                                language == 'en' ? 'only available products' : language == 'ar' ? 'المنتجات المتاحة فقط' : 'صرف دستیاب پروڈکٹس'
-                            }
-                        </h3>
-                        <div className="switch border-2 border-[#c4c4c4] rounded-full w-[60px] h-[30px] flex items-center p-[2px] cursor-pointer overflow-hidden duration-300" onClick={switchActive}>
-                            <div className="switch-inner w-full">
-                                <div className="circle w-[22px] h-[22px] rounded-full bg-[#c4c4c4] duration-300"></div>
-                            </div>
-                        </div>
-                    </div> */}
-          <div className="product-details mb-4">
-            <button className="brand rounded-md p-4 flex justify-center items-center">
-              <h3 className="text-[#666666] font-bold">Category 1</h3>
-              {/* <DownChevronIcon className="mx-2 duration-300" width="11"/> */}
-            </button>
-            {/* <div className="content overflow-hidden my-2">
-                            <div className="brand-wrapper flex items-center my-1">
-                                <input type="radio" name="brand" id="radio-res-1" className="w-[15px] h-[15px]"/>
-                                <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio-res-1">
-                                    brand number #1
-                                </label>
-                            </div>
-                            <div className="brand-wrapper flex items-center my-1">
-                                <input type="radio" name="brand" id="radio-res-2" className="w-[15px] h-[15px]"/>
-                                <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio-res-2">
-                                    brand number #2
-                                </label>
-                            </div>
-                            <div className="brand-wrapper flex items-center my-1">
-                                <input type="radio" name="brand" id="radio-res-3" className="w-[15px] h-[15px]"/>
-                                <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio-res-3">
-                                    brand number #3
-                                </label>
-                            </div>
-                            <div className="brand-wrapper flex items-center my-1">
-                                <input type="radio" name="brand" id="radio-res-4" className="w-[15px] h-[15px]"/>
-                                <label className="mx-3 cursor-pointer text-[#6b6b6b]" for="radio-res-4">
-                                    brand number #4
-                                </label>
-                            </div>
-                        </div> */}
-          </div>
-          <div className="product-details mb-4">
-            <button className="color rounded-md p-4 flex justify-center items-center">
-              <h3 className="text-[#666666] font-bold">Category 2</h3>
-              {/* <DownChevronIcon className="mx-2" width="11"/> */}
-            </button>
-            <div className="content"></div>
-          </div>
-          <div className="product-details mb-4">
-            <button className="weight rounded-md p-4 flex justify-center items-center">
-              <h3 className="text-[#666666] font-bold">Category 3</h3>
-              {/* <DownChevronIcon className="mx-2" width="11"/> */}
-            </button>
-            <div className="content"></div>
-          </div>
-          <div className="product-details mb-4">
-            <button className="price rounded-md p-4 flex justify-center items-center">
-              <h3 className="text-[#666666] font-bold">Category 4</h3>
-              {/* <DownChevronIcon className="mx-2" width="11"/> */}
-            </button>
-            <div className="content"></div>
-          </div>
+            <h3 className="mr-2">
+              {language == "en"
+                ? "only available products"
+                : language == "ar"
+                ? "المنتجات المتاحة فقط"
+                : "صرف دستیاب پروڈکٹس"}
+            </h3>
+            <div
+              className="switch border-2 border-[#c4c4c4] rounded-full w-[60px] h-[30px] flex items-center p-[2px] cursor-pointer overflow-hidden duration-300"
+              onClick={switchActive}
+            >
+              <div className="switch-inner w-full">
+                <div className="circle w-[22px] h-[22px] rounded-full bg-[#c4c4c4] duration-300"></div>
+              </div>
+            </div>
+          </div> */}
+          {category.length > 0 &&
+            category.map((item, index) => (
+              <div className="product-details mb-4" key={index}>
+                <Link href={`products/category/${item?.slug}`}>
+                  <button className="rounded-md p-4 flex justify-center items-center">
+                    <h3 className="text-[#666666] font-bold">
+                      {language == "en"
+                        ? item?.translations?.en?.title
+                        : language == "ar"
+                        ? item?.translations?.ar?.title
+                        : item?.translations?.ur?.title}
+                    </h3>
+                  </button>
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </section>
