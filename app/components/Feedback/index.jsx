@@ -53,7 +53,7 @@ const Feedback = ({ type, number, comments }) => {
           .catch((err) => {
             console.log(err);
           })
-      : axios
+      : type == "product" ? axios
           .post(process.env.NEXT_PUBLIC_BASE_URL + "products/comments/", {
             first_name: information.name,
             last_name: information.family,
@@ -63,7 +63,7 @@ const Feedback = ({ type, number, comments }) => {
           })
           .catch((err) => {
             console.log(err);
-          });
+          }) : null;
     setInformation((prevState) => ({
       ...prevState,
       name: "",
