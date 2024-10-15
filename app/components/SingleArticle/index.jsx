@@ -94,7 +94,7 @@ const SingleArticleItems = ({ article, currentArticle }) => {
                 <Image src="/img/person3.jpg" alt="writer" />
               </div> */}
               <p className="text-xs md:text-base text-[#676767] mx-2 md:mx-4">
-                {article?.writer}
+                {article?.writer?.first_name} {article?.writer?.last_name}
               </p>
               <div className="dot w-[6px] h-[6px] bg-[#a8a8a8] rounded-full"></div>
               <div className="text-xs md:text-base date text-[#676767] mx-2 md:mx-4">
