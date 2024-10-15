@@ -83,18 +83,18 @@ const SingleArticleItems = ({ article, currentArticle }) => {
         </div>
       </div>
 
-      <div className="container mx-auto flex flex-wrap mt-6 relative justify-center">
+      <div className="container mx-auto flex flex-wrap mt-6 relative justify-center pb-5">
         <div className="line1 absolute h-[2px] bottom-[-25px] w-full bg-[#c9c9c9] hidden md:block"></div>
         <div className="line2 absolute h-[2px] bottom-[-20px] w-[95%] bg-[#d3d3d3] hidden md:block"></div>
         <div className="line3 absolute h-[2px] bottom-[-15px] w-[90%] bg-[#D9D9D9] hidden md:block"></div>
         <div className="content-wrapper w-full md:w-8/12 px-2">
           <div className="content-inner">
             <div className="information flex items-center mb-12">
-              <div className="image w-[40px] h-[40px] md:w-[80px] md:h-[80px] rounded-full overflow-hidden">
-                <img src="/img/person3.jpg" alt="" />
-              </div>
+              {/* <div className="image w-[40px] h-[40px] md:w-[80px] md:h-[80px] rounded-full overflow-hidden">
+                <Image src="/img/person3.jpg" alt="writer" />
+              </div> */}
               <p className="text-xs md:text-base text-[#676767] mx-2 md:mx-4">
-                Engineer millow tomber
+                {article?.writer}
               </p>
               <div className="dot w-[6px] h-[6px] bg-[#a8a8a8] rounded-full"></div>
               <div className="text-xs md:text-base date text-[#676767] mx-2 md:mx-4">
@@ -114,13 +114,15 @@ const SingleArticleItems = ({ article, currentArticle }) => {
               }}
             ></div>
 
-            <div className="information flex justify-between items-center py-6 border-t-2 border-t-[#D9D9D9]">
+            {/* <div className="information flex justify-between items-center py-6 border-t-2 border-t-[#D9D9D9]">
               <div className="first flex items-center">
                 <div className="image w-[40px] h-[40px] md:w-[80px] md:h-[80px] rounded-full overflow-hidden">
-                  <img src="/img/person3.jpg" alt="" />
+                  <Image src="/img/person3.jpg" alt="" />
                 </div>
                 <p className="text-xs md:text-base text-[#676767] mx-2 md:mx-4">
-                  Engineer millow tomber
+                  {
+                  article?.writer
+                }
                 </p>
                 <div className="dot w-[6px] h-[6px] bg-[#a8a8a8] rounded-full"></div>
                 <div className="text-xs md:text-base date text-[#676767] mx-2 md:mx-4">
@@ -139,7 +141,7 @@ const SingleArticleItems = ({ article, currentArticle }) => {
                   className="cursor-pointer mx-1"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="sidebar-wrapper w-full md:w-4/12 px-2">
@@ -201,7 +203,11 @@ const SingleArticleItems = ({ article, currentArticle }) => {
         </div>
       </div>
 
-      <Feedback />
+      <Feedback
+        type={article}
+        number={article?.id}
+        comments={article?.comments}
+      />
 
       <div className="related-articles container mx-auto mt-24">
         <div className="header flex justify-between">
@@ -220,10 +226,10 @@ const SingleArticleItems = ({ article, currentArticle }) => {
           <Link
             href={`${
               language == "en"
-                ? "/papers"
+                ? `/papers/category/${article?.category?.slug}`
                 : language == "ar"
-                ? "/ar/papers"
-                : "/ur/papers"
+                ? `/ar/papers/category/${article?.category?.slug}`
+                : `/ur/papers/category/${article?.category?.slug}`
             }`}
             className="link flex items-center"
           >

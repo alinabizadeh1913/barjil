@@ -11,7 +11,6 @@ import "swiper/css";
 
 const TruckSlider = () => {
   const { language } = useStore();
-  const [readyToDisplayTruck, setReadyToDisplayTruck] = useState(false);
   const [products, setProducts] = useState([]);
   const nextRef = useRef(null);
   const prevRef = useRef(null);
@@ -24,30 +23,29 @@ const TruckSlider = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const truckSlider = document.querySelector("#truck-slider-wrapper");
-      const sectionTop = truckSlider.offsetTop;
-      const scrollY = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const truckSlider = document.querySelector("#truck-slider-wrapper");
+  //     const sliderWrapper = document.querySelector(
+  //       "#truck-slider-wrapper .swiper-wrapper"
+  //     );
+  //     const sectionTop = truckSlider.offsetTop;
+  //     const scrollY = window.scrollY;
 
-      if (scrollY + window.innerHeight >= sectionTop + 200) {
-        setReadyToDisplayTruck(true);
-      }
-    };
+  //     if (scrollY + window.innerHeight >= sectionTop + 400) {
+  //       sliderWrapper.classList.add("active");
+  //       setTimeout(() => {
+  //         sliderWrapper.classList.remove("active");
+  //       }, 1000);
+  //     }
+  //   };
 
-    if (readyToDisplayTruck) {
-      const sliderWrapper = document.querySelector(
-        "#truck-slider-wrapper .swiper-wrapper"
-      );
-      sliderWrapper.classList.add("active");
-    }
+  //   window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [readyToDisplayTruck]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <section id="truck-slider" className="mt-20 wrapper mx-auto">
@@ -84,6 +82,7 @@ const TruckSlider = () => {
 
       <div id="truck-slider-wrapper" dir="ltr" className="mt-10 select-none">
         <Swiper
+          className="mySwiper"
           slidesPerView={4}
           spaceBetween={0}
           modules={[Navigation]}

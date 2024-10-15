@@ -1,22 +1,27 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from "../Products/ProductCard";
 import { DownChevronIcon, FilterIcon, NextIcon, PrevIcon } from "../Icons";
 import useStore from "@/app/store/Store";
 import { getProducts, getProductsCategory } from "@/app/server/api/apiRoutes";
 import { SkeletonCard } from "../Skeleton";
 import Link from "next/link";
 
-const Products = () => {
+const ProductCategory = ({ slug }) => {
   const [productItems, setProductItems] = useState([]);
+  const [notFound, setNotFound] = useState(false);
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     getProducts()
-      .then((result) => {
-        setProductItems(result);
-        console.log(result);
+      .then((data) => {
+        const filterItems = data.filter((item) => item.category.slug == slug);
+        if (filterItems.length === 0) {
+          setNotFound(true);
+        } else {
+          setProductItems(filterItems);
+        }
       })
       .catch((e) => console.log(e));
   }, []);
@@ -170,7 +175,7 @@ const Products = () => {
               currentProducts.map((item) => (
                 <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
                   <ProductCard
-                  fit="true"
+                    fit="true"
                     text={`${
                       language == "en"
                         ? item?.translations?.en?.short_text
@@ -212,18 +217,32 @@ const Products = () => {
               ))
             ) : (
               <>
-                <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
-                  <SkeletonCard />
-                </div>
-                <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
-                  <SkeletonCard />
-                </div>
-                <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
-                  <SkeletonCard />
-                </div>
-                <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
-                  <SkeletonCard />
-                </div>
+                {notFound ? (
+                  <div className="w-full">
+                    <h1 className="text-[#666666] text-center text-[30px] select-none">
+                      {language == "en"
+                        ? "Sorry, no product was found"
+                        : language == "ar"
+                        ? "آسف، لم يتم العثور على أي منتج"
+                        : "معاف کیجیے، کوئی مصنوعات نہیں ملی"}
+                    </h1>
+                  </div>
+                ) : (
+                  <>
+                    <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
+                      <SkeletonCard />
+                    </div>
+                    <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
+                      <SkeletonCard />
+                    </div>
+                    <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
+                      <SkeletonCard />
+                    </div>
+                    <div className="w-full xl:w-1/2 md:px-8 xl:px-2 mb-4">
+                      <SkeletonCard />
+                    </div>
+                  </>
+                )}
               </>
             )}
           </div>
@@ -391,4 +410,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductCategory;

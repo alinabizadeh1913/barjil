@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { ShowHideSideMenu } from "../../utils/script";
 import {
@@ -19,12 +19,24 @@ import {
 } from "../Icons";
 import useStore from "@/app/store/Store";
 import Image from "next/image";
+import { getSettings, getSocial } from "@/app/server/api/apiRoutes";
 
 const Menu = (props) => {
   const { language, setLanguage } = useStore();
   const router = useRouter();
   const pathname = usePathname();
   const langWrapRef = useRef(null);
+
+  const [settings,setSettings] = useState(null)
+  const [social,setSocial] = useState(null);
+  useEffect(() => {
+    getSettings().then(result => {
+      setSettings(result);
+    })
+    getSocial().then(result => {
+      setSocial(result);
+    })
+  }, [])
 
   const stripLanguageFromPath = (path) => {
     return path.replace(/^\/(ar|ur)/, "");
@@ -85,10 +97,12 @@ const Menu = (props) => {
         <div className="flex flex-wrap items-center justify-between md:justify-normal">
           <div className="w-4/12 md:w-1/12 order-2 md:order-1">
             <div className="logo flex justify-center md:justify-start">
-              <Link href="/">
+              <Link href={
+                language == 'en' ? '/' : language == 'ar' ? '/ar' : '/ur'
+              }>
                 <div className="w-[70px] h-[50px] sm:w-[90px] sm:h-[70px] md:w-[90px] md:h-[70px] lg:w-[100px] lg:h-[70px] relative">
                   <Image
-                    src="/img/barjil-logo.png"
+                    src={process.env.NEXT_PUBLIC_BASE_URL + settings?.logo}
                     alt="logo"
                     fill
                   />
@@ -253,24 +267,24 @@ const Menu = (props) => {
           </div>
           <div className="w-2/12 hidden md:order-4 md:flex justify-end ">
             <div className="social-media flex justify-center">
-              <Link href="#" className="mx-1 cursor-pointer">
+              <Link href={social?.linkedin_link ? social?.linkedin_link : "#"} className="mx-1 cursor-pointer">
                 <LinkedinIcon />
               </Link>
-              <Link href="#" className="mx-1 cursor-pointer">
+              <Link href={social?.telegram_link ? social?.telegram_link : "#"} className="mx-1 cursor-pointer">
                 <TelegramIcon />
               </Link>
-              {/* <Link href="#" className="mx-1 cursor-pointer">
-                <FacebookIcon />
-              </Link> */}
-              {/* <Link href="#" className="mx-1 cursor-pointer">
-                <WhatsappIcon />
-              </Link> */}
-              {/* <Link href="#" className="mx-1 cursor-pointer">
-                <EmailIcon />
-              </Link> */}
-              <Link href="#" className="mx-1 cursor-pointer">
+              <Link href={social?.instagram_link ? social?.instagram_link : "#"} className="mx-1 cursor-pointer">
                 <InstagramIcon />
               </Link>
+              {/* <Link href={social?.facebook_link ? social?.facebook_link : "#"} className="mx-1 cursor-pointer">
+                <FacebookIcon />
+              </Link>
+              <Link href={social?.whatsapp_link ? social?.whatsapp_link : "#"} className="mx-1 cursor-pointer">
+                <WhatsappIcon />
+              </Link>
+              <Link href={social?.gmail_link ? social?.gmail_link : "#"} className="mx-1 cursor-pointer">
+                <EmailIcon />
+              </Link> */}
             </div>
           </div>
           <div

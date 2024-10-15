@@ -8,12 +8,18 @@ import SideMenu from "@/app/components/SideMenu";
 import SingleArticleItems from "@/app/components/SingleArticle";
 import Support from "@/app/components/Support";
 import { getArticlesBySlug } from "@/app/server/api/apiRoutes";
+import useStore from "@/app/store/Store";
 import { loadMenu } from "@/app/utils/script";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const SingleArticles = ({ params }) => {
   const { slug } = params;
   const [article,setArticle] = useState(null);
+  const { language, setLanguage } = useStore();
+
+  useLayoutEffect(() => {
+    setLanguage("ar");
+  }, []);
 
   useEffect(() => {
     getArticlesBySlug(params.slug).then(result => {
@@ -40,7 +46,7 @@ const SingleArticles = ({ params }) => {
   return (
     <section id="single-article">
       <Menu background="bg-[#10101087]" />
-      <ArticleBanner />
+      <ArticleBanner article={article}/>
       <SingleArticleItems currentArticle={slug} article={article}/>
       <SideMenu />
       <FullScreenElem />

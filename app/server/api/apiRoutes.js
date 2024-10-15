@@ -57,3 +57,7 @@ export const getAbout = async () => {
 export const getSettings = async () => {
     return apiGet('settings/settings/')
 }
+
+export const getSocial = async () => {
+  return apiGet('settings/socials/')
+}

@@ -2,20 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import { FilterIcon, NextIcon, PrevIcon } from "../Icons";
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "../Articles/ArticleCard";
 import useStore from "@/app/store/Store";
 import { getArticles, getArticlesCategory } from "@/app/server/api/apiRoutes";
 import { SkeletonCard, SkeletonRectangle } from "../Skeleton";
 import Link from "next/link";
 
-const Articles = () => {
+const ArticleCategory = ({ slug }) => {
   const [articleItems, setArticleItems] = useState([]);
+  const [notFound, setNotFound] = useState(false);
   const [category, setCategory] = useState(null);
 
   useEffect(() => {
     getArticles()
       .then((data) => {
-        setArticleItems(data.results);
+        const filterItems = data.results.filter(
+          (item) => item.category.slug == slug
+        );
+        if (filterItems.length === 0) {
+          setNotFound(true);
+        } else {
+          setArticleItems(filterItems);
+        }
       })
       .catch((e) => console.log(e));
   }, []);
@@ -81,16 +89,6 @@ const Articles = () => {
   };
 
   const { language } = useStore();
-
-  const fetchingDataByCategory = (slug) => {
-    setArticleItems([]);
-    getArticles().then((data) => {
-      const filterItems = data.results.filter(
-        (item) => item.category.slug == slug
-      );
-      setArticleItems(filterItems);
-    });
-  };
 
   const showAllArticles = () => {
     setArticleItems([]);
@@ -234,15 +232,29 @@ const Articles = () => {
             })
           ) : (
             <>
-              <div className="w-full sm:w-1/2 md:w-1/3 px-3 mb-2 md:mb-12">
-                <SkeletonCard />
-              </div>
-              <div className="w-full sm:w-1/2 md:w-1/3 px-3 mb-2 md:mb-12">
-                <SkeletonCard />
-              </div>
-              <div className="w-full sm:w-1/2 md:w-1/3 px-3 mb-2 md:mb-12">
-                <SkeletonCard />
-              </div>
+              {notFound ? (
+                <div className="w-full">
+                  <h1 className="text-[#666666] text-center text-[30px] select-none">
+                    {language == "en"
+                      ? "Sorry, no article was found."
+                      : language == "ar"
+                      ? "آسف، لم يتم العثور على أي مقال"
+                      : "معاف کیجیے، کوئی مضمون نہیں ملا"}
+                  </h1>
+                </div>
+              ) : (
+                <>
+                  <div className="w-full sm:w-1/2 md:w-1/3 px-3 mb-2 md:mb-12">
+                    <SkeletonCard />
+                  </div>
+                  <div className="w-full sm:w-1/2 md:w-1/3 px-3 mb-2 md:mb-12">
+                    <SkeletonCard />
+                  </div>
+                  <div className="w-full sm:w-1/2 md:w-1/3 px-3 mb-2 md:mb-12">
+                    <SkeletonCard />
+                  </div>
+                </>
+              )}
             </>
           )}
         </div>
@@ -355,4 +367,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default ArticleCategory;

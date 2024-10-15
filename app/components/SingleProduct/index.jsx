@@ -82,16 +82,20 @@ const SingleProductItems = ({ currentProduct }) => {
           <div className="flex flex-wrap">
             <div className="w-full md:w-1/2 px-3 order-last md:order-first">
               <h1 className={`${Font.className} title text-[#333333] text-5xl`}>
-                {
-                  language == 'en' ? product?.translations?.en?.title : language == 'ar' ? product?.translations?.ar?.title : product?.translations?.ur?.title
-                }
+                {language == "en"
+                  ? product?.translations?.en?.title
+                  : language == "ar"
+                  ? product?.translations?.ar?.title
+                  : product?.translations?.ur?.title}
               </h1>
               <div className="category flex items-center mt-4 mb-3">
                 <CategoryIcon stroke="#818181" />
                 <span className="mx-2 text-[#818181]">
-                  {
-                    language == 'en' ? product?.category?.translations?.en?.title : language == 'ar' ? product?.category?.translations?.ar?.title : product?.category?.translations?.ur?.title
-                  }
+                  {language == "en"
+                    ? product?.category?.translations?.en?.title
+                    : language == "ar"
+                    ? product?.category?.translations?.ar?.title
+                    : product?.category?.translations?.ur?.title}
                 </span>
               </div>
 
@@ -109,7 +113,17 @@ const SingleProductItems = ({ currentProduct }) => {
                     </p>
                   </div>
                 </div>
-                <div className="tab-body p-5" dangerouslySetInnerHTML={{__html: language == 'en' ? product?.translations?.en?.short_text : language == 'ar' ? product?.translations?.ar?.short_text : product?.translations?.ur?.short_text}}></div>
+                <div
+                  className="tab-body p-5"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      language == "en"
+                        ? product?.translations?.en?.short_text
+                        : language == "ar"
+                        ? product?.translations?.ar?.short_text
+                        : product?.translations?.ur?.short_text,
+                  }}
+                ></div>
               </div>
 
               <div className="link mt-5">
@@ -136,7 +150,6 @@ const SingleProductItems = ({ currentProduct }) => {
                     onBeforeInit={(swiper) => {
                       swiperRef.current = swiper;
                     }}
-                    slidesPerView={2}
                     breakpoints={{
                       0: {
                         slidesPerView: 1.4,
@@ -148,111 +161,45 @@ const SingleProductItems = ({ currentProduct }) => {
                     loop={true}
                     className="mySwiper select-none"
                   >
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card.png"
-                            alt="product1"
-                            fill
-                            objectFit="cover"
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
+                    {product?.gallery?.map((item, index) => (
+                      <SwiperSlide>
+                        <div className="w-full h-full">
+                          <div className="w-full h-[300px] md:h-[350px] relative">
+                            <Image
+                              src={
+                                process.env.NEXT_PUBLIC_BASE_URL + item?.image
+                              }
+                              alt={product?.translations?.en?.title}
+                              fill
+                              objectFit="cover"
+                              className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card-2.jpg"
-                            alt="product2"
-                            fill
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card-3.jpg"
-                            alt="product3"
-                            fill
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card-4.jpg"
-                            alt="product4"
-                            fill
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card-2.jpg"
-                            alt="product5"
-                            fill
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card-3.jpg"
-                            alt="product6"
-                            fill
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="w-full h-full">
-                        <div className="w-full h-[300px] md:h-[350px] relative">
-                          <Image
-                            src="/img/product-card-4.jpg"
-                            alt="product7"
-                            fill
-                            className="rounded-lg border-[3px] border-[#32cd32] hover:border-[#006400] duration-300 cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
 
-                  <div
-                    className={`slider-controls mt-10 flex ${
-                      language == "en" ? "justify-end" : "justify-start"
-                    }`}
-                  >
-                    <button
-                      className="custom-prev mx-4"
-                      onClick={() => swiperRef.current.slidePrev()}
+                  {product?.gallery?.length > 2 && (
+                    <div
+                      className={`slider-controls mt-10 flex ${
+                        language == "en" ? "justify-end" : "justify-start"
+                      }`}
                     >
-                      <PrevIcon stroke="#979797" />
-                    </button>
-                    <button
-                      className="custom-next mx-4"
-                      onClick={() => swiperRef.current.slideNext()}
-                    >
-                      <NextIcon stroke="#979797" />
-                    </button>
-                  </div>
+                      <button
+                        className="custom-prev mx-4"
+                        onClick={() => swiperRef.current.slidePrev()}
+                      >
+                        <PrevIcon stroke="#979797" />
+                      </button>
+                      <button
+                        className="custom-next mx-4"
+                        onClick={() => swiperRef.current.slideNext()}
+                      >
+                        <NextIcon stroke="#979797" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -274,7 +221,17 @@ const SingleProductItems = ({ currentProduct }) => {
           </div>
           <div className="explanations-inner border-2 border-[#D9D9D9] rounded-lg p-8">
             <div className="text relative">
-              <div className="text-inner h-[70px] overflow-hidden" dangerouslySetInnerHTML={{__html: language == 'en' ? product?.translations?.en?.text : language == 'ar' ? product?.translations?.ar?.text : product?.translations?.ur?.text}}></div>
+              <div
+                className="text-inner h-[70px] overflow-hidden"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    language == "en"
+                      ? product?.translations?.en?.text
+                      : language == "ar"
+                      ? product?.translations?.ar?.text
+                      : product?.translations?.ur?.text,
+                }}
+              ></div>
 
               <div className="overlay absolute w-full h-[22px] bottom-0 right-0"></div>
             </div>
@@ -315,10 +272,10 @@ const SingleProductItems = ({ currentProduct }) => {
           <Link
             href={`${
               language == "en"
-                ? "/products"
+                ? `/${product?.category?.slug}`
                 : language == "ar"
-                ? "/ar/products"
-                : "/ur/products"
+                ? `/ar/${product?.category?.slug}`
+                : `/ur/${product?.category?.slug}`
             }`}
             className="link flex items-center"
           >
@@ -353,33 +310,52 @@ const SingleProductItems = ({ currentProduct }) => {
               }}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
+              {product?.related_products?.map((item, index) => (
+                <SwiperSlide>
+                  <ProductCard
+                    title={`${
+                      language == "en"
+                        ? item?.translations?.en?.title
+                        : language == "ar"
+                        ? item?.translations?.ar?.title
+                        : item?.translations?.ur?.title
+                    }`}
+                    category={`${
+                      language == "en"
+                        ? item?.category?.translations?.en?.title
+                        : language == "ar"
+                        ? item?.category?.translations?.ar?.title
+                        : item?.category?.translations?.ur?.title
+                    }`}
+                    link={
+                      language == "en"
+                        ? `/products/${item?.slug}`
+                        : language == "ar"
+                        ? `/ar/products/${item?.slug}`
+                        : `/ur/products/${item?.slug}`
+                    }
+                    image={process.env.NEXT_PUBLIC_BASE_URL + item?.image}
+                    text={`${
+                      language == "en"
+                        ? item?.translations?.en?.short_text
+                        : language == "ar"
+                        ? item?.translations?.ar?.short_text
+                        : item?.translations?.ur?.short_text
+                    }`}
+                    fit="true"
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
       </div>
 
-      <Feedback />
+      <Feedback
+        type={product}
+        number={product?.id}
+        comments={product?.comments}
+      />
     </>
   );
 };
