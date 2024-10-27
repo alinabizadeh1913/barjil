@@ -27,16 +27,16 @@ const Menu = (props) => {
   const pathname = usePathname();
   const langWrapRef = useRef(null);
 
-  const [settings,setSettings] = useState(null)
-  const [social,setSocial] = useState(null);
+  const [settings, setSettings] = useState(null);
+  const [social, setSocial] = useState(null);
   useEffect(() => {
-    getSettings().then(result => {
+    getSettings().then((result) => {
       setSettings(result);
-    })
-    getSocial().then(result => {
+    });
+    getSocial().then((result) => {
       setSocial(result);
-    })
-  }, [])
+    });
+  }, []);
 
   const stripLanguageFromPath = (path) => {
     return path.replace(/^\/(ar|ur)/, "");
@@ -89,7 +89,9 @@ const Menu = (props) => {
       id="menu"
       className={`${props.static ? "static" : "fixed"} ${
         props.constant ? "constant" : ""
-      } ${props.sticky ? 'sticky' : ''} top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${
+      } ${
+        props.sticky ? "sticky" : ""
+      } top-0 left-0 w-full z-40 backdrop-filter backdrop-blur-sm py-3 px-6 md:py-5 md:px-9 ${
         props.background || "bg-[#33333333]"
       } select-none`}
     >
@@ -97,9 +99,9 @@ const Menu = (props) => {
         <div className="flex flex-wrap items-center justify-between md:justify-normal">
           <div className="w-4/12 md:w-1/12 order-2 md:order-1">
             <div className="logo flex justify-center md:justify-start">
-              <Link href={
-                language == 'en' ? '/' : language == 'ar' ? '/ar' : '/ur'
-              }>
+              <Link
+                href={language == "en" ? "/" : language == "ar" ? "/ar" : "/ur"}
+              >
                 <div className="w-[70px] h-[50px] sm:w-[90px] sm:h-[70px] md:w-[90px] md:h-[70px] lg:w-[100px] lg:h-[70px] relative">
                   <Image
                     src={process.env.NEXT_PUBLIC_BASE_URL + settings?.logo}
@@ -251,6 +253,10 @@ const Menu = (props) => {
                   onClick={() => {
                     showHideLanguageList();
                     changeLanguage("en");
+
+                    if (pathname === "/ur" || pathname === "/ar") {
+                      router.push(`/`);
+                    }
                   }}
                 />
                 <ArabicFlagIcon
@@ -267,13 +273,22 @@ const Menu = (props) => {
           </div>
           <div className="w-2/12 hidden md:order-4 md:flex justify-end ">
             <div className="social-media flex justify-center">
-              <Link href={social?.linkedin_link ? social?.linkedin_link : "#"} className="mx-1 cursor-pointer">
+              <Link
+                href={social?.linkedin_link ? social?.linkedin_link : "#"}
+                className="mx-1 cursor-pointer"
+              >
                 <LinkedinIcon />
               </Link>
-              <Link href={social?.telegram_link ? social?.telegram_link : "#"} className="mx-1 cursor-pointer">
+              <Link
+                href={social?.telegram_link ? social?.telegram_link : "#"}
+                className="mx-1 cursor-pointer"
+              >
                 <TelegramIcon />
               </Link>
-              <Link href={social?.instagram_link ? social?.instagram_link : "#"} className="mx-1 cursor-pointer">
+              <Link
+                href={social?.instagram_link ? social?.instagram_link : "#"}
+                className="mx-1 cursor-pointer"
+              >
                 <InstagramIcon />
               </Link>
               {/* <Link href={social?.facebook_link ? social?.facebook_link : "#"} className="mx-1 cursor-pointer">

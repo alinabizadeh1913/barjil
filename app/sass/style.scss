@@ -38,55 +38,55 @@ $h2-gray-color: #454545;
   }
 }
 
-@media screen and (max-width: 576px) {
-  #truck-slider {
-    #truck-slider-wrapper {
-      .swiper-wrapper.active {
-        transform: translateX(-100vw);
-      }
-    }
-  }
-}
+// @media screen and (max-width: 576px) {
+//   #truck-slider {
+//     #truck-slider-wrapper {
+//       .swiper-wrapper.active {
+//         transform: translate3d(-100vw, 0px, 0px);
+//       }
+//     }
+//   }
+// }
 
-@media screen and (min-width: 576px) and (max-width: 768px) {
-  #truck-slider {
-    #truck-slider-wrapper {
-      .swiper-wrapper.active {
-        transform: translateX(-66.66vw);
-      }
-    }
-  }
-}
+// @media screen and (min-width: 576px) and (max-width: 768px) {
+//   #truck-slider {
+//     #truck-slider-wrapper {
+//       .swiper-wrapper.active {
+//         transform: translate3d(-66.66vw, 0px, 0px);
+//       }
+//     }
+//   }
+// }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  #truck-slider {
-    #truck-slider-wrapper {
-      .swiper-wrapper.active {
-        transform: translateX(-50vw);
-      }
-    }
-  }
-}
+// @media screen and (min-width: 768px) and (max-width: 1024px) {
+//   #truck-slider {
+//     #truck-slider-wrapper {
+//       .swiper-wrapper.active {
+//         transform: translate3d(-50vw, 0px, 0px);
+//       }
+//     }
+//   }
+// }
 
-@media screen and (min-width: 1024px) and (max-width: 1280px) {
-  #truck-slider {
-    #truck-slider-wrapper {
-      .swiper-wrapper.active {
-        transform: translateX(-33vw);
-      }
-    }
-  }
-}
+// @media screen and (min-width: 1024px) and (max-width: 1280px) {
+//   #truck-slider {
+//     #truck-slider-wrapper {
+//       .swiper-wrapper.active {
+//         transform: translate3d(-33vw, 0px, 0px);
+//       }
+//     }
+//   }
+// }
 
-@media screen and (min-width: 1280px) {
-  #truck-slider {
-    #truck-slider-wrapper {
-      .swiper-wrapper.active {
-        transform: translateX(-25vw);
-      }
-    }
-  }
-}
+// @media screen and (min-width: 1280px) {
+//   #truck-slider {
+//     #truck-slider-wrapper {
+//       .swiper-wrapper.active {
+//         transform: translate3d(-25vw, 0px, 0px);
+//       }
+//     }
+//   }
+// }
 
 @media screen and (max-width: 900px) {
   #menu {
@@ -1332,9 +1332,12 @@ input[type="number"]::-webkit-outer-spin-button {
 // Truck Slider
 #truck-slider {
   #truck-slider-wrapper {
-    .swiper-wrapper {
-      transition: 1.7s ease;
-      transform: translateX(100%);
+    .swiper {
+      transition: 1.2313s linear;
+      transform: translate3d(100%, 0px, 0px);
+    }
+    .swiper.active {
+      transform: translate3d(0%, 0px, 0px) !important;
     }
   }
 }

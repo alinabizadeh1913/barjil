@@ -8,7 +8,7 @@ import {
   ShareIcon,
 } from "../Icons";
 import { Montserrat } from "next/font/google";
-import Feedback from "../Feedback";
+import { ArticleFeedback } from "../Feedback";
 import ArticleCard from "../Articles/ArticleCard";
 import useStore from "@/app/store/Store";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -203,8 +203,7 @@ const SingleArticleItems = ({ article, currentArticle }) => {
         </div>
       </div>
 
-      <Feedback
-        type={article}
+      <ArticleFeedback
         number={article?.id}
         comments={article?.comments}
       />

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Feedback from "../Feedback";
+import { ProductFeedback } from "../Feedback";
 import Support from "../Support";
 import Link from "next/link";
 import {
@@ -351,8 +351,7 @@ const SingleProductItems = ({ currentProduct }) => {
         </div>
       </div>
 
-      <Feedback
-        type={product}
+      <ProductFeedback
         number={product?.id}
         comments={product?.comments}
       />
